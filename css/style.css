@@ -2133,6 +2133,199 @@ input, textarea, select { font-family: inherit; }
   .hero__title { font-size: clamp(2rem, 10vw, 2.75rem); }
 }
 
+/* ===================================================
+   MOBILE — COMPREHENSIVE PHONE OPTIMISATION
+   Overrides inline grid styles that CSS classes can't
+   reach, plus targeted fixes for all inner pages.
+   =================================================== */
+
+/* --- 1. Collapse ALL inline 2/3-col grids to single column --- */
+@media (max-width: 768px) {
+  [style*="grid-template-columns:1fr 1fr"],
+  [style*="grid-template-columns: 1fr 1fr"],
+  [style*="grid-template-columns:1fr 2fr"],
+  [style*="grid-template-columns: 1fr 2fr"],
+  [style*="grid-template-columns:2fr 1fr"],
+  [style*="grid-template-columns: 2fr 1fr"],
+  [style*="grid-template-columns:3fr 2fr"],
+  [style*="grid-template-columns: 3fr 2fr"],
+  [style*="grid-template-columns:1fr 1fr 1fr"],
+  [style*="grid-template-columns: 1fr 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Tighten large gaps that look fine on desktop but too spacious stacked */
+  [style*="gap:5rem"],
+  [style*="gap: 5rem"],
+  [style*="gap:4rem"],
+  [style*="gap: 4rem"] {
+    gap: 2rem !important;
+  }
+
+  [style*="gap:3rem"],
+  [style*="gap: 3rem"] {
+    gap: 1.75rem !important;
+  }
+}
+
+/* --- 2. investor-stats: 2x2 stays 2-col but shrinks cleanly --- */
+@media (max-width: 768px) {
+  .investor-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .investor-stat__value {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .investor-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- 3. Hero sections — better phone height & spacing --- */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100svh;
+    align-items: flex-end;
+    padding-bottom: 4rem;
+  }
+  .hero__content {
+    padding: 2rem 0 0;
+  }
+  .hero__title {
+    font-size: clamp(2.25rem, 9vw, 3.25rem);
+    margin-bottom: 1.25rem;
+  }
+  .hero__subtitle {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .hero__body {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+  .hero__scroll { display: none; }
+
+  /* Inner page heroes */
+  .page-hero {
+    padding-top: calc(var(--nav-h) + 3rem);
+    padding-bottom: 3rem;
+  }
+  .page-hero__content h1 {
+    font-size: clamp(2.25rem, 9vw, 3.5rem) !important;
+  }
+}
+
+/* --- 4. Full-bleed image sections — shorter on phones --- */
+@media (max-width: 768px) {
+  .img-full-section {
+    height: 260px;
+  }
+  .img-full-section__content {
+    padding: 0 1.25rem;
+  }
+}
+
+/* --- 5. Contact page — forms stack cleanly --- */
+@media (max-width: 768px) {
+  .contact-panel__form [style*="grid-template-columns"],
+  .contact-panel__form [style*="grid-template-columns:1fr 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 0.875rem !important;
+  }
+  /* Section layout (label left + form right) already collapses via rule 1,
+     but set a tighter gap */
+  .section > .container > [style*="grid-template-columns:1fr 2fr"],
+  .section > .container > [style*="grid-template-columns: 1fr 2fr"] {
+    gap: 1.5rem !important;
+  }
+}
+
+/* --- 6. Comparison table — scrollable on small screens --- */
+@media (max-width: 768px) {
+  .comparison-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+  .comparison-table td,
+  .comparison-table th {
+    white-space: normal;
+    min-width: 160px;
+  }
+  .comparison-table td:first-child {
+    min-width: 130px;
+  }
+}
+
+/* --- 7. Impact cards — full width on phones --- */
+@media (max-width: 768px) {
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
+  .impact-card {
+    min-height: 300px;
+  }
+}
+
+/* --- 8. Image panels in grids don't squish --- */
+@media (max-width: 768px) {
+  .img-grid--asymm {
+    grid-template-columns: 1fr !important;
+  }
+  .img-grid--2 > .img-panel,
+  .img-grid--asymm > .img-panel {
+    height: 240px !important;
+    margin-top: 0 !important;
+  }
+}
+
+/* --- 9. Nav logo — prevent text overflow on very small screens --- */
+@media (max-width: 360px) {
+  .nav__logo-text { font-size: 1.125rem; }
+  .nav__logo-sub  { display: none; }
+}
+
+/* --- 10. Section stats rows — single col on phones --- */
+@media (max-width: 480px) {
+  .stats-row { grid-template-columns: 1fr; }
+  .market-highlight__stats { grid-template-columns: 1fr; }
+  .investor-stats { grid-template-columns: 1fr; }
+  .footer__inner { gap: 2rem; }
+  .btn--lg { padding: 0.875rem 1.5rem; font-size: 0.8125rem; }
+}
+
+/* --- 11. Team cards — stretch full width on phone --- */
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+  .team-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+}
+
+/* --- 12. pullquote — tighten on phones --- */
+@media (max-width: 480px) {
+  .pullquote { padding: 1.5rem 1.25rem; }
+  .pullquote::before { font-size: 3.5rem; left: 1rem; }
+  .pullquote__text { font-size: 1.0625rem; }
+}
+
+/* --- 13. Footer links — more readable spacing --- */
+@media (max-width: 768px) {
+  .footer__links { gap: 0.875rem; }
+  .footer__col-title { margin-top: 0.5rem; }
+  .footer__legal { font-size: 0.6875rem; }
+}
+
 /* ===== ACCESSIBILITY ===== */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

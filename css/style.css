@@ -1234,9 +1234,9 @@ input, textarea, select { font-family: inherit; }
 /* ===== TEAM CARDS ===== */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  max-width: 640px;
+  max-width: 960px;
   margin-top: 3rem;
 }
 

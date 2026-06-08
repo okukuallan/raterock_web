@@ -3,11 +3,333 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Business Transformation & Turnarounds, Ratelrock</title>
-  <meta name="description" content="Hands-on enterprise support for businesses navigating complexity, distress, or the gap between where they are and where they are capable of being." />
+  <title>Consultant &amp; Advisory - Ratelrock</title>
+  <meta name="description" content="Ratelrock's Consultant & Advisory practice embeds directly in businesses implementing change, not just recommending it." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* - Full-bleed hero - */
+    .ca-hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 3rem;
+      overflow: hidden;
+    }
+    .ca-hero__bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1573164574511-73c773193279?w=1800&q=85&fit=crop&crop=center');
+      background-size: cover;
+      background-position: center 30%;
+      z-index: 0;
+    }
+    .ca-hero__bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(105deg, rgba(7,14,26,0.88) 0%, rgba(7,14,26,0.6) 55%, rgba(7,14,26,0.3) 100%);
+    }
+    .ca-hero__content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+    .ca-hero__title {
+      font-family: var(--f-display);
+      font-size: clamp(2.75rem, 5.5vw, 4.75rem);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      color: var(--c-text);
+      margin: 1.25rem 0 1.5rem;
+    }
+    .ca-hero__title em { font-style: italic; color: var(--c-gold); }
+    .ca-hero__sub {
+      font-size: 1.125rem;
+      line-height: 1.7;
+      color: rgba(237,232,220,0.75);
+      max-width: 540px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* - Overview - */
+    .ca-intro { padding: 3.5rem 0; border-bottom: 1px solid var(--c-border); }
+    .ca-intro__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .ca-intro__title {
+      font-family: var(--f-display);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--c-text);
+    }
+    .ca-intro__title em { font-style: italic; color: var(--c-gold); }
+    .ca-intro__body {
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      color: var(--c-text-2);
+      margin-top: 1.25rem;
+    }
+    .ca-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--c-border);
+      border: 1px solid var(--c-border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .ca-stat { background: var(--c-bg-card); padding: 2rem; }
+    .ca-stat__num {
+      font-family: var(--f-display);
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--c-gold);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .ca-stat__label {
+      font-family: var(--f-ui);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--c-text-2);
+      line-height: 1.4;
+    }
+
+    /* - Practice sections - */
+    .practice { padding: 4rem 0; border-bottom: 1px solid var(--c-border); }
+    .practice--light { background: var(--c-light); }
+    .practice__head { margin-bottom: 3.5rem; }
+    .practice__num {
+      font-family: var(--f-ui);
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      margin-bottom: 0.75rem;
+    }
+    .practice__title {
+      font-family: var(--f-display);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--c-text);
+      margin-bottom: 1rem;
+    }
+    .practice__title em { font-style: italic; color: var(--c-gold); }
+    .practice__intro {
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      color: var(--c-text-2);
+      max-width: 680px;
+    }
+    .practice__body {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* Checklist */
+    .checklist__label {
+      font-family: var(--f-ui);
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      margin-bottom: 1.25rem;
+    }
+    .checklist__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.875rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--c-border);
+      font-size: 0.9375rem;
+      line-height: 1.65;
+      color: var(--c-text-2);
+    }
+    .checklist__item:first-of-type { border-top: 1px solid var(--c-border); }
+    .checklist__item--light { border-bottom-color: var(--c-border-light) !important; color: var(--c-dark-text-2) !important; }
+    .checklist__item--light:first-of-type { border-top-color: var(--c-border-light) !important; }
+    .checklist__icon { flex-shrink: 0; margin-top: 0.2rem; color: var(--c-gold); }
+
+    /* Sidebar */
+    .practice__sidebar { display: flex; flex-direction: column; gap: 1rem; }
+    .sidebar-card {
+      background: var(--c-bg-card);
+      border: 1px solid var(--c-border);
+      border-radius: 12px;
+      padding: 1.75rem;
+    }
+    .sidebar-card--light { background: rgba(255,255,255,0.8); border-color: var(--c-border-light); }
+    .sidebar-card--green {
+      background: rgba(21,46,31,0.5);
+      border-color: rgba(200,150,58,0.25);
+    }
+    .sidebar-card__title {
+      font-family: var(--f-ui);
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      margin-bottom: 1.125rem;
+    }
+    .sidebar-card__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--c-text-2);
+      margin-bottom: 0.875rem;
+    }
+    .sidebar-card__item:last-child { margin-bottom: 0; }
+    .sidebar-card__item--light { color: var(--c-dark-text-2) !important; }
+    .sidebar-card__dash { color: var(--c-gold); flex-shrink: 0; font-size: 0.875rem; margin-top: 0.15rem; }
+    .sidebar-card__body { font-size: 0.9rem; line-height: 1.7; color: var(--c-text-2); }
+
+    /* - Full-width image break - */
+    .img-break { position: relative; height: 480px; overflow: hidden; }
+    .img-break img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+    .img-break__overlay {
+      position: absolute; inset: 0;
+      background: rgba(7,14,26,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .img-break__quote { text-align: center; max-width: 720px; padding: 0 2rem; }
+    .img-break__quote blockquote {
+      font-family: var(--f-display);
+      font-size: clamp(1.375rem, 2.5vw, 2rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.4;
+      color: var(--c-text);
+      margin-bottom: 1rem;
+    }
+    .img-break__quote cite {
+      font-family: var(--f-ui);
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      font-style: normal;
+    }
+
+    /* - Difference - */
+    .difference { padding: 4rem 0; }
+    .difference__header {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 5rem;
+      align-items: end;
+      margin-bottom: 3.5rem;
+    }
+    .difference__title {
+      font-family: var(--f-display);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--c-text);
+    }
+    .difference__title em { font-style: italic; color: var(--c-gold); }
+    .difference__sub { font-size: 1.0625rem; line-height: 1.75; color: var(--c-text-2); align-self: end; }
+    .diff-cols-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--c-border);
+    }
+    .diff-cols-head span {
+      font-family: var(--f-ui);
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .diff-cols-head span:first-child { color: var(--c-text-2); }
+    .diff-cols-head span:nth-child(2) { color: var(--c-gold); }
+    .diff-cols-head span:last-child { color: var(--c-text-2); }
+    .diff-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--c-border);
+    }
+    .diff-row:last-child { border-bottom: none; }
+    .diff-row div { font-size: 0.9375rem; line-height: 1.65; }
+    .diff-row div:first-child { color: var(--c-text-2); }
+    .diff-row div:nth-child(2) { color: var(--c-text); }
+    .diff-row div:last-child {
+      font-family: var(--f-ui);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+    }
+
+    /* - CTA - */
+    .ca-cta {
+      padding: 4rem 0;
+      border-top: 1px solid var(--c-border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .ca-cta__title {
+      font-family: var(--f-display);
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--c-text);
+      margin-bottom: 1.25rem;
+    }
+    .ca-cta__title em { font-style: italic; color: var(--c-gold); }
+    .ca-cta__body { font-size: 1.0625rem; line-height: 1.75; color: var(--c-text-2); }
+    .ca-cta__right { display: flex; flex-direction: column; gap: 1.5rem; }
+    .ca-cta__email {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--f-ui); font-size: 0.875rem; font-weight: 500;
+      color: var(--c-gold); text-decoration: none;
+    }
+    .ca-cta__email:hover { text-decoration: underline; }
+    .ca-cta__disclaimer {
+      font-size: 0.8125rem; line-height: 1.7; color: var(--c-text-2);
+      font-style: italic; border-left: 2px solid var(--c-border); padding-left: 1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .ca-intro__inner,
+      .practice__body,
+      .difference__header,
+      .ca-cta { grid-template-columns: 1fr; gap: 2.5rem; }
+      .img-break { height: 360px; }
+    }
+    @media (max-width: 640px) {
+      .ca-hero { min-height: 80vh; }
+      .ca-stats { grid-template-columns: 1fr 1fr; }
+      .diff-cols-head { display: none; }
+      .diff-row { grid-template-columns: 1fr; gap: 0.5rem; }
+    }
+  </style>
 </head>
 <body>
 
@@ -18,266 +340,252 @@
       <div class="nav__logo-mark">R</div>
       <div>
         <span class="nav__logo-text">Ratelrock</span>
-        <span class="nav__logo-sub">Private Credit · Kenya</span>
+        <span class="nav__logo-sub">Private Credit - Kenya</span>
       </div>
     </a>
     <ul class="nav__links" role="list">
       <li><a href="index.html"                   class="nav__link">Home</a></li>
       <li><a href="about.html"                   class="nav__link">About Us</a></li>
       <li><a href="private-credit.html"          class="nav__link">Private Credit</a></li>
-      <li><a href="business-transformation.html" class="nav__link">Business Transformation</a></li>
+      <li class="nav__item nav__item--dropdown"><a href="business-transformation.html" class="nav__link nav__link--active">Consultant &amp; Advisory</a><ul class="nav__dropdown"><li><a href="#turnaround" class="nav__dropdown__link">Turnaround &amp; Restructuring</a></li><li><a href="#transaction" class="nav__dropdown__link">Transaction Advisory</a></li><li><a href="#corporate-finance" class="nav__dropdown__link">Corporate Finance Advisory</a></li><li><a href="#growth-governance" class="nav__dropdown__link">Growth &amp; Governance</a></li></ul></li>
       <li><a href="impact.html"                  class="nav__link">Impact</a></li>
       <li><a href="news.html"                    class="nav__link">News</a></li>
       <li><a href="contact.html"                 class="nav__link">Contact</a></li>
     </ul>
-    <div class="nav__ctas">
-    </div>
+    <div class="nav__ctas"></div>
     <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
+
+<!-- Mobile Nav -->
 <nav class="mobile-nav" aria-label="Mobile navigation" style="display:none;">
-  <button class="mobile-nav__close" aria-label="Close menu">✕</button>
+  <button class="mobile-nav__close" aria-label="Close menu">&#x2715;</button>
   <a href="index.html"                   class="mobile-nav__link">Home</a>
   <a href="about.html"                   class="mobile-nav__link">About Us</a>
   <a href="private-credit.html"          class="mobile-nav__link">Private Credit</a>
-  <a href="business-transformation.html" class="mobile-nav__link">Business Transformation</a>
+  <a href="business-transformation.html" class="mobile-nav__link">Consultant &amp; Advisory</a>
   <a href="impact.html"                  class="mobile-nav__link">Impact</a>
   <a href="news.html"                    class="mobile-nav__link">News</a>
   <a href="contact.html"                 class="mobile-nav__link">Contact</a>
-  <a href="contact.html#transformation"  class="btn btn--primary btn--lg" style="margin-top:1rem;">Request Consultation</a>
 </nav>
 
-<!-- ===== PAGE HERO ===== -->
-<section class="page-hero">
-  <div class="page-hero__bg">
-    <div class="page-hero__bg-img" style="background-image:url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1400&q=70&fit=crop&crop=center');"></div>
-    <div class="page-hero__bg-overlay"></div>
-    <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 20% 50%, rgba(21,46,31,0.35) 0%, transparent 65%);"></div>
-  </div>
+<!-- ===== HERO ===== -->
+<section class="ca-hero" aria-label="Hero">
+  <div class="ca-hero__bg"></div>
   <div class="container">
-    <div class="page-hero__content">
-      <p class="hero__label hero-anim">Business Transformation</p>
-      <h1 class="hero__title hero-anim" style="font-size:clamp(2.5rem,5vw,4.5rem);">
-        We don't deliver<br>a report and leave.<br><em>We embed.</em>
-      </h1>
-      <p class="hero__subtitle hero-anim">
-        Hands-on enterprise support for businesses navigating complexity, distress, or the gap between where they are and where they are capable of being.
-      </p>
-      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;" class="hero-anim">
-        <a href="#what-we-do" class="btn btn--secondary btn--lg">How We Work</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== WHAT WE DO ===== -->
-<section class="section" id="what-we-do">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;" class="reveal">
-      <div>
-        <p class="section-eyebrow">Strategic Capital Division</p>
-        <h2 class="section-title">We implement change.<br><em>Not just recommend it.</em></h2>
-        <p style="font-size:1.0625rem;line-height:1.75;color:var(--c-text-2);margin-bottom:1.25rem;">
-          Most advisors stop at diagnosis. Ratelrock's Strategic Capital Division embeds directly in the business, implementing change alongside management, with the board, in dialogue with creditors.
-        </p>
-        <p style="font-size:1.0625rem;line-height:1.75;color:var(--c-text-2);margin-bottom:1.25rem;">
-          We work with enterprises navigating difficulty and those that are fundamentally strong but need the governance, operational, or financial infrastructure to scale.
-        </p>
-        <p style="font-size:1.0625rem;line-height:1.75;color:var(--c-text-2);">
-          In both cases, our success depends on yours. That alignment is the difference.
-        </p>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-        <div style="padding:2rem 1.75rem;background:var(--c-bg-2);border:1px solid var(--c-border);border-radius:12px;text-align:center;">
-          <p style="font-family:var(--f-display);font-size:2.5rem;font-weight:400;color:var(--c-gold);line-height:1;margin-bottom:0.5rem;">2</p>
-          <p style="font-family:var(--f-ui);font-size:0.75rem;font-weight:500;color:var(--c-text-2);">Distinct service tracks, Distressed &amp; Growth Stage</p>
-        </div>
-        <div style="padding:2rem 1.75rem;background:var(--c-bg-2);border:1px solid var(--c-border);border-radius:12px;text-align:center;">
-          <p style="font-family:var(--f-display);font-size:2.5rem;font-weight:400;color:var(--c-gold);line-height:1;margin-bottom:0.5rem;">1</p>
-          <p style="font-family:var(--f-ui);font-size:0.75rem;font-weight:500;color:var(--c-text-2);">Conviction, your success is our success</p>
-        </div>
-        <div style="padding:2rem 1.75rem;background:var(--c-bg-2);border:1px solid var(--c-border);border-radius:12px;text-align:center;grid-column:1/-1;">
-          <p style="font-family:var(--f-display);font-size:1rem;font-style:italic;font-weight:400;color:var(--c-text-2);line-height:1.6;">"A fundamentally sound business in difficulty is an asset, not a write-off."</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== DISTRESSED TURNAROUNDS ===== -->
-<section class="section" id="distressed" style="background:var(--c-bg-2);border-top:1px solid var(--c-border);border-bottom:1px solid var(--c-border);">
-  <div class="container">
-    <div class="section-header reveal">
+    <div class="ca-hero__content reveal">
       <div class="gold-line"></div>
-      <p class="section-eyebrow">Track 01</p>
-      <h2 class="section-title">Distressed Business<br><em>Turnarounds.</em></h2>
-      <p class="section-subtitle">Ratelrock embeds directly in the business, alongside management, with the board, in dialogue with creditors, to stabilise, restructure, and rebuild.</p>
+      <p class="section-eyebrow">Consultant &amp; Advisory</p>
+      <h1 class="ca-hero__title">We don't deliver<br>a report and leave.<br><em>We embed.</em></h1>
+      <p class="ca-hero__sub">Across four practice areas, we provide the expertise, structure, and hands-on execution that Kenya's enterprises need whether facing distress, navigating a transaction, or building for the next stage of growth.</p>
+      <a href="#practices" class="btn btn--ghost">Our Practice Areas</a>
     </div>
+  </div>
+</section><!-- ===== 01 TURNAROUND & RESTRUCTURING ===== -->
+<section class="practice" id="turnaround">
+  <div class="container">
+    <div style="display:grid; grid-template-columns: 300px 1fr; gap: 4rem; align-items: start;">
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;" class="reveal">
-      <div>
-        <p style="font-family:var(--f-ui);font-size:0.6875rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--c-gold);margin-bottom:1.25rem;">What a Turnaround Engagement Covers</p>
-        <div class="checklist">
+      <!-- LEFT: title/intro only -->
+      <div class="reveal">
+        <p class="practice__num">Practice Area 01</p>
+        <h2 class="practice__title">Turnaround &amp;<br><em>Restructuring.</em></h2>
+        <p class="practice__intro">A fundamentally sound business in difficulty is not a write-off. Ratelrock embeds directly in the business alongside management, with the board, and in dialogue with creditors to stabilise, restructure, and rebuild. We do not deliver a report and leave. We stay until the recovery is real.</p>
+      </div>
+
+      <!-- RIGHT: checklist + Who this is for on top, Capital Bridge full-width below -->
+      <div style="display:grid; grid-template-columns: max-content 1fr; gap: 1.5rem 3rem;" class="reveal">
+        <div>
+          <p class="checklist__label">What a turnaround engagement covers</p>
           <div class="checklist__item">
-            <span class="checklist__icon" aria-hidden="true">
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,5 4,7 8,3"/></svg>
-            </span>
-            Forensic financial and operational diagnostic, understanding the actual root cause, not just the presenting problem
+            <svg class="checklist__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Forensic financial and operational diagnostic identifying the actual root cause, not just the presenting problem
           </div>
           <div class="checklist__item">
-            <span class="checklist__icon" aria-hidden="true">
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,5 4,7 8,3"/></svg>
-            </span>
-            Immediate cash flow stabilisation, protecting liquidity while the recovery plan is built
+            <svg class="checklist__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Immediate cash flow stabilisation and liquidity protection while the recovery plan is built
           </div>
           <div class="checklist__item">
-            <span class="checklist__icon" aria-hidden="true">
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,5 4,7 8,3"/></svg>
-            </span>
+            <svg class="checklist__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Creditor engagement and debt restructuring creating the breathing room the business needs
+          </div>
+          <div class="checklist__item">
+            <svg class="checklist__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Balance sheet and capital structure optimisation renegotiating, refinancing, and right-sizing for the recovery ahead
+          </div>
+          <div class="checklist__item">
+            <svg class="checklist__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
             Management support and capability reinforcement, deploying our team alongside yours where gaps exist
           </div>
           <div class="checklist__item">
-            <span class="checklist__icon" aria-hidden="true">
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,5 4,7 8,3"/></svg>
-            </span>
-            Creditor engagement and debt restructuring, creating the breathing room the business needs
-          </div>
-          <div class="checklist__item">
-            <span class="checklist__icon" aria-hidden="true">
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,5 4,7 8,3"/></svg>
-            </span>
-            Balance sheet and capital structure optimisation, renegotiating, refinancing, and right-sizing for the recovery ahead
-          </div>
-          <div class="checklist__item">
-            <span class="checklist__icon" aria-hidden="true">
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,5 4,7 8,3"/></svg>
-            </span>
+            <svg class="checklist__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
             Governance and financial reporting strengthening, building the institutional infrastructure investors and lenders require
           </div>
-          <div class="checklist__item">
-            <span class="checklist__icon" aria-hidden="true">
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,5 4,7 8,3"/></svg>
-            </span>
-            Capital solution, where bridge or restructuring capital is required, Ratelrock can provide it, separately evaluated and structured
-          </div>
+        </div>
+        <div class="sidebar-card" style="align-self: start;">
+          <p class="sidebar-card__title">Who this is for</p>
+          <div class="sidebar-card__item"><span class="sidebar-card__dash">&#8594;</span>Businesses experiencing acute liquidity stress that need immediate stabilisation</div>
+          <div class="sidebar-card__item"><span class="sidebar-card__dash">&#8594;</span>Enterprises navigating creditor or covenant pressure with existing lenders</div>
+          <div class="sidebar-card__item"><span class="sidebar-card__dash">&#8594;</span>Businesses recovering from loss of a major customer, fraud discovery, or supply chain failure</div>
+          <div class="sidebar-card__item"><span class="sidebar-card__dash">&#8594;</span>Boards managing a portfolio company in distress who need outside expertise to lead the recovery</div>
+        </div>
+        <!-- Capital Bridge spans full width of right column -->
+        <div class="sidebar-card sidebar-card--green" style="grid-column: 1 / -1;">
+          <p class="sidebar-card__title">Capital bridge</p>
+          <p class="sidebar-card__body">Where bridge or restructuring capital is required, Ratelrock can provide it separately evaluated and structured through our Private Credit division.</p>
         </div>
       </div>
 
-      <div>
-        <div class="who-for-box">
-          <p class="who-for-box__title">Who This Is For</p>
-          <ul class="who-for-list">
-            <li>Businesses experiencing acute liquidity stress that need immediate stabilisation</li>
-            <li>Enterprises navigating covenant pressures with existing lenders</li>
-            <li>Businesses recovering from a significant operational event, loss of a major customer, management departure, fraud discovery, or supply chain failure</li>
-            <li>Shareholders and boards managing a portfolio company in distress who need outside expertise to lead the recovery</li>
-          </ul>
-        </div>
-
-        <div style="margin-top:1.5rem;padding:2rem;background:var(--c-green);border:1px solid rgba(200,150,58,0.2);border-radius:12px;">
-          <p style="font-family:var(--f-ui);font-size:0.625rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--c-gold);margin-bottom:0.75rem;">Discretion Guaranteed</p>
-          <p style="font-size:0.9rem;line-height:1.65;color:var(--c-text-2);">All distressed engagements are handled with strict confidentiality. We do not share client information with third parties without explicit consent. For distressed situations, discretion is our default and our commitment.</p>
-        </div>
-
-      </div>
     </div>
   </div>
-</section>
-
-<!-- ===== NAIROBI BUSINESS IMAGE BREAK ===== -->
-<div class="img-full-section reveal">
-  <img src="https://images.unsplash.com/photo-1573164574511-73c773193279?w=1920&q=80&fit=crop&crop=center" alt="African business professionals, East African enterprise" />
-  <div class="img-full-section__overlay" style="background:linear-gradient(to bottom, rgba(7,14,26,0.5) 0%, rgba(7,14,26,0.7) 100%);"></div>
-  <div class="img-full-section__content" style="justify-content:center;text-align:center;">
-    <div style="max-width:680px;">
-      <p style="font-family:var(--f-display);font-size:clamp(1.375rem,2.5vw,2.5rem);font-weight:400;font-style:italic;color:var(--c-text);line-height:1.3;">"A fundamentally sound business in difficulty is an asset, not a write-off."</p>
-      <p style="font-family:var(--f-ui);font-size:0.625rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--c-gold);margin-top:1rem;">Ratelrock Strategic Capital Division</p>
-    </div>
-  </div>
-</div>
-
-<!-- ===== GROWTH STAGE TRANSFORMATION ===== -->
-<section class="section section--light" id="growth">
+</section><!-- ===== 02 TRANSACTION ADVISORY ===== -->
+<section class="practice practice--light" id="transaction">
   <div class="container">
-    <div class="section-header reveal">
-      <div class="gold-line"></div>
-      <p class="section-eyebrow">Track 02</p>
-      <h2 class="section-title" style="color:var(--c-dark-text);">Growth-Stage<br><em>Transformation.</em></h2>
-      <p class="section-subtitle">Governance gaps, incomplete records, and management structures that haven't caught up with business growth are solvable problems, not permanent barriers.</p>
+    <div class="practice__head reveal">
+      <p class="practice__num">Practice Area 02</p>
+      <h2 class="practice__title" style="color:var(--c-dark-text);">Transaction<br><em>Advisory.</em></h2>
+      <p class="practice__intro" style="color:var(--c-dark-text-2);">Transactions in the Kenyan mid-market require advisors who understand the complexity on the ground not just the theory of the deal. Ratelrock provides independent transaction advisory, bringing the financial rigour and operational insight that ensures our clients enter and exit transactions with full clarity on value, structure, and risk.</p>
     </div>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;" class="reveal">
+    <div class="practice__body reveal" style="grid-template-columns: max-content 1fr;">
       <div>
-        <p style="font-family:var(--f-ui);font-size:0.6875rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--c-gold);margin-bottom:1.25rem;">What We Deliver</p>
-        <div class="checklist">
-          <div class="checklist__item" style="background:var(--c-white);border-color:var(--c-border-light);">
-            <span class="checklist__icon" aria-hidden="true" style="background:var(--c-light-2);">
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,5 4,7 8,3"/></svg>
-            </span>
-            <span style="color:var(--c-dark-text-2);">Financial reporting professionalisation, management accounts, cash flow forecasting, budgeting, and internal controls built to institutional standards</span>
-          </div>
-          <div class="checklist__item" style="background:var(--c-white);border-color:var(--c-border-light);">
-            <span class="checklist__icon" aria-hidden="true" style="background:var(--c-light-2);">
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,5 4,7 8,3"/></svg>
-            </span>
-            <span style="color:var(--c-dark-text-2);">Governance strengthening, board structuring, shareholder agreements, company secretarial, audit readiness, and compliance frameworks</span>
-          </div>
-          <div class="checklist__item" style="background:var(--c-white);border-color:var(--c-border-light);">
-            <span class="checklist__icon" aria-hidden="true" style="background:var(--c-light-2);">
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,5 4,7 8,3"/></svg>
-            </span>
-            <span style="color:var(--c-dark-text-2);">Operational efficiency, supply chain optimisation, cost structure analysis, margin improvement, and process standardisation</span>
-          </div>
-          <div class="checklist__item" style="background:var(--c-white);border-color:var(--c-border-light);">
-            <span class="checklist__icon" aria-hidden="true" style="background:var(--c-light-2);">
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,5 4,7 8,3"/></svg>
-            </span>
-            <span style="color:var(--c-dark-text-2);">Commercial finance preparation, financing memoranda, commercial bank introductions, loan package structuring, and negotiation support</span>
-          </div>
-          <div class="checklist__item" style="background:var(--c-white);border-color:var(--c-border-light);">
-            <span class="checklist__icon" aria-hidden="true" style="background:var(--c-light-2);">
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,5 4,7 8,3"/></svg>
-            </span>
-            <span style="color:var(--c-dark-text-2);">Strategic growth advisory, market positioning, partnership development, M&amp;A preparation, and expansion planning</span>
-          </div>
+        <p class="checklist__label">What we deliver</p>
+        <div class="checklist__item checklist__item--light">
+          <svg class="checklist__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          <span><strong style="color:var(--c-dark-text);">Buy-side:</strong> Target identification, financial due diligence, valuation, deal structuring, and negotiation support</span>
+        </div>
+        <div class="checklist__item checklist__item--light">
+          <svg class="checklist__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          <span><strong style="color:var(--c-dark-text);">Sell-side:</strong> Business preparation, information memorandum, buyer identification, negotiation, and full management of the sale process</span>
+        </div>
+        <div class="checklist__item checklist__item--light">
+          <svg class="checklist__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          <span><strong style="color:var(--c-dark-text);">MBO / MBI:</strong> Management buyouts and buy-ins structuring the transaction, organising finance, and managing the governance transition</span>
+        </div>
+        <div class="checklist__item checklist__item--light">
+          <svg class="checklist__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          <span><strong style="color:var(--c-dark-text);">Succession:</strong> Ownership succession planning and execution for founder-led businesses transitioning to next-generation management or external investors</span>
         </div>
       </div>
-
-      <div>
-        <div class="who-for-box" style="background:var(--c-white);border-color:var(--c-border-light);">
-          <p class="who-for-box__title">Who This Is For</p>
-          <ul class="who-for-list">
-            <li style="color:var(--c-dark-text-2);">Owner-managed enterprises preparing for their first institutional credit or equity raise</li>
-            <li style="color:var(--c-dark-text-2);">Businesses undergoing ownership transition, MBO, MBI, or succession, that require professionalisation before financing</li>
-            <li style="color:var(--c-dark-text-2);">Enterprises that have outgrown their current management and governance infrastructure</li>
-            <li style="color:var(--c-dark-text-2);">Businesses that have received feedback from a financier on what needs to change before they can lend, and need expert hands to close those gaps</li>
-          </ul>
+      <div class="practice__sidebar">
+        <div class="sidebar-card sidebar-card--light" style="height:100%;">
+          <p class="sidebar-card__title">Who this is for</p>
+          <div class="sidebar-card__item sidebar-card__item--light"><span class="sidebar-card__dash">&#8594;</span>Owner-managed enterprises considering a sale, partial exit, or succession</div>
+          <div class="sidebar-card__item sidebar-card__item--light"><span class="sidebar-card__dash">&#8594;</span>Businesses looking to acquire a competitor or enter a new market via acquisition</div>
+          <div class="sidebar-card__item sidebar-card__item--light"><span class="sidebar-card__dash">&#8594;</span>Management teams seeking to buy out an existing owner or investor</div>
+          <div class="sidebar-card__item sidebar-card__item--light"><span class="sidebar-card__dash">&#8594;</span>Founder-led businesses navigating ownership transfer to the next generation</div>
         </div>
-
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== COMBINED APPROACH BAND ===== -->
-<section class="section investor-band">
+<!-- ===== 03 CORPORATE FINANCE ADVISORY ===== -->
+<section class="practice" id="corporate-finance">
   <div class="container">
-    <div style="max-width:760px;margin:0 auto;text-align:center;" class="reveal">
-      <p class="section-eyebrow">The Intersection</p>
-      <h2 class="section-title" style="margin-bottom:1.25rem;">Transformation + Capital.<br><em>When both are needed.</em></h2>
-      <p style="font-size:1.0625rem;line-height:1.75;color:var(--c-text-2);margin-bottom:2.5rem;">
-        Where a capital solution is required as part of the turnaround or growth plan, Ratelrock's Private Credit facility can be brought alongside the transformation engagement, separately evaluated, independently structured, and deployed when the business is ready to receive it responsibly.
-      </p>
-      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-        <a href="private-credit.html" class="btn btn--secondary btn--lg">Explore Private Credit</a>
+    <div class="practice__head reveal">
+      <p class="practice__num">Practice Area 03</p>
+      <h2 class="practice__title">Corporate Finance<br><em>Advisory.</em></h2>
+      <p class="practice__intro">Capital structure is strategy. How a business is financed determines what it can do, how fast it can move, and what it costs to stay in business. Ratelrock helps enterprises design, negotiate, and execute the capital structures that match their ambition.</p>
+    </div>
+    <div class="practice__body reveal" style="grid-template-columns: max-content 1fr;">
+      <div>
+        <p class="checklist__label">What we deliver</p>
+        <div class="checklist__item">
+          <svg class="checklist__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Structuring and negotiating debt facilities including senior secured, mezzanine, and specialised instruments with existing and new lenders
+        </div>
+        <div class="checklist__item">
+          <svg class="checklist__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Right-sizing the financial structure for the business's operating model, growth plan, and risk profile identifying and resolving structural inefficiencies
+        </div>
+        <div class="checklist__item">
+          <svg class="checklist__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Building the financial package management accounts, cash flow models, financing memoranda, and covenant frameworks that institutional lenders require
+        </div>
+        <div class="checklist__item">
+          <svg class="checklist__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Introductions to commercial banks, DFIs, and private credit providers, with structured support through the credit process
+        </div>
+      </div>
+      <div class="practice__sidebar">
+        <div class="sidebar-card">
+          <p class="sidebar-card__title">Who this is for</p>
+          <div class="sidebar-card__item"><span class="sidebar-card__dash">&#8594;</span>Businesses with existing debt that is mis-priced, mis-structured, or constraining growth</div>
+          <div class="sidebar-card__item"><span class="sidebar-card__dash">&#8594;</span>Enterprises preparing to approach a commercial bank or DFI for the first time</div>
+          <div class="sidebar-card__item"><span class="sidebar-card__dash">&#8594;</span>Companies that have outgrown their current lender and need a broader financing relationship</div>
+          <div class="sidebar-card__item"><span class="sidebar-card__dash">&#8594;</span>Businesses that need a credible, lender-ready financial package to unlock the next facility</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- ===== 04 GROWTH & GOVERNANCE ADVISORY ===== -->
+<section class="practice practice--light" id="growth-governance">
+  <div class="container">
+    <div class="practice__head reveal">
+      <p class="practice__num">Practice Area 04</p>
+      <h2 class="practice__title" style="color:var(--c-dark-text);">Growth &amp; Governance<br><em>Advisory.</em></h2>
+      <p class="practice__intro" style="color:var(--c-dark-text-2);">Governance gaps, incomplete financial records, and management structures that haven't kept pace with business growth are solvable problems not permanent barriers. Ratelrock works directly with management to build the financial reporting, governance, and operational infrastructure that unlocks the next level of capital at better terms. This is not consulting at a distance. We build it with you.</p>
+    </div>
+    <div class="practice__body reveal" style="grid-template-columns: max-content 1fr;">
+      <div>
+        <p class="checklist__label">What we deliver</p>
+        <div class="checklist__item checklist__item--light">
+          <svg class="checklist__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Financial reporting professionalisation management accounts, cash flow forecasting, budgeting frameworks, and internal controls built to institutional standards
+        </div>
+        <div class="checklist__item checklist__item--light">
+          <svg class="checklist__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Governance strengthening board structuring, shareholder agreements, company secretarial, audit readiness, and compliance frameworks
+        </div>
+        <div class="checklist__item checklist__item--light">
+          <svg class="checklist__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Operational efficiency supply chain optimisation, cost structure analysis, margin improvement, and process standardisation
+        </div>
+        <div class="checklist__item checklist__item--light">
+          <svg class="checklist__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Strategic advisory market positioning, commercial strategy, partnership development, and M&amp;A preparation
+        </div>
+      </div>
+      <div class="practice__sidebar">
+        <div class="sidebar-card sidebar-card--light">
+          <p class="sidebar-card__title">Who this is for</p>
+          <div class="sidebar-card__item sidebar-card__item--light"><span class="sidebar-card__dash">&#8594;</span>Owner-managed enterprises preparing for their first institutional credit or equity raise</div>
+          <div class="sidebar-card__item sidebar-card__item--light"><span class="sidebar-card__dash">&#8594;</span>Businesses undergoing MBO, MBI, or succession that require professionalisation before financing</div>
+          <div class="sidebar-card__item sidebar-card__item--light"><span class="sidebar-card__dash">&#8594;</span>Enterprises that have outgrown their current management and governance infrastructure</div>
+          <div class="sidebar-card__item sidebar-card__item--light"><span class="sidebar-card__dash">&#8594;</span>Businesses that have received lender feedback on what needs to change before they can access capital</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
+<!-- ===== THE RATELROCK DIFFERENCE ===== -->
+<section class="difference investor-band" id="difference">
+  <div class="container">
+    <div class="difference__header reveal">
+      <div>
+        <div class="gold-line"></div>
+        <p class="section-eyebrow">The Difference</p>
+        <h2 class="difference__title">Advisory that<br><em>executes.</em></h2>
+      </div>
+      <p class="difference__sub">Most advisory firms in this market operate at a distance producing frameworks, reports, and slide decks that identify problems without solving them. Ratelrock's advisors are practitioners, not theorists. They have built businesses, structured credit facilities, and led enterprise recoveries across East Africa. When they arrive, they work.</p>
+    </div>
+    <div class="reveal">
+      <div class="diff-cols-head">
+        <span>Standard Advisory</span>
+        <span>Ratelrock Advisory</span>
+        <span>The Difference</span>
+      </div>
+      <div class="diff-row"><div>Report delivered, implementation left to client</div><div>Embedded team. We implement alongside you.</div><div>Execution, not observation</div></div>
+      <div class="diff-row"><div>Engagement ends at the recommendation</div><div>We stay through the outcome</div><div>Accountability built in</div></div>
+      <div class="diff-row"><div>Generic frameworks applied to your context</div><div>Frameworks built around your business model</div><div>Specificity, not template</div></div>
+      <div class="diff-row"><div>Separate advisors for finance, ops, and restructuring</div><div>Single integrated team across all disciplines</div><div>No handoff risk</div></div>
+      <div class="diff-row"><div>No capital capability</div><div>Private Credit division provides finance where needed</div><div>Advisory + capital in one relationship</div></div>
+    </div>
+  </div>
+</section><!-- ===== FOOTER ===== -->
 <footer class="footer" role="contentinfo">
   <div class="container">
     <div class="footer__inner">
@@ -286,8 +594,8 @@
           <div class="nav__logo-mark" style="width:30px;height:30px;font-size:0.9375rem;">R</div>
           <p class="footer__brand-name" style="margin:0;">Ratelrock</p>
         </div>
-        <p class="footer__brand-sub">Private Credit · Business Transformation</p>
-        <p class="footer__brand-desc">East Africa's specialist private credit fund and business transformation practice. Nairobi, Kenya.</p>
+        <p class="footer__brand-sub">Private Credit - Consultant &amp; Advisory</p>
+        <p class="footer__brand-desc">East Africa's specialist private credit fund and advisory practice. Nairobi, Kenya.</p>
       </div>
       <div>
         <p class="footer__col-title">Navigation</p>
@@ -295,17 +603,18 @@
           <li><a href="index.html"                   class="footer__link">Home</a></li>
           <li><a href="about.html"                   class="footer__link">About Us</a></li>
           <li><a href="private-credit.html"          class="footer__link">Private Credit</a></li>
-          <li><a href="business-transformation.html" class="footer__link">Business Transformation</a></li>
+          <li><a href="business-transformation.html" class="footer__link">Consultant &amp; Advisory</a></li>
           <li><a href="news.html"                    class="footer__link">News</a></li>
           <li><a href="contact.html"                 class="footer__link">Contact</a></li>
         </ul>
       </div>
       <div>
-        <p class="footer__col-title">Transformation</p>
+        <p class="footer__col-title">Advisory Services</p>
         <ul class="footer__links">
-          <li><a href="#distressed" class="footer__link">Distressed Turnarounds</a></li>
-          <li><a href="#growth"     class="footer__link">Growth-Stage Transformation</a></li>
-          <li><a href="contact.html#transformation" class="footer__link">Request Consultation</a></li>
+          <li><a href="#turnaround"        class="footer__link">Turnaround &amp; Restructuring</a></li>
+          <li><a href="#transaction"       class="footer__link">Transaction Advisory</a></li>
+          <li><a href="#corporate-finance" class="footer__link">Corporate Finance Advisory</a></li>
+          <li><a href="#growth-governance" class="footer__link">Growth &amp; Governance</a></li>
         </ul>
       </div>
       <div>
@@ -315,11 +624,16 @@
           <li><span class="footer__link" style="cursor:default;">Nairobi, Kenya</span></li>
           <li><span class="footer__link" style="cursor:default;">Port Louis, Mauritius</span></li>
         </ul>
+        <p class="footer__col-title" style="margin-top:1.5rem;">Legal</p>
+        <ul class="footer__links">
+          <li><span class="footer__link" style="cursor:default;">FSC-Licensed (Mauritius)</span></li>
+          <li><span class="footer__link" style="cursor:default;">CMA Kenya Framework</span></li>
+        </ul>
       </div>
     </div>
     <div class="footer__bottom">
-      <p class="footer__legal">Ratelrock Credit Fund. All website content © 2026 Ratelrock. For information purposes only. Not an offer or solicitation to invest. Fund interests are available to eligible investors only under applicable regulations in Mauritius and Kenya.</p>
-      <p class="footer__copy">© 2026 Ratelrock</p>
+      <p class="footer__legal">Ratelrock Credit Fund. All website content &copy; 2026 Ratelrock. For information purposes only. Not an offer or solicitation to invest. Fund interests are available to eligible investors only under applicable regulations in Mauritius and Kenya.</p>
+      <p class="footer__copy">&copy; 2026 Ratelrock</p>
     </div>
   </div>
 </footer>
@@ -327,3 +641,4 @@
 <script src="js/main.js"></script>
 </body>
 </html>
+

@@ -2018,7 +2018,7 @@ input, textarea, select { font-family: inherit; }
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 3rem;
-  margin-bottom: 3rem;
+  
 }
 
 .footer__brand-name {
@@ -2074,11 +2074,12 @@ input, textarea, select { font-family: inherit; }
   color: var(--c-gold);
 }
 
-.footer__bottom {
+.footer__disclaimer-block {
   padding-top: 2rem;
+  margin-top: 1rem;
   border-top: 1px solid rgba(255,255,255,0.06);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
   flex-wrap: wrap;

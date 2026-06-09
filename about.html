@@ -12,28 +12,59 @@
   <link rel="stylesheet" href="css/style.css" />
   <style>
     /* ===== TEAM GLASS CARDS ===== */
+    .team-glass-container {
+      position: relative;
+      overflow: hidden;
+      padding: 2.5rem 2rem;
+      border-radius: 24px;
+      background: rgba(7,14,26,0.3);
+    }
+    .tgc-blob {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .tgc-blob--green {
+      width: 320px; height: 320px;
+      top: -80px; left: -60px;
+      background: radial-gradient(circle, rgba(21,46,31,1) 0%, transparent 65%);
+    }
+    .tgc-blob--gold {
+      width: 200px; height: 200px;
+      bottom: -40px; right: 80px;
+      background: radial-gradient(circle, rgba(200,150,58,0.35) 0%, transparent 65%);
+    }
+    .tgc-blob--teal {
+      width: 180px; height: 180px;
+      top: 30px; right: -30px;
+      background: radial-gradient(circle, rgba(21,60,80,0.8) 0%, transparent 65%);
+    }
     .team-glass-row {
       display: flex;
       gap: 1.5rem;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
     }
     .glass-card {
       width: 270px;
       flex-shrink: 0;
-      background: rgba(255,255,255,0.06);
-      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(24px) saturate(160%); -webkit-backdrop-filter: blur(24px) saturate(160%);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-top: 1px solid rgba(255,255,255,0.28);
       border-radius: 20px;
       padding: 2rem 1.5rem;
       display: flex; flex-direction: column; align-items: center;
       gap: 1rem;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 8px 32px rgba(0,0,0,0.45);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), 0 12px 40px rgba(0,0,0,0.5);
       transition: border-color 250ms ease, transform 250ms ease, box-shadow 250ms ease;
     }
     .glass-card:hover {
-      border-color: rgba(200,150,58,0.4);
+      border-color: rgba(200,150,58,0.45);
       transform: translateY(-4px);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), 0 16px 48px rgba(0,0,0,0.5);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 20px 56px rgba(0,0,0,0.55);
     }
     .glass-card__photo {
       width: 100px; height: 100px; border-radius: 50%;
@@ -43,7 +74,7 @@
     }
     .glass-card__quote {
       font-family: var(--f-display); font-size: 0.9rem; font-style: italic;
-      line-height: 1.65; color: rgba(237,232,220,0.75); text-align: center;
+      line-height: 1.65; color: rgba(237,232,220,0.78); text-align: center;
       flex: 1;
     }
     .glass-card__name {
@@ -61,7 +92,10 @@
       padding-bottom: 2px; transition: color 180ms ease, border-color 180ms ease;
     }
     .glass-card__bio:hover { color: var(--c-gold); border-color: var(--c-gold); }
-  </style></head>
+    .team-shuffle-hint {
+      font-family: var(--f-ui); font-size: 0.5625rem; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--c-text-muted); opacity: 0.5;
+    }  </style></head>
 <body>
 
 <!-- ===== NAVIGATION ===== -->
@@ -266,6 +300,10 @@
         <h2 class="section-title">Led by<br><em>practitioners.</em></h2>
         <p class="section-subtitle">Our team has built and operated businesses, structured complex credit facilities, and led enterprise turnarounds across the East African market.</p>
       </div>
+      <div class="team-glass-container">
+        <span class="tgc-blob tgc-blob--green"></span>
+        <span class="tgc-blob tgc-blob--gold"></span>
+        <span class="tgc-blob tgc-blob--teal"></span>
       <div class="team-glass-row">
         <div class="glass-card">
           <img class="glass-card__photo" src="images/team/nganga-njiinu.jpg" alt="Nganga Njiinu" />
@@ -290,6 +328,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 </section>
 

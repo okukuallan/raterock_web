@@ -61,6 +61,110 @@
     #what-we-do .section-title    { color: var(--c-dark-text); }
     #what-we-do .section-subtitle { color: var(--c-dark-text-2); }
     #what-we-do .section-eyebrow  { color: var(--c-gold); }
+
+    /* ===== GATEWAY PANELS ===== */
+    .gateway {
+      display: flex;
+      min-height: 480px;
+      border-bottom: 1px solid var(--c-border);
+    }
+    .gateway__panel {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      padding: 4.5rem 4rem;
+      transition: background 0.35s ease;
+    }
+    .gateway__panel--capital   { background: var(--c-green); }
+    .gateway__panel--transform { background: var(--c-bg-2); }
+    .gateway__panel::before {
+      content: attr(data-num);
+      position: absolute;
+      top: -0.15em;
+      right: 1.5rem;
+      font-family: var(--f-display);
+      font-size: clamp(9rem, 15vw, 16rem);
+      font-weight: 700;
+      color: rgba(255,255,255,0.04);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+    .gateway__panel-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 480px;
+    }
+    .gateway__eyebrow {
+      font-family: var(--f-ui);
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(200,150,58,0.75);
+      margin-bottom: 1.25rem;
+    }
+    .gateway__title {
+      font-family: var(--f-display);
+      font-size: clamp(2.25rem, 3.5vw, 3.75rem);
+      font-weight: 400;
+      line-height: 1.05;
+      color: var(--c-text);
+      margin-bottom: 1.25rem;
+    }
+    .gateway__title em { font-style: italic; color: var(--c-gold); }
+    .gateway__sub {
+      font-size: 0.9375rem;
+      line-height: 1.75;
+      color: var(--c-text-2);
+      margin-bottom: 2.25rem;
+      max-width: 400px;
+    }
+    .gateway__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--f-ui);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--c-gold);
+      border-bottom: 1px solid rgba(200,150,58,0.35);
+      padding-bottom: 0.25rem;
+      transition: gap 0.25s ease, border-color 0.25s ease;
+    }
+    .gateway__panel:hover .gateway__cta {
+      gap: 1rem;
+      border-color: var(--c-gold);
+    }
+    .gateway__panel--capital:hover   { background: #1a3a28; }
+    .gateway__panel--transform:hover { background: #111d30; }
+    .gateway__divider {
+      width: 1px;
+      flex-shrink: 0;
+      align-self: stretch;
+      background: linear-gradient(to bottom,
+        transparent 0%,
+        rgba(200,150,58,0.25) 20%,
+        rgba(200,150,58,0.25) 80%,
+        transparent 100%);
+    }
+    @media (max-width: 768px) {
+      .gateway { flex-direction: column; min-height: auto; }
+      .gateway__panel { padding: 3.5rem 1.5rem; }
+      .gateway__divider {
+        width: auto; height: 1px;
+        background: linear-gradient(to right,
+          transparent 0%,
+          rgba(200,150,58,0.25) 20%,
+          rgba(200,150,58,0.25) 80%,
+          transparent 100%);
+      }
+    }
   </style>
 </head>
 <body>
@@ -148,6 +252,37 @@
     <div class="hero__scroll-line"></div>
     <span>Scroll</span>
   </div>
+</section>
+
+<!-- ===== GATEWAY PANELS ===== -->
+<section class="gateway" aria-label="Our two disciplines">
+
+  <a href="private-credit.html" class="gateway__panel gateway__panel--capital" data-num="01">
+    <div class="gateway__panel-inner reveal">
+      <p class="gateway__eyebrow">Discipline 01</p>
+      <h2 class="gateway__title">Specialist<br><em>Capital</em></h2>
+      <p class="gateway__sub">Tailored and situational debt capital structured around your business — able to evolve into equity, quasi-equity, or long-term credit as your needs develop.</p>
+      <span class="gateway__cta">
+        Explore Specialist Capital
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </span>
+    </div>
+  </a>
+
+  <div class="gateway__divider" aria-hidden="true"></div>
+
+  <a href="business-transformation.html" class="gateway__panel gateway__panel--transform" data-num="02">
+    <div class="gateway__panel-inner reveal">
+      <p class="gateway__eyebrow">Discipline 02</p>
+      <h2 class="gateway__title">Transformation<br><em>Support &amp; Advisory</em></h2>
+      <p class="gateway__sub">Four practice areas. Embedded practitioners who implement change from inside the business — not from a distance with a slide deck.</p>
+      <span class="gateway__cta">
+        Explore Transformation Support
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </span>
+    </div>
+  </a>
+
 </section>
 
 <!-- ===== DUAL AUDIENCE TOGGLE ===== -->

@@ -386,8 +386,9 @@
     </div>
   </div>
 </section><!-- ===== 01 TURNAROUND & RESTRUCTURING ===== -->
-<section class="practice" id="turnaround">
-  <div class="container">
+<section class="practice" id="turnaround" style="position:relative;overflow:hidden;">
+  <div id="tsparticles-turnaround" aria-hidden="true" style="position:absolute;inset:0;z-index:0;pointer-events:none;"></div>
+  <div class="container" style="position:relative;z-index:1;">
     <div class="practice__head reveal">
       <p class="practice__num">Practice Area 01</p>
       <h2 class="practice__title">Turnaround &amp;<br><em>Restructuring.</em></h2>
@@ -644,5 +645,44 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.12.0/tsparticles.slim.bundle.min.js"></script>
+<script>
+  (function () {
+    if (typeof tsParticles === "undefined") return;
+    tsParticles.load("tsparticles-turnaround", {
+      fullScreen: { enable: false },
+      background: { color: { value: "transparent" } },
+      fpsLimit: 60,
+      detectRetina: true,
+      interactivity: {
+        events: { onClick: { enable: false }, onHover: { enable: false } }
+      },
+      particles: {
+        number: {
+          density: { enable: true, area: 900 },
+          value: 110
+        },
+        color: { value: "#ffffff" },
+        opacity: {
+          value: { min: 0.08, max: 0.75 },
+          animation: { enable: true, speed: 0.8, sync: false }
+        },
+        size: {
+          value: { min: 0.5, max: 1.6 }
+        },
+        move: {
+          enable: true,
+          speed: { min: 0.08, max: 0.6 },
+          direction: "none",
+          random: true,
+          straight: false,
+          outModes: { default: "out" }
+        },
+        shape: { type: "circle" },
+        links: { enable: false }
+      }
+    });
+  })();
+</script>
 </body>
 </html>

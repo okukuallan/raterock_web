@@ -47,6 +47,47 @@
     #who-fund-canvas { opacity: 0; transition: opacity 1.2s ease; }
     #who-fund-canvas.ready { opacity: 1; }
 
+    /* ===== METRICS CARDS (dark bg + individual green boxes) ===== */
+    .metrics-cards {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .metric-card {
+      flex: 1;
+      min-width: 200px;
+      max-width: 340px;
+      background: #152E1F;
+      border: 1px solid rgba(200,150,58,0.35);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.35), inset 0 1px 0 rgba(200,150,58,0.08);
+      transition: border-color 250ms ease, transform 250ms ease, box-shadow 250ms ease;
+    }
+    .metric-card:hover {
+      border-color: rgba(200,150,58,0.6);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(200,150,58,0.12);
+    }
+    .metric-card__value {
+      font-family: var(--f-display);
+      font-size: 3rem;
+      font-weight: 400;
+      color: var(--c-gold);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+    .metric-card__label {
+      font-family: var(--f-ui);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: rgba(237,232,220,0.55);
+      text-transform: uppercase;
+    }
+
     /* ===== METRICS BAND ON GREEN ===== */
     #metrics-band .stats-row {
       background: rgba(200,150,58,0.18);
@@ -124,20 +165,20 @@
 </section>
 
 <!-- ===== KEY METRICS BAND ===== -->
-<section class="section--sm" id="metrics-band" style="background:#152E1F;border-bottom:1px solid rgba(200,150,58,0.2);">
+<section class="section--sm" id="metrics-band" style="background:#070E1A;border-top:1px solid rgba(200,150,58,0.1);border-bottom:1px solid rgba(200,150,58,0.1);">
   <div class="container">
-    <div class="stats-row reveal">
-      <div class="stat-cell">
-        <div class="stat-cell__value">KES 50M</div>
-        <div class="stat-cell__label">Minimum loan ticket</div>
+    <div class="metrics-cards reveal">
+      <div class="metric-card">
+        <div class="metric-card__value">KES 50M</div>
+        <div class="metric-card__label">Minimum loan ticket</div>
       </div>
-      <div class="stat-cell">
-        <div class="stat-cell__value">KES 200M</div>
-        <div class="stat-cell__label">Maximum loan ticket</div>
+      <div class="metric-card">
+        <div class="metric-card__value">KES 200M</div>
+        <div class="metric-card__label">Maximum loan ticket</div>
       </div>
-      <div class="stat-cell">
-        <div class="stat-cell__value" data-counter data-target="14" data-suffix=" days">0</div>
-        <div class="stat-cell__label">Max time to disbursement</div>
+      <div class="metric-card">
+        <div class="metric-card__value" data-counter data-target="14" data-suffix=" days">0</div>
+        <div class="metric-card__label">Max time to disbursement</div>
       </div>
     </div>
   </div>

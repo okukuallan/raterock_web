@@ -43,6 +43,17 @@
       border-radius: 70px;
       will-change: transform;
     }
+    /* ===== METRICS BAND ON GREEN ===== */
+    #metrics-band .stats-row {
+      background: rgba(200,150,58,0.18);
+      border-color: rgba(200,150,58,0.3);
+    }
+    #metrics-band .stat-cell {
+      background: #152E1F;
+    }
+    #metrics-band .stat-cell__label {
+      color: rgba(237,232,220,0.6);
+    }
   </style>
 </head>
 <body>
@@ -109,7 +120,7 @@
 </section>
 
 <!-- ===== KEY METRICS BAND ===== -->
-<section class="section--sm" style="background:var(--c-bg-2);border-bottom:1px solid var(--c-border);">
+<section class="section--sm" id="metrics-band" style="background:#152E1F;border-bottom:1px solid rgba(200,150,58,0.2);">
   <div class="container">
     <div class="stats-row reveal">
       <div class="stat-cell">

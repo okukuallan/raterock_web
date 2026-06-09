@@ -11,6 +11,48 @@
   <link rel="icon" href="favicon.ico" sizes="32x32" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
+    /* ===== PC HERO — TALLER + METRICS ROW ===== */
+    .pc-hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+    .pc-hero .container { display: flex; flex-direction: column; gap: 0; }
+    .hero-metrics {
+      display: flex;
+      gap: 1.25rem;
+      margin-top: 3.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-metric-card {
+      flex: 1;
+      min-width: 180px;
+      background: rgba(21,46,31,0.75);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(200,150,58,0.35);
+      border-radius: 14px;
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(200,150,58,0.1);
+      transition: border-color 250ms ease, transform 250ms ease;
+    }
+    .hero-metric-card:hover {
+      border-color: rgba(200,150,58,0.65);
+      transform: translateY(-3px);
+    }
+    .hero-metric-card__value {
+      font-family: var(--f-display);
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: var(--c-gold);
+      line-height: 1;
+      margin-bottom: 0.6rem;
+    }
+    .hero-metric-card__label {
+      font-family: var(--f-ui);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(237,232,220,0.6);
+    }
+
     /* ===== PRODUCT SUITE FLOATING SHAPES ===== */
     @keyframes ps-float-a {
       0%,100% { transform: rotate(-28deg) translate(0,0); }
@@ -47,58 +89,7 @@
     #who-fund-canvas { opacity: 0; transition: opacity 1.2s ease; }
     #who-fund-canvas.ready { opacity: 1; }
 
-    /* ===== METRICS CARDS (dark bg + individual green boxes) ===== */
-    .metrics-cards {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .metric-card {
-      flex: 1;
-      min-width: 200px;
-      max-width: 340px;
-      background: #152E1F;
-      border: 1px solid rgba(200,150,58,0.35);
-      border-radius: 16px;
-      padding: 2.5rem 2rem;
-      text-align: center;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.35), inset 0 1px 0 rgba(200,150,58,0.08);
-      transition: border-color 250ms ease, transform 250ms ease, box-shadow 250ms ease;
-    }
-    .metric-card:hover {
-      border-color: rgba(200,150,58,0.6);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(200,150,58,0.12);
-    }
-    .metric-card__value {
-      font-family: var(--f-display);
-      font-size: 3rem;
-      font-weight: 400;
-      color: var(--c-gold);
-      line-height: 1;
-      margin-bottom: 0.75rem;
-    }
-    .metric-card__label {
-      font-family: var(--f-ui);
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      color: rgba(237,232,220,0.55);
-      text-transform: uppercase;
-    }
 
-    /* ===== METRICS BAND ON GREEN ===== */
-    #metrics-band .stats-row {
-      background: rgba(200,150,58,0.18);
-      border-color: rgba(200,150,58,0.3);
-    }
-    #metrics-band .stat-cell {
-      background: #152E1F;
-    }
-    #metrics-band .stat-cell__label {
-      color: rgba(237,232,220,0.6);
-    }
   </style>
 </head>
 <body>
@@ -142,11 +133,11 @@
 </nav>
 
 <!-- ===== PAGE HERO ===== -->
-<section class="page-hero">
+<section class="page-hero pc-hero">
   <div class="page-hero__bg">
-    <div class="page-hero__bg-img" style="background-image:url('https://images.unsplash.com/photo-1573497019236-3fd2a7c40a1e?w=1400&q=80&fit=crop&crop=center');"></div>
+    <div class="page-hero__bg-img" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80&fit=crop&crop=center');"></div>
     <div class="page-hero__bg-overlay"></div>
-    <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 50%, rgba(21,46,31,0.3) 0%, transparent 70%);"></div>
+    <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 50%, rgba(21,46,31,0.35) 0%, transparent 70%);"></div>
   </div>
   <div class="container">
     <div class="page-hero__content">
@@ -158,31 +149,28 @@
         Specialist debt capital for enterprises that require a dedicated credit partner, structured around your actual revenue cycle, with decisions in 2–3 weeks.
       </p>
       <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;" class="hero-anim">
-        <a href="#product-suite"     class="btn btn--secondary btn--lg">Explore Our Extensive Products</a>
+        <a href="#product-suite" class="btn btn--secondary btn--lg">Explore Our Extensive Products</a>
+      </div>
+    </div>
+    <!-- Metrics inside hero -->
+    <div class="hero-metrics hero-anim">
+      <div class="hero-metric-card">
+        <div class="hero-metric-card__value">KES 50M</div>
+        <div class="hero-metric-card__label">Minimum loan ticket</div>
+      </div>
+      <div class="hero-metric-card">
+        <div class="hero-metric-card__value">KES 200M</div>
+        <div class="hero-metric-card__label">Maximum loan ticket</div>
+      </div>
+      <div class="hero-metric-card">
+        <div class="hero-metric-card__value" data-counter data-target="14" data-suffix=" days">0</div>
+        <div class="hero-metric-card__label">Max time to disbursement</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ===== KEY METRICS BAND ===== -->
-<section class="section--sm" id="metrics-band" style="background:#070E1A;border-top:1px solid rgba(200,150,58,0.1);border-bottom:1px solid rgba(200,150,58,0.1);">
-  <div class="container">
-    <div class="metrics-cards reveal">
-      <div class="metric-card">
-        <div class="metric-card__value">KES 50M</div>
-        <div class="metric-card__label">Minimum loan ticket</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-card__value">KES 200M</div>
-        <div class="metric-card__label">Maximum loan ticket</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-card__value" data-counter data-target="14" data-suffix=" days">0</div>
-        <div class="metric-card__label">Max time to disbursement</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ===== WHO WE FUND ===== -->
 <section class="section" id="who-we-fund" style="position:relative;overflow:hidden;">

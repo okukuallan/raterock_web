@@ -447,7 +447,7 @@
     'void main(){gl_Position=vec4(a_pos,0.0,1.0);}'
   ].join('\n');
 
-  /* ---- Fragment shader: mesh gradient (matches paper-design/shaders MeshGradient) ---- */
+  /* ---- Fragment shader: high-contrast mesh gradient ---- */
   var fragSrc = [
     'precision mediump float;',
     'uniform float u_time;',
@@ -456,24 +456,24 @@
     'void main(){',
     '  vec2 uv = gl_FragCoord.xy / u_res;',
     '',
-    '  // Three overlapping sine waves — same organic motion as MeshGradient',
-    '  float n  = sin(uv.x*3.5 + u_time*0.22) * cos(uv.y*2.8 + u_time*0.17);',
-    '  n += sin(uv.x*6.2 - u_time*0.31 + 1.3) * cos(uv.y*5.1 + u_time*0.26) * 0.55;',
-    '  n += sin((uv.x+uv.y)*4.8 + u_time*0.19) * 0.35;',
-    '  n  = clamp(n*0.28 + 0.52, 0.0, 1.0);',
+    '  // Wide-amplitude layered waves for clearly visible flow',
+    '  float n  = sin(uv.x*3.2 + u_time*0.20) * cos(uv.y*2.6 + u_time*0.16);',
+    '  n += sin(uv.x*5.8 - u_time*0.28 + 1.4) * cos(uv.y*4.7 + u_time*0.24) * 0.60;',
+    '  n += sin((uv.x+uv.y)*4.4 + u_time*0.18) * 0.40;',
+    '  n  = clamp(n*0.50 + 0.50, 0.0, 1.0);',
     '',
-    '  // Ratelrock palette: dark-navy / brand-green / deep-teal',
-    '  vec3 c0 = vec3(0.027, 0.055, 0.102);',  // #070E1A navy
-    '  vec3 c1 = vec3(0.082, 0.180, 0.122);',  // #152E1F brand green
-    '  vec3 c2 = vec3(0.035, 0.090, 0.070);',  // mid green-navy
+    '  // High-contrast palette: very dark navy → vivid green → brand green',
+    '  vec3 c0 = vec3(0.020, 0.040, 0.080);',   // near-black navy
+    '  vec3 c1 = vec3(0.110, 0.420, 0.200);',   // vivid bright green
+    '  vec3 c2 = vec3(0.055, 0.200, 0.110);',   // mid green
     '',
     '  vec3 col = mix(c0, c1, n);',
-    '  float sweep = sin(uv.x*2.1 + u_time*0.11)*0.5+0.5;',
-    '  col = mix(col, c2, sweep*0.45);',
+    '  float sweep = sin(uv.x*1.8 + u_time*0.10)*0.5+0.5;',
+    '  col = mix(col, c2, sweep*0.50);',
     '',
-    '  // Subtle gold shimmer at peaks',
-    '  float shimmer = pow(max(n-0.72,0.0)*3.3, 2.0);',
-    '  col += vec3(0.197,0.148,0.057) * shimmer * 0.35;',
+    '  // Gold shimmer at bright peaks',
+    '  float shimmer = pow(max(n-0.65,0.0)*2.9, 2.0);',
+    '  col += vec3(0.784, 0.588, 0.227) * shimmer * 0.50;',
     '',
     '  gl_FragColor = vec4(col, 1.0);',
     '}'

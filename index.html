@@ -10,6 +10,58 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="favicon.ico" sizes="32x32" />
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ===== WHAT WE DO — LIGHT BG + FLOATING SHAPES ===== */
+    @keyframes wwd-float-a {
+      0%,100% { transform: rotate(-28deg) translate(0,0); }
+      30%     { transform: rotate(-26deg) translate(14px,-20px); }
+      65%     { transform: rotate(-30deg) translate(-10px,12px); }
+    }
+    @keyframes wwd-float-b {
+      0%,100% { transform: rotate(18deg) translate(0,0); }
+      40%     { transform: rotate(20deg) translate(-18px,14px); }
+      75%     { transform: rotate(16deg) translate(10px,-10px); }
+    }
+    @keyframes wwd-float-c {
+      0%,100% { transform: rotate(38deg) translate(0,0); }
+      50%     { transform: rotate(36deg) translate(12px,18px); }
+    }
+    @keyframes wwd-float-d {
+      0%,100% { transform: rotate(-12deg) translate(0,0); }
+      45%     { transform: rotate(-14deg) translate(-8px,-14px); }
+      80%     { transform: rotate(-10deg) translate(14px,8px); }
+    }
+    .wwd-shapes {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .wwd-shape {
+      position: absolute;
+      border-radius: 70px;
+      will-change: transform;
+    }
+    /* Service cards on light bg */
+    #what-we-do .service-card {
+      background: #fff;
+      border: 1px solid rgba(21,46,31,0.1);
+      box-shadow: 0 2px 20px rgba(21,46,31,0.06);
+    }
+    #what-we-do .service-card:hover {
+      background: #fff;
+      border-color: rgba(200,150,58,0.4);
+      box-shadow: 0 8px 32px rgba(21,46,31,0.1);
+    }
+    #what-we-do .service-card__title { color: var(--c-dark-text); }
+    #what-we-do .service-card__body  { color: var(--c-dark-text-2); }
+    #what-we-do .service-card__meta  { color: var(--c-dark-text-2); }
+    #what-we-do .service-card__meta strong { color: var(--c-dark-text); }
+    #what-we-do .section-title    { color: var(--c-dark-text); }
+    #what-we-do .section-subtitle { color: var(--c-dark-text-2); }
+    #what-we-do .section-eyebrow  { color: var(--c-gold); }
+  </style>
 </head>
 <body>
 
@@ -124,8 +176,21 @@
 </section>
 
 <!-- ===== WHAT WE DO ===== -->
-<section class="section" id="what-we-do">
-  <div class="container">
+<section class="section section--light" id="what-we-do" style="position:relative;overflow:hidden;">
+  <div class="wwd-shapes" aria-hidden="true">
+    <!-- EDGE SHAPES -->
+    <div class="wwd-shape" style="width:540px;height:118px;top:-55px;left:-120px;background:rgba(21,46,31,0.09);box-shadow:0 4px 40px rgba(21,46,31,0.07),inset 0 1px 0 rgba(255,255,255,0.55);border:1px solid rgba(21,46,31,0.07);animation:wwd-float-a 22s ease-in-out infinite;"></div>
+    <div class="wwd-shape" style="width:380px;height:90px;top:50px;right:60px;background:rgba(200,150,58,0.07);box-shadow:0 4px 30px rgba(200,150,58,0.06),inset 0 1px 0 rgba(255,255,255,0.6);border:1px solid rgba(200,150,58,0.1);animation:wwd-float-b 26s ease-in-out infinite;animation-delay:-6s;"></div>
+    <div class="wwd-shape" style="width:440px;height:78px;top:42%;left:-80px;background:rgba(21,46,31,0.07);box-shadow:0 4px 24px rgba(21,46,31,0.05),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.05);animation:wwd-float-d 30s ease-in-out infinite;animation-delay:-10s;"></div>
+    <div class="wwd-shape" style="width:580px;height:124px;bottom:-50px;right:-140px;background:rgba(21,46,31,0.08);box-shadow:0 4px 40px rgba(21,46,31,0.06),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.06);animation:wwd-float-c 28s ease-in-out infinite;animation-delay:-14s;"></div>
+    <div class="wwd-shape" style="width:320px;height:80px;bottom:70px;left:40px;background:rgba(200,150,58,0.06);box-shadow:0 4px 24px rgba(200,150,58,0.05),inset 0 1px 0 rgba(255,255,255,0.6);border:1px solid rgba(200,150,58,0.08);animation:wwd-float-a 20s ease-in-out infinite;animation-delay:-4s;"></div>
+    <div class="wwd-shape" style="width:420px;height:82px;top:58%;right:-60px;background:rgba(21,46,31,0.07);box-shadow:0 4px 28px rgba(21,46,31,0.05),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.05);animation:wwd-float-b 24s ease-in-out infinite;animation-delay:-18s;"></div>
+    <!-- CENTRAL SHAPES -->
+    <div class="wwd-shape" style="width:400px;height:88px;top:20%;left:20%;background:rgba(21,46,31,0.06);box-shadow:0 4px 28px rgba(21,46,31,0.04),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.05);animation:wwd-float-c 32s ease-in-out infinite;animation-delay:-8s;"></div>
+    <div class="wwd-shape" style="width:360px;height:80px;top:50%;left:30%;background:rgba(200,150,58,0.05);box-shadow:0 4px 24px rgba(200,150,58,0.04),inset 0 1px 0 rgba(255,255,255,0.55);border:1px solid rgba(200,150,58,0.07);animation:wwd-float-a 27s ease-in-out infinite;animation-delay:-20s;"></div>
+    <div class="wwd-shape" style="width:420px;height:86px;top:72%;left:25%;background:rgba(21,46,31,0.06);box-shadow:0 4px 28px rgba(21,46,31,0.04),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.05);animation:wwd-float-d 34s ease-in-out infinite;animation-delay:-12s;"></div>
+  </div>
+  <div class="container" style="position:relative;z-index:1;">
     <div class="section-header reveal">
       <p class="section-eyebrow">What We Do</p>
       <h2 class="section-title">Two interconnected disciplines.<br><em>One conviction.</em></h2>

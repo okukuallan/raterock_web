@@ -475,8 +475,9 @@
 </section>
 
 <!-- ===== 03 CORPORATE FINANCE ADVISORY ===== -->
-<section class="practice" id="corporate-finance">
-  <div class="container">
+<section class="practice" id="corporate-finance" style="position:relative;overflow:hidden;">
+  <div id="tsparticles-corporate" aria-hidden="true" style="position:absolute;inset:0;z-index:0;pointer-events:none;"></div>
+  <div class="container" style="position:relative;z-index:1;">
     <div class="practice__head reveal">
       <p class="practice__num">Practice Area 03</p>
       <h2 class="practice__title">Corporate Finance<br><em>Advisory.</em></h2>
@@ -683,6 +684,43 @@
       }
     });
   })();
+
+  // Practice Area 03 — Corporate Finance
+  if (document.getElementById("tsparticles-corporate")) {
+    tsParticles.load("tsparticles-corporate", {
+      fullScreen: { enable: false },
+      background: { color: { value: "transparent" } },
+      fpsLimit: 60,
+      detectRetina: true,
+      interactivity: {
+        events: { onClick: { enable: false }, onHover: { enable: false } }
+      },
+      particles: {
+        number: {
+          density: { enable: true, area: 900 },
+          value: 110
+        },
+        color: { value: "#ffffff" },
+        opacity: {
+          value: { min: 0.08, max: 0.75 },
+          animation: { enable: true, speed: 0.8, sync: false }
+        },
+        size: {
+          value: { min: 0.5, max: 1.6 }
+        },
+        move: {
+          enable: true,
+          speed: { min: 0.08, max: 0.6 },
+          direction: "none",
+          random: true,
+          straight: false,
+          outModes: { default: "out" }
+        },
+        shape: { type: "circle" },
+        links: { enable: false }
+      }
+    });
+  }
 </script>
 </body>
 </html>

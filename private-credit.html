@@ -43,6 +43,10 @@
       border-radius: 70px;
       will-change: transform;
     }
+    /* ===== WHO WE FUND SHADER CANVAS ===== */
+    #who-fund-canvas { opacity: 0; transition: opacity 1.2s ease; }
+    #who-fund-canvas.ready { opacity: 1; }
+
     /* ===== METRICS BAND ON GREEN ===== */
     #metrics-band .stats-row {
       background: rgba(200,150,58,0.18);
@@ -140,8 +144,9 @@
 </section>
 
 <!-- ===== WHO WE FUND ===== -->
-<section class="section" id="who-we-fund">
-  <div class="container">
+<section class="section" id="who-we-fund" style="position:relative;overflow:hidden;">
+  <canvas id="who-fund-canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block;"></canvas>
+  <div class="container" style="position:relative;z-index:1;">
     <div class="section-header reveal">
       <div class="gold-line"></div>
       <p class="section-eyebrow">Who We Fund</p>
@@ -429,5 +434,96 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+(function () {
+  var canvas = document.getElementById('who-fund-canvas');
+  if (!canvas) return;
+  var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+
+  /* ---- Vertex shader: full-screen quad ---- */
+  var vertSrc = [
+    'attribute vec2 a_pos;',
+    'void main(){gl_Position=vec4(a_pos,0.0,1.0);}'
+  ].join('\n');
+
+  /* ---- Fragment shader: mesh gradient (matches paper-design/shaders MeshGradient) ---- */
+  var fragSrc = [
+    'precision mediump float;',
+    'uniform float u_time;',
+    'uniform vec2  u_res;',
+    '',
+    'void main(){',
+    '  vec2 uv = gl_FragCoord.xy / u_res;',
+    '',
+    '  // Three overlapping sine waves — same organic motion as MeshGradient',
+    '  float n  = sin(uv.x*3.5 + u_time*0.22) * cos(uv.y*2.8 + u_time*0.17);',
+    '  n += sin(uv.x*6.2 - u_time*0.31 + 1.3) * cos(uv.y*5.1 + u_time*0.26) * 0.55;',
+    '  n += sin((uv.x+uv.y)*4.8 + u_time*0.19) * 0.35;',
+    '  n  = clamp(n*0.28 + 0.52, 0.0, 1.0);',
+    '',
+    '  // Ratelrock palette: dark-navy / brand-green / deep-teal',
+    '  vec3 c0 = vec3(0.027, 0.055, 0.102);',  // #070E1A navy
+    '  vec3 c1 = vec3(0.082, 0.180, 0.122);',  // #152E1F brand green
+    '  vec3 c2 = vec3(0.035, 0.090, 0.070);',  // mid green-navy
+    '',
+    '  vec3 col = mix(c0, c1, n);',
+    '  float sweep = sin(uv.x*2.1 + u_time*0.11)*0.5+0.5;',
+    '  col = mix(col, c2, sweep*0.45);',
+    '',
+    '  // Subtle gold shimmer at peaks',
+    '  float shimmer = pow(max(n-0.72,0.0)*3.3, 2.0);',
+    '  col += vec3(0.197,0.148,0.057) * shimmer * 0.35;',
+    '',
+    '  gl_FragColor = vec4(col, 1.0);',
+    '}'
+  ].join('\n');
+
+  function compile(type, src) {
+    var s = gl.createShader(type);
+    gl.shaderSource(s, src); gl.compileShader(s); return s;
+  }
+
+  var prog = gl.createProgram();
+  gl.attachShader(prog, compile(gl.VERTEX_SHADER,   vertSrc));
+  gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, fragSrc));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+
+  var buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER,
+    new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+
+  var aPos  = gl.getAttribLocation(prog, 'a_pos');
+  gl.enableVertexAttribArray(aPos);
+  gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+  var uTime = gl.getUniformLocation(prog, 'u_time');
+  var uRes  = gl.getUniformLocation(prog, 'u_res');
+
+  function resize() {
+    canvas.width  = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+    gl.viewport(0, 0, canvas.width, canvas.height);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  // Fade in once first frame is drawn
+  var faded = false;
+  var start = performance.now();
+
+  function render() {
+    var t = (performance.now() - start) / 1000;
+    gl.uniform1f(uTime, t);
+    gl.uniform2f(uRes, canvas.width, canvas.height);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    if (!faded) { canvas.classList.add('ready'); faded = true; }
+    requestAnimationFrame(render);
+  }
+  render();
+})();
+</script>
 </body>
 </html>

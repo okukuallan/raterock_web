@@ -10,7 +10,56 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="favicon.ico" sizes="32x32" />
   <link rel="stylesheet" href="css/style.css" />
-</head>
+  <style>
+    /* ===== TEAM SHUFFLE CARDS ===== */
+    .team-shuffle-outer { display:flex; flex-direction:column; align-items:flex-start; gap:1.75rem; }
+    .team-shuffle-stack { position:relative; width:300px; height:410px; }
+    .shuffle-card {
+      position:absolute; top:0; left:0;
+      width:300px; height:410px;
+      background:rgba(255,255,255,0.04);
+      backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:20px; padding:2rem 1.5rem;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      gap:1.125rem;
+      transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+      user-select:none; -webkit-user-select:none;
+    }
+    .shuffle-card[data-pos="front"]  { transform:rotate(-6deg) translateX(0px);   z-index:2; cursor:grab; }
+    .shuffle-card[data-pos="middle"] { transform:rotate(0deg)  translateX(99px);  z-index:1; }
+    .shuffle-card[data-pos="back"]   { transform:rotate(6deg)  translateX(198px); z-index:0; }
+    .shuffle-card__photo {
+      width:112px; height:112px; border-radius:50%;
+      object-fit:cover; object-position:center top;
+      border:2px solid rgba(200,150,58,0.5);
+      pointer-events:none; flex-shrink:0; display:block;
+    }
+    .shuffle-card__quote {
+      font-family:var(--f-display); font-size:0.9375rem; font-style:italic;
+      line-height:1.65; color:rgba(237,232,220,0.78); text-align:center;
+    }
+    .shuffle-card__name {
+      font-family:var(--f-display); font-size:1rem; font-weight:500;
+      color:var(--c-text); text-align:center; margin:0;
+    }
+    .shuffle-card__role {
+      font-family:var(--f-ui); font-size:0.625rem; font-weight:700;
+      letter-spacing:0.14em; text-transform:uppercase;
+      color:var(--c-gold); text-align:center; margin-top:-0.5rem;
+    }
+    .shuffle-card__bio {
+      font-family:var(--f-ui); font-size:0.6875rem; color:var(--c-text-muted);
+      text-decoration:none; border-bottom:1px solid rgba(200,150,58,0.3);
+      padding-bottom:1px; transition:color 180ms ease, border-color 180ms ease;
+      margin-top:0.25rem;
+    }
+    .shuffle-card__bio:hover { color:var(--c-gold); border-color:var(--c-gold); }
+    .team-shuffle-hint {
+      font-family:var(--f-ui); font-size:0.5625rem; letter-spacing:0.16em;
+      text-transform:uppercase; color:var(--c-text-muted); opacity:0.5;
+    }
+  </style></head>
 <body>
 
 <!-- ===== NAVIGATION ===== -->
@@ -215,37 +264,9 @@
         <h2 class="section-title">Led by<br><em>practitioners.</em></h2>
         <p class="section-subtitle">Our team has built and operated businesses, structured complex credit facilities, and led enterprise turnarounds across the East African market.</p>
       </div>
-      <div class="team-grid" style="margin-top:0;max-width:100%;">
-      <div class="team-card">
-        <div class="team-card__photo"><img src="images/team/nganga-njiinu.jpg" alt="Nganga Njiinu" /></div>
-        <div>
-          <p class="team-card__name">Nganga Njiinu</p>
-          <a href="https://www.linkedin.com/in/nganga-njiinu-cfa-621a551/" target="_blank" rel="noopener noreferrer" class="team-card__linkedin" aria-label="Nganga Njiinu on LinkedIn">
-            
-            See Bio
-          </a>
-        </div>
-      </div>
-      <div class="team-card">
-        <div class="team-card__photo"><img src="images/team/allan-khasenye.jpg" alt="Allan Khasenye" /></div>
-        <div>
-          <p class="team-card__name">Allan Khasenye</p>
-          <a href="https://www.linkedin.com/in/allan-okuku-a45b59112/" target="_blank" rel="noopener noreferrer" class="team-card__linkedin" aria-label="Allan Khasenye on LinkedIn">
-            
-            See Bio
-          </a>
-        </div>
-      </div>
-      <div class="team-card">
-        <div class="team-card__photo"><img src="images/team/irene-mulumba.jpg" alt="Irene Mulumba" /></div>
-        <div>
-          <p class="team-card__name">Irene Mulumba</p>
-          <a href="https://www.linkedin.com/in/irene-mulumba-436745241/" target="_blank" rel="noopener noreferrer" class="team-card__linkedin" aria-label="Irene Mulumba on LinkedIn">
-            
-            See Bio
-          </a>
-        </div>
-      </div>
+      <div class="team-shuffle-outer">
+        <div id="team-shuffle-stack" class="team-shuffle-stack"></div>
+        <p class="team-shuffle-hint">&#8592; drag to meet the team</p>
       </div>
     </div>
   </div>
@@ -388,6 +409,98 @@
   </div>
 </footer>
 
+
+<script>
+(function () {
+  var team = [
+    {
+      name: "Nganga Njiinu",
+      role: "CFA · Fund Principal",
+      quote: "Credit is about understanding the whole business — not just the numbers on the page.",
+      photo: "images/team/nganga-njiinu.jpg",
+      linkedin: "https://www.linkedin.com/in/nganga-njiinu-cfa-621a551/"
+    },
+    {
+      name: "Allan Khasenye",
+      role: "Managing Partner",
+      quote: "We don’t advise from a distance. We show up, and we stay until the work is done.",
+      photo: "images/team/allan-khasenye.jpg",
+      linkedin: "https://www.linkedin.com/in/allan-okuku-a45b59112/"
+    },
+    {
+      name: "Irene Mulumba",
+      role: "Advisory Principal",
+      quote: "Transformation only sticks when someone inside the business truly owns it.",
+      photo: "images/team/irene-mulumba.jpg",
+      linkedin: "https://www.linkedin.com/in/irene-mulumba-436745241/"
+    }
+  ];
+
+  var order = [0, 1, 2];
+
+  function buildCards() {
+    var stack = document.getElementById('team-shuffle-stack');
+    if (!stack) return;
+    stack.innerHTML = '';
+    var positions = ['front', 'middle', 'back'];
+    order.forEach(function (memberIdx, posIdx) {
+      var m = team[memberIdx];
+      var pos = positions[posIdx];
+      var card = document.createElement('div');
+      card.className = 'shuffle-card';
+      card.dataset.pos = pos;
+      card.innerHTML =
+        '<img class="shuffle-card__photo" src="' + m.photo + '" alt="' + m.name + '" />' +
+        '<p class="shuffle-card__quote">“' + m.quote + '”</p>' +
+        '<p class="shuffle-card__name">' + m.name + '</p>' +
+        '<p class="shuffle-card__role">' + m.role + '</p>' +
+        '<a href="' + m.linkedin + '" target="_blank" rel="noopener noreferrer" class="shuffle-card__bio">See Bio →</a>';
+      if (pos === 'front') setupDrag(card);
+      stack.appendChild(card);
+    });
+  }
+
+  function shuffle() {
+    order.push(order.shift());
+    buildCards();
+  }
+
+  function setupDrag(card) {
+    var startX = 0, dragging = false;
+
+    function onDown(cx) { startX = cx; dragging = true; card.style.transition = 'none'; }
+    function onMove(cx) {
+      if (!dragging) return;
+      var dx = cx - startX;
+      card.style.transform = 'rotate(' + (-6 + dx * 0.008) + 'deg) translateX(' + (dx * 0.45) + 'px)';
+    }
+    function onUp(cx) {
+      if (!dragging) return;
+      dragging = false;
+      var dx = cx - startX;
+      if (dx < -120) {
+        shuffle();
+      } else {
+        card.style.transition = 'transform 0.35s cubic-bezier(0.34,1.56,0.64,1)';
+        card.style.transform = 'rotate(-6deg) translateX(0px)';
+      }
+    }
+
+    card.addEventListener('mousedown', function (e) { onDown(e.clientX); });
+    document.addEventListener('mousemove', function (e) { if (dragging) onMove(e.clientX); });
+    document.addEventListener('mouseup', function (e) { if (dragging) onUp(e.clientX); });
+    card.addEventListener('touchstart', function (e) { onDown(e.touches[0].clientX); }, { passive: true });
+    card.addEventListener('touchmove', function (e) { if (dragging) { e.preventDefault(); onMove(e.touches[0].clientX); } }, { passive: false });
+    card.addEventListener('touchend', function (e) { if (dragging) onUp(e.changedTouches[0].clientX); });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', buildCards);
+  } else {
+    buildCards();
+  }
+})();
+</script>
 <script src="js/main.js"></script>
 </body>
 </html>

@@ -129,11 +129,12 @@
     .practice__title em { font-style: italic; color: var(--c-gold); }
     .practice__tagline {
       font-family: var(--f-display);
-      font-size: 1.0625rem;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400;
       font-style: italic;
+      line-height: 1.1;
       color: var(--c-gold);
-      opacity: 0.9;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
       letter-spacing: 0.01em;
     }
     .practice--light .practice__tagline { color: var(--c-gold); }

@@ -10,6 +10,15 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="favicon.ico" sizes="32x32" />
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Offices floating pill shapes */
+    @keyframes off-float-a { 0%,100%{transform:rotate(-28deg) translate(0,0)} 30%{transform:rotate(-26deg) translate(14px,-20px)} 65%{transform:rotate(-30deg) translate(-10px,12px)} }
+    @keyframes off-float-b { 0%,100%{transform:rotate(18deg) translate(0,0)} 40%{transform:rotate(20deg) translate(-18px,14px)} 75%{transform:rotate(16deg) translate(10px,-10px)} }
+    @keyframes off-float-c { 0%,100%{transform:rotate(38deg) translate(0,0)} 50%{transform:rotate(36deg) translate(12px,18px)} }
+    @keyframes off-float-d { 0%,100%{transform:rotate(-12deg) translate(0,0)} 45%{transform:rotate(-14deg) translate(-8px,-14px)} 80%{transform:rotate(-10deg) translate(14px,8px)} }
+    .offices-shapes { position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0; }
+    .offices-shape  { position:absolute;border-radius:70px;will-change:transform; }
+  </style>
 </head>
 <body>
 
@@ -79,8 +88,9 @@
 </section>
 
 <!-- ===== THREE AUDIENCE CHANNELS ===== -->
-<section class="section" style="padding-top:4rem;padding-bottom:5rem;">
-  <div class="container">
+<section class="section" id="reach-us" style="padding-top:4rem;padding-bottom:5rem;position:relative;overflow:hidden;">
+  <div id="tsparticles-contact" aria-hidden="true" style="position:absolute;inset:0;z-index:0;pointer-events:none;"></div>
+  <div class="container" style="position:relative;z-index:1;">
 
     <!-- Section intro -->
     <div class="section-header reveal" style="margin-bottom:4rem;">
@@ -162,8 +172,17 @@
 </section>
 
 <!-- ===== OFFICES ===== -->
-<section class="section section--light" style="padding-top:4rem;padding-bottom:4rem;">
-  <div class="container">
+<section class="section section--light" id="offices" style="padding-top:4rem;padding-bottom:4rem;position:relative;overflow:hidden;">
+  <div class="offices-shapes" aria-hidden="true">
+    <div class="offices-shape" style="width:540px;height:118px;top:-55px;left:-120px;background:rgba(21,46,31,0.09);box-shadow:0 4px 40px rgba(21,46,31,0.07),inset 0 1px 0 rgba(255,255,255,0.55);border:1px solid rgba(21,46,31,0.07);animation:off-float-a 22s ease-in-out infinite;"></div>
+    <div class="offices-shape" style="width:380px;height:90px;top:50px;right:60px;background:rgba(200,150,58,0.07);box-shadow:0 4px 30px rgba(200,150,58,0.06),inset 0 1px 0 rgba(255,255,255,0.6);border:1px solid rgba(200,150,58,0.1);animation:off-float-b 26s ease-in-out infinite;animation-delay:-6s;"></div>
+    <div class="offices-shape" style="width:440px;height:78px;top:42%;left:-80px;background:rgba(21,46,31,0.07);box-shadow:0 4px 24px rgba(21,46,31,0.05),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.05);animation:off-float-d 30s ease-in-out infinite;animation-delay:-10s;"></div>
+    <div class="offices-shape" style="width:560px;height:120px;bottom:-50px;right:-140px;background:rgba(21,46,31,0.08);box-shadow:0 4px 40px rgba(21,46,31,0.06),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.06);animation:off-float-c 28s ease-in-out infinite;animation-delay:-14s;"></div>
+    <div class="offices-shape" style="width:320px;height:78px;bottom:60px;left:40px;background:rgba(200,150,58,0.06);box-shadow:0 4px 24px rgba(200,150,58,0.05),inset 0 1px 0 rgba(255,255,255,0.6);border:1px solid rgba(200,150,58,0.08);animation:off-float-a 20s ease-in-out infinite;animation-delay:-4s;"></div>
+    <div class="offices-shape" style="width:360px;height:82px;top:50%;left:28%;background:rgba(200,150,58,0.05);box-shadow:0 4px 24px rgba(200,150,58,0.04),inset 0 1px 0 rgba(255,255,255,0.55);border:1px solid rgba(200,150,58,0.07);animation:off-float-a 27s ease-in-out infinite;animation-delay:-20s;"></div>
+    <div class="offices-shape" style="width:400px;height:86px;top:22%;left:22%;background:rgba(21,46,31,0.06);box-shadow:0 4px 28px rgba(21,46,31,0.04),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.05);animation:off-float-c 32s ease-in-out infinite;animation-delay:-8s;"></div>
+  </div>
+  <div class="container" style="position:relative;z-index:1;">
     <div class="section-header reveal" style="margin-bottom:3rem;">
       <div class="gold-line"></div>
       <p class="section-eyebrow">Our Offices</p>
@@ -357,5 +376,26 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.12.0/tsparticles.slim.bundle.min.js"></script>
+<script>
+(function () {
+  if (typeof tsParticles === "undefined") return;
+  if (!document.getElementById("tsparticles-contact")) return;
+  tsParticles.load("tsparticles-contact", {
+    fullScreen: { enable: false },
+    background: { color: { value: "transparent" } },
+    fpsLimit: 60, detectRetina: true,
+    interactivity: { events: { onClick: { enable: false }, onHover: { enable: false } } },
+    particles: {
+      number: { density: { enable: true, area: 900 }, value: 160 },
+      color: { value: "#ffffff" },
+      opacity: { value: { min: 0.06, max: 0.65 }, animation: { enable: true, speed: 1.0, sync: false } },
+      size: { value: { min: 0.5, max: 1.8 } },
+      move: { enable: true, speed: { min: 0.1, max: 0.7 }, direction: "none", random: true, straight: false, outModes: { default: "out" } },
+      shape: { type: "circle" }, links: { enable: false }
+    }
+  });
+})();
+</script>
 </body>
 </html>

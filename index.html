@@ -65,7 +65,7 @@
     /* ===== GATEWAY PANELS ===== */
     .gateway {
       display: flex;
-      min-height: 300px;
+      min-height: 200px;
       border-bottom: 1px solid var(--c-border);
     }
     .gateway__panel {
@@ -75,7 +75,7 @@
       text-decoration: none;
       display: flex;
       align-items: center;
-      padding: 3rem 3.5rem;
+      padding: 2.25rem 3rem;
       transition: background 0.35s ease;
     }
     .gateway__panel--capital   { background: var(--c-green); }
@@ -116,23 +116,34 @@
       margin-bottom: 1rem;
     }
     .gateway__title em { font-style: italic; color: var(--c-gold); }
+    .gateway__title-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
     .gateway__icon {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 44px;
-      height: 44px;
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
       border-radius: 10px;
       background: rgba(200,150,58,0.12);
       color: var(--c-gold);
-      margin-bottom: 1.25rem;
     }
+    .gateway__title { margin-bottom: 0; }
     .gateway__sub {
-      font-size: 0.9375rem;
-      line-height: 1.75;
+      font-size: 0.9rem;
+      line-height: 1.6;
       color: var(--c-text-2);
       margin-bottom: 1rem;
-      max-width: 400px;
+      max-width: 420px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
     .gateway__meta {
       font-family: var(--f-ui);
@@ -279,10 +290,12 @@
   <a href="private-credit.html" class="gateway__panel gateway__panel--capital" data-num="01">
     <div class="gateway__panel-inner reveal">
       <p class="gateway__eyebrow">Service Line 01</p>
-      <div class="gateway__icon" aria-hidden="true">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/><line x1="12" y1="12" x2="12" y2="16"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>
+      <div class="gateway__title-row">
+        <div class="gateway__icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/><line x1="12" y1="12" x2="12" y2="16"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>
+        </div>
+        <h2 class="gateway__title">Specialist <em>Capital</em></h2>
       </div>
-      <h2 class="gateway__title">Specialist<br><em>Capital</em></h2>
       <p class="gateway__sub">Tailored and situational debt capital for enterprises that require a dedicated credit partner. Structured around your actual business — able to evolve into equity, quasi-equity, or long-term credit as needs develop.</p>
       <p class="gateway__meta">Loan tickets <strong>KES 50M – KES 200M</strong> · Decisions in <strong>2–3 weeks</strong></p>
       <span class="gateway__cta">
@@ -297,10 +310,12 @@
   <a href="business-transformation.html" class="gateway__panel gateway__panel--transform" data-num="02">
     <div class="gateway__panel-inner reveal">
       <p class="gateway__eyebrow">Service Line 02</p>
-      <div class="gateway__icon" aria-hidden="true">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/><path d="M12 7l-3 3 3 3"/></svg>
+      <div class="gateway__title-row">
+        <div class="gateway__icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/><path d="M12 7l-3 3 3 3"/></svg>
+        </div>
+        <h2 class="gateway__title">Transformation <em>Support &amp; Advisory</em></h2>
       </div>
-      <h2 class="gateway__title">Transformation<br><em>Support &amp; Advisory</em></h2>
       <p class="gateway__sub">Across four practice areas — turnaround, transaction advisory, corporate finance, and growth &amp; governance — we embed directly in businesses to implement change, not just recommend it.</p>
       <p class="gateway__meta">4 Practice Areas · <strong>Embedded execution</strong> in your business</p>
       <span class="gateway__cta">

@@ -169,6 +169,32 @@
     }
     .gateway__panel--capital:hover   { background: #1a3a28; }
     .gateway__panel--transform:hover { background: #111d30; }
+    /* Pill shapes — hidden until hover */
+    .gateway__pills {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .gateway__pill {
+      position: absolute;
+      border-radius: 70px;
+      opacity: 0;
+      will-change: transform, opacity;
+      transition: opacity 0.6s ease;
+    }
+    .gateway__panel:hover .gateway__pill { opacity: 1; }
+    .gateway__panel--capital .gateway__pill {
+      background: rgba(200,150,58,0.07);
+      box-shadow: 0 4px 30px rgba(200,150,58,0.06), inset 0 1px 0 rgba(255,255,255,0.08);
+      border: 1px solid rgba(200,150,58,0.1);
+    }
+    .gateway__panel--transform .gateway__pill {
+      background: rgba(200,150,58,0.06);
+      box-shadow: 0 4px 30px rgba(200,150,58,0.05), inset 0 1px 0 rgba(255,255,255,0.07);
+      border: 1px solid rgba(200,150,58,0.09);
+    }
     .gateway__divider {
       width: 1px;
       flex-shrink: 0;
@@ -284,7 +310,13 @@
 <section class="gateway" aria-label="Our two disciplines">
 
   <a href="private-credit.html" class="gateway__panel gateway__panel--capital" data-num="01">
-    <div class="gateway__panel-inner reveal">
+    <div class="gateway__pills" aria-hidden="true">
+      <div class="gateway__pill" style="width:420px;height:88px;top:-30px;left:-80px;animation:wwd-float-a 22s ease-in-out infinite;"></div>
+      <div class="gateway__pill" style="width:300px;height:70px;top:45%;right:-60px;animation:wwd-float-b 26s ease-in-out infinite;animation-delay:-7s;"></div>
+      <div class="gateway__pill" style="width:360px;height:78px;bottom:-28px;left:20%;animation:wwd-float-c 28s ease-in-out infinite;animation-delay:-12s;"></div>
+      <div class="gateway__pill" style="width:260px;height:65px;top:20%;left:35%;animation:wwd-float-d 24s ease-in-out infinite;animation-delay:-4s;"></div>
+    </div>
+    <div class="gateway__panel-inner reveal" style="position:relative;z-index:1;">
       <p class="gateway__eyebrow">Service Line 01</p>
       <div class="gateway__title-row">
         <div class="gateway__icon" aria-hidden="true">
@@ -304,7 +336,13 @@
   <div class="gateway__divider" aria-hidden="true"></div>
 
   <a href="business-transformation.html" class="gateway__panel gateway__panel--transform" data-num="02">
-    <div class="gateway__panel-inner reveal">
+    <div class="gateway__pills" aria-hidden="true">
+      <div class="gateway__pill" style="width:380px;height:82px;top:-25px;right:-60px;animation:wwd-float-b 24s ease-in-out infinite;animation-delay:-5s;"></div>
+      <div class="gateway__pill" style="width:320px;height:72px;top:40%;left:-50px;animation:wwd-float-a 27s ease-in-out infinite;animation-delay:-10s;"></div>
+      <div class="gateway__pill" style="width:440px;height:90px;bottom:-30px;right:10%;animation:wwd-float-d 30s ease-in-out infinite;animation-delay:-16s;"></div>
+      <div class="gateway__pill" style="width:280px;height:66px;top:18%;left:40%;animation:wwd-float-c 22s ease-in-out infinite;animation-delay:-8s;"></div>
+    </div>
+    <div class="gateway__panel-inner reveal" style="position:relative;z-index:1;">
       <p class="gateway__eyebrow">Service Line 02</p>
       <div class="gateway__title-row">
         <div class="gateway__icon" aria-hidden="true">

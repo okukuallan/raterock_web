@@ -182,8 +182,25 @@
       gap: 1rem;
       border-color: var(--c-gold);
     }
-    .gateway__panel--capital:hover   { background: #1a3a28; }
-    .gateway__panel--transform:hover { background: #111d30; }
+    .gateway__panel--capital:hover,
+    .gateway__panel--transform:hover { background: var(--c-light); }
+    /* Text colour flip on hover */
+    .gateway__eyebrow,
+    .gateway__title,
+    .gateway__title em,
+    .gateway__sub,
+    .gateway__meta,
+    .gateway__meta strong,
+    .gateway__cta { transition: color 0.35s ease; }
+    .gateway__panel:hover .gateway__eyebrow  { color: var(--c-gold); opacity:1; }
+    .gateway__panel:hover .gateway__title    { color: var(--c-dark-text); }
+    .gateway__panel:hover .gateway__title em { color: var(--c-gold); }
+    .gateway__panel:hover .gateway__sub      { color: var(--c-dark-text-2); }
+    .gateway__panel:hover .gateway__meta     { color: var(--c-dark-text-2); opacity:1; }
+    .gateway__panel:hover .gateway__meta strong { color: var(--c-dark-text); }
+    .gateway__panel:hover .gateway__cta      { color: var(--c-gold); border-color: rgba(200,150,58,0.5); }
+    .gateway__panel:hover .gateway__icon     { background: rgba(21,46,31,0.08); }
+    .gateway__panel:hover::before            { color: rgba(21,46,31,0.04); }
     /* Pill shapes — hidden until hover */
     .gateway__pills {
       position: absolute;
@@ -197,18 +214,14 @@
       border-radius: 70px;
       opacity: 0;
       will-change: transform, opacity;
-      transition: opacity 0.6s ease;
+      transition: opacity 0.6s ease, background 0.4s ease, border-color 0.4s ease;
     }
     .gateway__panel:hover .gateway__pill { opacity: 1; }
-    .gateway__panel--capital .gateway__pill {
-      background: rgba(200,150,58,0.07);
-      box-shadow: 0 4px 30px rgba(200,150,58,0.06), inset 0 1px 0 rgba(255,255,255,0.08);
-      border: 1px solid rgba(200,150,58,0.1);
-    }
-    .gateway__panel--transform .gateway__pill {
-      background: rgba(200,150,58,0.06);
-      box-shadow: 0 4px 30px rgba(200,150,58,0.05), inset 0 1px 0 rgba(255,255,255,0.07);
-      border: 1px solid rgba(200,150,58,0.09);
+    /* Light-surface pill colours on hover */
+    .gateway__panel:hover .gateway__pill {
+      background: rgba(21,46,31,0.06) !important;
+      box-shadow: 0 4px 28px rgba(21,46,31,0.04), inset 0 1px 0 rgba(255,255,255,0.55) !important;
+      border: 1px solid rgba(21,46,31,0.06) !important;
     }
     .gateway__divider {
       width: 1px;

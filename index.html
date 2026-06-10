@@ -62,6 +62,21 @@
     #what-we-do .section-subtitle { color: var(--c-dark-text-2); }
     #what-we-do .section-eyebrow  { color: var(--c-gold); }
 
+    /* ===== RATELROCK DIFFERENCE — floating shapes ===== */
+    .rld-shapes {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .rld-shape {
+      position: absolute;
+      border-radius: 70px;
+      will-change: transform;
+    }
+    #difference .container { position: relative; z-index: 1; }
+
     /* ===== GATEWAY PANELS ===== */
     .gateway {
       display: flex;
@@ -431,7 +446,17 @@
 </section>
 
 <!-- ===== THE RATELROCK DIFFERENCE ===== -->
-<section class="section section--light" id="difference">
+<section class="section section--light" id="difference" style="position:relative;overflow:hidden;">
+  <div class="rld-shapes" aria-hidden="true">
+    <div class="rld-shape" style="width:540px;height:112px;top:-50px;left:-110px;background:rgba(21,46,31,0.07);box-shadow:0 4px 32px rgba(21,46,31,0.05),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.06);animation:wwd-float-a 24s ease-in-out infinite;"></div>
+    <div class="rld-shape" style="width:380px;height:85px;top:55px;right:50px;background:rgba(200,150,58,0.07);box-shadow:0 4px 28px rgba(200,150,58,0.05),inset 0 1px 0 rgba(255,255,255,0.55);border:1px solid rgba(200,150,58,0.09);animation:wwd-float-b 27s ease-in-out infinite;animation-delay:-6s;"></div>
+    <div class="rld-shape" style="width:460px;height:95px;top:42%;left:-75px;background:rgba(21,46,31,0.06);box-shadow:0 4px 24px rgba(21,46,31,0.04),inset 0 1px 0 rgba(255,255,255,0.45);border:1px solid rgba(21,46,31,0.05);animation:wwd-float-d 31s ease-in-out infinite;animation-delay:-11s;"></div>
+    <div class="rld-shape" style="width:340px;height:75px;top:60%;right:-40px;background:rgba(200,150,58,0.06);box-shadow:0 4px 24px rgba(200,150,58,0.04),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(200,150,58,0.08);animation:wwd-float-a 22s ease-in-out infinite;animation-delay:-4s;"></div>
+    <div class="rld-shape" style="width:560px;height:115px;bottom:-45px;right:-90px;background:rgba(21,46,31,0.07);box-shadow:0 4px 36px rgba(21,46,31,0.05),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.06);animation:wwd-float-c 29s ease-in-out infinite;animation-delay:-17s;"></div>
+    <div class="rld-shape" style="width:300px;height:70px;bottom:75px;left:25px;background:rgba(200,150,58,0.05);box-shadow:0 4px 20px rgba(200,150,58,0.04),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(200,150,58,0.07);animation:wwd-float-b 25s ease-in-out infinite;animation-delay:-8s;"></div>
+    <div class="rld-shape" style="width:420px;height:88px;top:24%;left:22%;background:rgba(21,46,31,0.05);box-shadow:0 4px 26px rgba(21,46,31,0.04),inset 0 1px 0 rgba(255,255,255,0.45);border:1px solid rgba(21,46,31,0.05);animation:wwd-float-c 33s ease-in-out infinite;animation-delay:-13s;"></div>
+    <div class="rld-shape" style="width:360px;height:78px;top:66%;left:35%;background:rgba(200,150,58,0.05);box-shadow:0 4px 22px rgba(200,150,58,0.04),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(200,150,58,0.07);animation:wwd-float-d 28s ease-in-out infinite;animation-delay:-19s;"></div>
+  </div>
   <div class="container">
     <div class="section-header section-header--center reveal">
       <div class="gold-line gold-line--center"></div>

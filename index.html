@@ -116,13 +116,32 @@
       margin-bottom: 1rem;
     }
     .gateway__title em { font-style: italic; color: var(--c-gold); }
+    .gateway__icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(200,150,58,0.12);
+      color: var(--c-gold);
+      margin-bottom: 1.25rem;
+    }
     .gateway__sub {
       font-size: 0.9375rem;
       line-height: 1.75;
       color: var(--c-text-2);
-      margin-bottom: 2.25rem;
+      margin-bottom: 1rem;
       max-width: 400px;
     }
+    .gateway__meta {
+      font-family: var(--f-ui);
+      font-size: 0.8rem;
+      color: var(--c-text-2);
+      margin-bottom: 1.75rem;
+      opacity: 0.8;
+    }
+    .gateway__meta strong { color: var(--c-text); }
     .gateway__cta {
       display: inline-flex;
       align-items: center;
@@ -259,9 +278,13 @@
 
   <a href="private-credit.html" class="gateway__panel gateway__panel--capital" data-num="01">
     <div class="gateway__panel-inner reveal">
-      <p class="gateway__eyebrow">Discipline 01</p>
+      <p class="gateway__eyebrow">Service Line 01</p>
+      <div class="gateway__icon" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/><line x1="12" y1="12" x2="12" y2="16"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>
+      </div>
       <h2 class="gateway__title">Specialist<br><em>Capital</em></h2>
-      <p class="gateway__sub">Tailored and situational debt capital structured around your business — able to evolve into equity, quasi-equity, or long-term credit as your needs develop.</p>
+      <p class="gateway__sub">Tailored and situational debt capital for enterprises that require a dedicated credit partner. Structured around your actual business — able to evolve into equity, quasi-equity, or long-term credit as needs develop.</p>
+      <p class="gateway__meta">Loan tickets <strong>KES 50M – KES 200M</strong> · Decisions in <strong>2–3 weeks</strong></p>
       <span class="gateway__cta">
         Explore Specialist Capital
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -273,9 +296,13 @@
 
   <a href="business-transformation.html" class="gateway__panel gateway__panel--transform" data-num="02">
     <div class="gateway__panel-inner reveal">
-      <p class="gateway__eyebrow">Discipline 02</p>
+      <p class="gateway__eyebrow">Service Line 02</p>
+      <div class="gateway__icon" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/><path d="M12 7l-3 3 3 3"/></svg>
+      </div>
       <h2 class="gateway__title">Transformation<br><em>Support &amp; Advisory</em></h2>
-      <p class="gateway__sub">Four practice areas. Embedded practitioners who implement change from inside the business — not from a distance with a slide deck.</p>
+      <p class="gateway__sub">Across four practice areas — turnaround, transaction advisory, corporate finance, and growth &amp; governance — we embed directly in businesses to implement change, not just recommend it.</p>
+      <p class="gateway__meta">4 Practice Areas · <strong>Embedded execution</strong> in your business</p>
       <span class="gateway__cta">
         Explore Transformation Support
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -311,60 +338,6 @@
   </div>
 </section>
 
-<!-- ===== WHAT WE DO ===== -->
-<section class="section section--light" id="what-we-do" style="position:relative;overflow:hidden;">
-  <div class="wwd-shapes" aria-hidden="true">
-    <!-- EDGE SHAPES -->
-    <div class="wwd-shape" style="width:540px;height:118px;top:-55px;left:-120px;background:rgba(21,46,31,0.09);box-shadow:0 4px 40px rgba(21,46,31,0.07),inset 0 1px 0 rgba(255,255,255,0.55);border:1px solid rgba(21,46,31,0.07);animation:wwd-float-a 22s ease-in-out infinite;"></div>
-    <div class="wwd-shape" style="width:380px;height:90px;top:50px;right:60px;background:rgba(200,150,58,0.07);box-shadow:0 4px 30px rgba(200,150,58,0.06),inset 0 1px 0 rgba(255,255,255,0.6);border:1px solid rgba(200,150,58,0.1);animation:wwd-float-b 26s ease-in-out infinite;animation-delay:-6s;"></div>
-    <div class="wwd-shape" style="width:440px;height:78px;top:42%;left:-80px;background:rgba(21,46,31,0.07);box-shadow:0 4px 24px rgba(21,46,31,0.05),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.05);animation:wwd-float-d 30s ease-in-out infinite;animation-delay:-10s;"></div>
-    <div class="wwd-shape" style="width:580px;height:124px;bottom:-50px;right:-140px;background:rgba(21,46,31,0.08);box-shadow:0 4px 40px rgba(21,46,31,0.06),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.06);animation:wwd-float-c 28s ease-in-out infinite;animation-delay:-14s;"></div>
-    <div class="wwd-shape" style="width:320px;height:80px;bottom:70px;left:40px;background:rgba(200,150,58,0.06);box-shadow:0 4px 24px rgba(200,150,58,0.05),inset 0 1px 0 rgba(255,255,255,0.6);border:1px solid rgba(200,150,58,0.08);animation:wwd-float-a 20s ease-in-out infinite;animation-delay:-4s;"></div>
-    <div class="wwd-shape" style="width:420px;height:82px;top:58%;right:-60px;background:rgba(21,46,31,0.07);box-shadow:0 4px 28px rgba(21,46,31,0.05),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.05);animation:wwd-float-b 24s ease-in-out infinite;animation-delay:-18s;"></div>
-    <!-- CENTRAL SHAPES -->
-    <div class="wwd-shape" style="width:400px;height:88px;top:20%;left:20%;background:rgba(21,46,31,0.06);box-shadow:0 4px 28px rgba(21,46,31,0.04),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.05);animation:wwd-float-c 32s ease-in-out infinite;animation-delay:-8s;"></div>
-    <div class="wwd-shape" style="width:360px;height:80px;top:50%;left:30%;background:rgba(200,150,58,0.05);box-shadow:0 4px 24px rgba(200,150,58,0.04),inset 0 1px 0 rgba(255,255,255,0.55);border:1px solid rgba(200,150,58,0.07);animation:wwd-float-a 27s ease-in-out infinite;animation-delay:-20s;"></div>
-    <div class="wwd-shape" style="width:420px;height:86px;top:72%;left:25%;background:rgba(21,46,31,0.06);box-shadow:0 4px 28px rgba(21,46,31,0.04),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.05);animation:wwd-float-d 34s ease-in-out infinite;animation-delay:-12s;"></div>
-  </div>
-  <div class="container" style="position:relative;z-index:1;">
-    <div class="section-header reveal">
-      <p class="section-eyebrow">What We Do</p>
-      <h2 class="section-title">Two disciplines.<br><em>One platform.</em></h2>
-      <p class="section-subtitle">Specialist Capital and Transformation Support — delivered together by a team that has done the work, not just advised on it.</p>
-    </div>
-
-    <div class="service-grid reveal">
-      <!-- Private Credit -->
-      <div class="service-card">
-        <span class="service-card__tag">Service Line 01</span>
-        <div class="service-card__icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/><line x1="12" y1="12" x2="12" y2="16"/><circle cx="12" cy="12" r="1" fill="currentColor"/>
-          </svg>
-        </div>
-        <h3 class="service-card__title">Specialist Capital</h3>
-        <p class="service-card__body">Tailored and situational debt capital for enterprises that require a dedicated credit partner. Structured around your actual business — and able to evolve into equity, quasi-equity, or long-term credit as needs develop.</p>
-        <p class="service-card__meta">Loan tickets <strong>KES 50M – KES 200M</strong> · Decisions in <strong>2–3 weeks</strong></p>
-        <a href="private-credit.html" class="btn btn--ghost">Explore Specialist Capital</a>
-      </div>
-
-      <!-- Business Transformation -->
-      <div class="service-card">
-        <span class="service-card__tag">Service Line 02</span>
-        <div class="service-card__icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/>
-            <path d="M12 7l-3 3 3 3"/>
-          </svg>
-        </div>
-        <h3 class="service-card__title">Transformation Support &amp; Advisory</h3>
-        <p class="service-card__body">Across four practice areas — turnaround, transaction advisory, corporate finance, and growth &amp; governance — we embed directly in businesses to implement change, not just recommend it.</p>
-        <p class="service-card__meta">4 Practice Areas · <strong>Embedded execution</strong> in your business</p>
-        <a href="business-transformation.html" class="btn btn--ghost">Explore Transformation Support</a>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ===== NAIROBI IMAGE BREAK ===== -->
 <div class="img-full-section reveal">

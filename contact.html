@@ -22,6 +22,11 @@
   <link rel="icon" href="favicon.ico" sizes="32x32" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
+    /* Mobile responsive grids */
+    @media (max-width: 768px) {
+      .contact-channels-grid { grid-template-columns: 1fr !important; }
+      .offices-grid { grid-template-columns: 1fr !important; }
+    }
     /* Offices floating pill shapes */
     @keyframes off-float-a { 0%,100%{transform:rotate(-28deg) translate(0,0)} 30%{transform:rotate(-26deg) translate(14px,-20px)} 65%{transform:rotate(-30deg) translate(-10px,12px)} }
     @keyframes off-float-b { 0%,100%{transform:rotate(18deg) translate(0,0)} 40%{transform:rotate(20deg) translate(-18px,14px)} 75%{transform:rotate(16deg) translate(10px,-10px)} }
@@ -113,7 +118,7 @@
     </div>
 
     <!-- Three channels -->
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;" class="stagger-children">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;" class="stagger-children contact-channels-grid">
 
       <!-- Enterprises -->
       <div style="padding:2.5rem;background:var(--c-bg-2);border:1px solid var(--c-border);border-radius:14px;display:flex;flex-direction:column;gap:1.5rem;">
@@ -202,7 +207,7 @@
       <h2 class="section-title" style="color:var(--c-dark-text);">Where we<br><em>operate.</em></h2>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;" class="reveal">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;" class="reveal offices-grid">
 
       <!-- Nairobi -->
       <div style="padding:2.5rem;background:var(--c-white);border:1px solid var(--c-border-light);border-radius:14px;">

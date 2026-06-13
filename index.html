@@ -49,6 +49,9 @@
   }
   </script>
   <style>
+    @media (max-width: 768px) {
+      .why-exist-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+    }
     /* ===== WHAT WE DO — LIGHT BG + FLOATING SHAPES ===== */
     @keyframes wwd-float-a {
       0%,100% { transform: rotate(-28deg) translate(0,0); }
@@ -447,7 +450,7 @@
     </div>
     <div id="panel-investor" class="toggle__panel" role="tabpanel">
       <p class="toggle__content">
-        Ratelrock offers institutional investors access to a large, structurally underserved private credit market in Kenya, with target net IRRs of <strong style="color:var(--c-gold);">18–26% (USD-hedged)</strong>, a net loss rate of 3–5% after recoveries, and a disciplined underwriting framework built to perform across macro cycles.
+        Ratelrock offers institutional investors access to a large, structurally underserved private credit market in Kenya. Our senior secured strategy targets risk-adjusted returns consistent with the East African private credit premium, supported by a disciplined underwriting framework built to perform across macro cycles.
       </p>
     </div>
   </div>
@@ -469,7 +472,7 @@
 <!-- ===== WHY WE EXIST ===== -->
 <section class="section investor-band" id="why-ratelrock">
   <div class="container">
-    <div style="display:grid; grid-template-columns: 320px 1fr; gap: 6rem; align-items: start;; transition-delay:0ms;" class="reveal">
+    <div style="display:grid; grid-template-columns: 320px 1fr; gap: 6rem; align-items: start;; transition-delay:0ms;" class="reveal why-exist-grid">
 
       <div>
         <div class="gold-line"></div>

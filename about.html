@@ -136,6 +136,16 @@
       border-radius: 70px;
       will-change: transform;
     }
+    @media (max-width: 768px) {
+      .about-who-grid,
+      .about-foundation-grid,
+      .about-mv-grid,
+      .about-team-grid,
+      .about-fund-grid,
+      .about-work-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+      .about-foundation-grid > div:first-child { position: static !important; }
+      .glass-card { width: 100%; flex-shrink: 1; }
+    }
   </style></head>
 <body>
 
@@ -205,7 +215,7 @@
 <!-- ===== WHO WE ARE ===== -->
 <section class="section">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;" class="reveal">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;" class="reveal about-who-grid">
       <div>
         <p class="section-eyebrow">Who We Are</p>
         <h2 class="section-title">Institutional rigour.<br><em>Genuine transformation.</em></h2>
@@ -304,7 +314,7 @@
     <div class="mvv-shape" style="width:420px;height:86px;top:68%;left:28%;background:rgba(21,46,31,0.06);box-shadow:0 4px 28px rgba(21,46,31,0.04),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.05);animation:mvv-float-d 34s ease-in-out infinite;animation-delay:-12s;"></div>
   </div>
   <div class="container" style="position:relative;z-index:1;">
-    <div style="display:grid;grid-template-columns:280px 1fr;gap:5rem;align-items:start;" class="reveal">
+    <div style="display:grid;grid-template-columns:280px 1fr;gap:5rem;align-items:start;" class="reveal about-foundation-grid">
       <div style="position:sticky;top:7rem;">
         <div class="gold-line"></div>
         <p class="section-eyebrow">Foundation</p>
@@ -312,7 +322,7 @@
       </div>
       <div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:3.5rem;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:3.5rem;" class="about-mv-grid">
       <div style="padding:2.5rem;background:var(--c-white);border:1px solid var(--c-border-light);border-radius:12px;box-shadow:0 2px 16px rgba(0,0,0,0.06);">
         <p style="font-family:var(--f-ui);font-size:0.625rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--c-gold);margin-bottom:0.875rem;">Mission</p>
         <p style="font-family:var(--f-display);font-size:1.125rem;line-height:1.65;color:var(--c-dark-text);">To bridge the critical financing gap for Kenya's high-potential enterprises by providing flexible, timely, and intelligently structured credit solutions, empowering businesses to unlock their growth potential and mature into the next generation of bankable market leaders.</p>
@@ -358,7 +368,7 @@
 <!-- ===== TEAM ===== -->
 <section class="section">
   <div class="container">
-    <div style="display:grid;grid-template-columns:280px 1fr;gap:5rem;align-items:start;" class="reveal">
+    <div style="display:grid;grid-template-columns:280px 1fr;gap:5rem;align-items:start;" class="reveal about-team-grid">
       <div>
         <div class="gold-line"></div>
         <p class="section-eyebrow">Our Team</p>
@@ -400,7 +410,7 @@
 <!-- ===== FUND STRUCTURE ===== -->
 <section class="section" style="background:var(--c-bg-2);border-top:1px solid var(--c-border);">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;" class="reveal">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;" class="reveal about-fund-grid">
       <div>
         <p class="section-eyebrow">Fund Structure</p>
         <h2 class="section-title">Mauritius-domiciled.<br><em>Kenya-rooted.</em></h2>
@@ -435,7 +445,7 @@
 <!-- ===== WORK WITH US ===== -->
 <section class="section section--light">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;" class="reveal">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;" class="reveal about-work-grid">
       <div>
         <div class="gold-line"></div>
         <p class="section-eyebrow">Work With Us</p>

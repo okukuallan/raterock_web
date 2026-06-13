@@ -379,6 +379,10 @@
       .practice__body,
       .difference__header,
       .ca-cta { grid-template-columns: 1fr; gap: 2.5rem; }
+      .practice__body > *,
+      .ca-intro__inner > *,
+      .difference__header > *,
+      .ca-cta > * { min-width: 0; }
       .img-break { height: 360px; }
     }
     @media (max-width: 640px) {
@@ -386,6 +390,11 @@
       .ca-stats { grid-template-columns: 1fr 1fr; }
       .diff-cols-head { display: none; }
       .diff-row { grid-template-columns: 1fr; gap: 0.5rem; }
+    }
+    @media (max-width: 768px) {
+      .checklist__label,
+      .checklist__item { overflow-wrap: break-word; word-break: break-word; }
+      .sidebar-card { word-break: break-word; }
     }
   </style>
 </head>

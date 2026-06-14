@@ -211,9 +211,18 @@ input, textarea, select { font-family: inherit; }
   transition: color 200ms var(--ease-out), background 200ms var(--ease-out);
 }
 
-.nav__link:hover, .nav__link.active {
+.nav__link:hover {
   color: var(--c-text);
   background: rgba(255,255,255,0.06);
+}
+
+.nav__link.active, .nav__link--active {
+  color: var(--c-text);
+  background: rgba(255,255,255,0.06);
+  text-decoration: underline;
+  text-decoration-color: var(--c-gold);
+  text-decoration-thickness: 2.5px;
+  text-underline-offset: 5px;
 }
 
 /* ── Nav dropdown ── */

@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:unsplash.com)"
+      "WebFetch(domain:unsplash.com)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "PowerShell(\\(Get-Content \"C:\\\\Users\\\\AllanK\\\\OneDrive\\\\BUSINESS\\\\Private Credit Research\\\\Web\\\\originalstufff\\\\webexample\\\\business-transformation.html\" -Raw\\) -replace 'var\\\\\\(--c-text-3\\\\\\)', 'var\\(--c-text-2\\)' | Set-Content \"C:\\\\Users\\\\AllanK\\\\OneDrive\\\\BUSINESS\\\\Private Credit Research\\\\Web\\\\originalstufff\\\\webexample\\\\business-transformation.html\" -Encoding UTF8)"
     ]
   }
 }

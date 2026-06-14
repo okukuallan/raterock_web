@@ -166,3 +166,66 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     }
   }, { passive: true });
 })();
+
+/* ===== HERO 3D MOUSE PARALLAX ===== */
+(function () {
+  const heroSection = document.querySelector('.hero');
+  if (!heroSection || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const content  = heroSection.querySelector('.hero__content');
+  const skyline  = heroSection.querySelector('[aria-hidden="true"][style*="position:absolute"]');
+  if (!content) return;
+
+  heroSection.style.perspective = '1200px';
+  heroSection.style.perspectiveOrigin = '50% 40%';
+
+  let targetX = 0, targetY = 0, curX = 0, curY = 0, rafPending = false;
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  function tick() {
+    rafPending = false;
+    curX = lerp(curX, targetX, 0.07);
+    curY = lerp(curY, targetY, 0.07);
+
+    content.style.transform = `rotateX(${curY * -2.5}deg) rotateY(${curX * 3.5}deg)`;
+    if (skyline) skyline.style.transform = `translate3d(${curX * -14}px, ${curY * -7}px, 0)`;
+
+    if (Math.abs(targetX - curX) > 0.005 || Math.abs(targetY - curY) > 0.005) {
+      rafPending = true;
+      requestAnimationFrame(tick);
+    }
+  }
+
+  function schedule() { if (!rafPending) { rafPending = true; requestAnimationFrame(tick); } }
+
+  heroSection.addEventListener('mousemove', (e) => {
+    const r = heroSection.getBoundingClientRect();
+    targetX = (e.clientX - r.left  - r.width  / 2) / (r.width  / 2);
+    targetY = (e.clientY - r.top   - r.height / 2) / (r.height / 2);
+    schedule();
+  });
+
+  heroSection.addEventListener('mouseleave', () => { targetX = 0; targetY = 0; schedule(); });
+})();
+
+/* ===== GATEWAY PANEL 3D TILT ===== */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  document.querySelectorAll('.gateway__panel').forEach(panel => {
+    panel.addEventListener('mouseenter', () => {
+      panel.style.transition = 'transform 0.12s ease';
+    });
+    panel.addEventListener('mousemove', (e) => {
+      const r = panel.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width  / 2) / (r.width  / 2);
+      const y = (e.clientY - r.top  - r.height / 2) / (r.height / 2);
+      panel.style.transform = `perspective(900px) rotateX(${y * -5}deg) rotateY(${x * 7}deg) scale(1.015)`;
+    });
+    panel.addEventListener('mouseleave', () => {
+      panel.style.transition = 'transform 0.5s ease';
+      panel.style.transform = '';
+    });
+  });
+})();

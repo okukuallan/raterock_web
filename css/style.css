@@ -2545,3 +2545,88 @@ input, textarea, select { font-family: inherit; }
   outline-offset: 3px;
   border-radius: 4px;
 }
+
+/* ===================================================
+   VIDEO HERO — CROSS-BROWSER FIX (incl. Brave)
+   Explicit top/left + min-width/height ensure the
+   video fills its container even when object-fit:cover
+   is applied before the browser knows the video size.
+   =================================================== */
+.hero__bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+.hero__bg video {
+  position: absolute;
+  top: 0; left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  z-index: 0;
+}
+
+/* ===================================================
+   PAGE HERO BACKGROUND IMAGES — mobile reliability
+   Avoid fixed-attachment flicker on iOS Safari
+   =================================================== */
+.page-hero__bg-img {
+  background-attachment: scroll;
+}
+
+/* ===================================================
+   CAROUSEL — PHONE VIEW
+   !important overrides the page-level <style> block
+   which declares height:340px after the external sheet
+   =================================================== */
+@media (max-width: 768px) {
+  .fs-carousel { height: 260px !important; }
+  .fs-carousel__content { padding: 0 4.5rem !important; }
+  .fs-carousel__btn { width: 36px !important; height: 36px !important; }
+}
+@media (max-width: 480px) {
+  .fs-carousel { height: 210px !important; }
+  .fs-carousel__content { padding: 0 3.5rem !important; }
+}
+
+/* ===================================================
+   SPECIALIST CAPITAL — HERO METRIC CARDS ON PHONE
+   !important for same cascade-order reason as above
+   =================================================== */
+@media (max-width: 640px) {
+  .hero-metrics { gap: 0.875rem; }
+  .hero-metric-card { min-width: 130px !important; padding: 1.25rem 1rem !important; }
+  .hero-metric-card__value { font-size: 2rem !important; }
+}
+@media (max-width: 480px) {
+  .hero-metrics { flex-direction: column; }
+  .hero-metric-card { min-width: unset !important; }
+}
+
+/* ===================================================
+   IMPACT PAGE — MOBILE FIXES
+   =================================================== */
+@media (max-width: 768px) {
+  /* Nairobi callout at hero bottom-right overlaps main
+     content on narrow screens — hide it */
+  .impact-nairobi-callout { display: none; }
+
+  /* Hero stats: stack vertically, hide separator bars */
+  .impact-hero-stats {
+    flex-direction: column !important;
+    gap: 1.25rem !important;
+  }
+  .impact-hero-stats .stat-divider { display: none !important; }
+
+  /* SDG section standalone img-panel */
+  .sdg-img-panel { height: 200px !important; }
+
+  /* Our Borrowers quote section — reduce min-height */
+  .impact-hero-stats + * { min-height: auto; }
+}

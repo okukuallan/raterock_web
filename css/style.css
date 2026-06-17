@@ -150,7 +150,7 @@ input, textarea, select { font-family: inherit; }
   width: 100%;
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 clamp(1.25rem, 3vw, 3.5rem);
 }
 
 .nav__logo {

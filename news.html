@@ -24,8 +24,30 @@
   <style>
     /* ── News-specific styles ── */
     .news-hero {
+      position: relative;
       padding: 10rem 0 5rem;
       border-bottom: 1px solid var(--c-border);
+      overflow: hidden;
+    }
+    .news-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('images/hero/news.png');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+    .news-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, rgba(7,14,26,0.88) 0%, rgba(7,14,26,0.6) 55%, rgba(7,14,26,0.3) 100%);
+      z-index: 1;
+    }
+    .news-hero .container {
+      position: relative;
+      z-index: 2;
     }
     .news-hero__eyebrow {
       font-family: var(--f-ui);

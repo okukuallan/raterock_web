@@ -125,6 +125,90 @@
       .wwe-cards  { grid-template-columns: 1fr !important; }
     }
 
+
+    /* ===== FOCUS SECTORS CAROUSEL ===== */
+    .fs-carousel {
+      position: relative;
+      width: 100%;
+      height: 340px;
+      overflow: hidden;
+    }
+    .fs-carousel__track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.7s cubic-bezier(0.4,0,0.2,1);
+    }
+    .fs-carousel__slide {
+      position: relative;
+      min-width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+    }
+    .fs-carousel__slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .fs-carousel__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, rgba(7,14,26,0.75) 0%, rgba(7,14,26,0.4) 55%, rgba(7,14,26,0.15) 100%);
+      pointer-events: none;
+    }
+    .fs-carousel__content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      padding: 0 clamp(1.25rem, 3vw, 3.5rem);
+    }
+    .fs-carousel__btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--c-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .fs-carousel__btn:hover {
+      background: rgba(200,150,58,0.25);
+      border-color: rgba(200,150,58,0.5);
+    }
+    .fs-carousel__btn--prev { left: 1.25rem; }
+    .fs-carousel__btn--next { right: 1.25rem; }
+    .fs-carousel__dots {
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.5rem;
+      z-index: 10;
+    }
+    .fs-carousel__dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.35);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .fs-carousel__dot.active {
+      background: var(--c-gold);
+      transform: scale(1.3);
+    }
   </style>
 </head>
 <body>
@@ -166,7 +250,7 @@
 <!-- ===== PAGE HERO ===== -->
 <section class="page-hero pc-hero">
   <div class="page-hero__bg">
-    <div class="page-hero__bg-img" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80&fit=crop&crop=center');"></div>
+    <div class="page-hero__bg-img" style="background-image:url('images/hero/specialist_capital_hero.png');"></div>
     <div class="page-hero__bg-overlay"></div>
     <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 50%, rgba(21,46,31,0.35) 0%, transparent 70%);"></div>
   </div>
@@ -406,16 +490,55 @@
 </section>
 
 <!-- ===== AGRIBUSINESS IMAGE BREAK ===== -->
-<div class="img-full-section reveal">
-  <img src="https://images.unsplash.com/photo-1612286710168-1690328bb8bd?w=1920&q=80&fit=crop&crop=center" alt="East Africa agricultural land, Kenya's productive sectors" />
-  <div class="img-full-section__overlay"></div>
-  <div class="img-full-section__content">
+<div class="fs-carousel reveal" id="fsc">
+  <div class="fs-carousel__track" id="fsc-track">
+    <div class="fs-carousel__slide">
+      <img src="images/other_images/one.png" alt="Focus sector one">
+      <div class="fs-carousel__overlay"></div>
+    </div>
+    <div class="fs-carousel__slide">
+      <img src="images/other_images/two.png" alt="Focus sector two">
+      <div class="fs-carousel__overlay"></div>
+    </div>
+    <div class="fs-carousel__slide">
+      <img src="images/other_images/three.png" alt="Focus sector three">
+      <div class="fs-carousel__overlay"></div>
+    </div>
+  </div>
+  <div class="fs-carousel__content">
     <div style="max-width:600px;">
       <p style="font-family:var(--f-ui);font-size:0.625rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--c-gold);margin-bottom:0.625rem;">Focus Sectors</p>
       <p style="font-family:var(--f-display);font-size:clamp(1.375rem,2.5vw,2.25rem);font-weight:400;color:var(--c-text);line-height:1.25;">Agribusiness. Manufacturing. The value chains that feed Kenya's growth.</p>
     </div>
   </div>
+  <button class="fs-carousel__btn fs-carousel__btn--prev" aria-label="Previous" onclick="fscMove(-1)">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="fs-carousel__btn fs-carousel__btn--next" aria-label="Next" onclick="fscMove(1)">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+  <div class="fs-carousel__dots" id="fsc-dots">
+    <button class="fs-carousel__dot active" onclick="fscGo(0)"></button>
+    <button class="fs-carousel__dot" onclick="fscGo(1)"></button>
+    <button class="fs-carousel__dot" onclick="fscGo(2)"></button>
+  </div>
 </div>
+<script>
+(function(){
+  let cur = 0;
+  const total = 3;
+  const track = document.getElementById('fsc-track');
+  const dots = document.querySelectorAll('#fsc-dots .fs-carousel__dot');
+  function go(n){
+    cur = (n + total) % total;
+    track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+    dots.forEach((d,i) => d.classList.toggle('active', i === cur));
+  }
+  window.fscMove = function(dir){ go(cur + dir); };
+  window.fscGo   = function(n){ go(n); };
+  setInterval(function(){ go(cur + 1); }, 5000);
+})();
+</script>
 
 <!-- ===== THE RATELROCK DIFFERENCE ===== -->
 <section class="section section--light" id="difference" style="position:relative;overflow:hidden;">

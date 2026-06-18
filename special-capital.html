@@ -126,6 +126,52 @@
     }
 
 
+    /* ===== HERO BACKGROUND CAROUSEL ===== */
+    .hero-bg-carousel {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .hero-bg-carousel__slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+    .hero-bg-carousel__slide.active { opacity: 0.75; }
+    .hero-bg-carousel__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(7,14,26,0.78) 0%, rgba(7,14,26,0.38) 50%, rgba(7,14,26,0.72) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero-bg-carousel__dots {
+      position: absolute;
+      bottom: 2.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.5rem;
+      z-index: 3;
+    }
+    .hero-bg-carousel__dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.38);
+      border: none;
+      cursor: pointer;
+      transition: background 0.22s, transform 0.22s;
+      padding: 0;
+    }
+    .hero-bg-carousel__dot.active {
+      background: var(--c-gold);
+      transform: scale(1.45);
+    }
+
     /* ===== FOCUS SECTORS CAROUSEL ===== */
     .fs-carousel {
       position: relative;
@@ -252,12 +298,26 @@
 
 <!-- ===== PAGE HERO ===== -->
 <section class="page-hero pc-hero">
-  <div class="page-hero__bg">
-    <div class="page-hero__bg-img" style="background-image:url('images/hero/specialist.png');"></div>
-    <div class="page-hero__bg-overlay"></div>
-    <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 50%, rgba(21,46,31,0.35) 0%, transparent 70%);"></div>
+  <!-- Hero background carousel -->
+  <div class="hero-bg-carousel" id="hbc" aria-hidden="true">
+    <div class="hero-bg-carousel__slide active" style="background-image:url('images/other_images/tea.png');"></div>
+    <div class="hero-bg-carousel__slide" style="background-image:url('images/other_images/flour.png');"></div>
+    <div class="hero-bg-carousel__slide" style="background-image:url('images/other_images/market.png');"></div>
+    <div class="hero-bg-carousel__slide" style="background-image:url('images/other_images/steel.png');"></div>
+    <div class="hero-bg-carousel__slide" style="background-image:url('images/other_images/plastic.png');"></div>
+    <div class="hero-bg-carousel__slide" style="background-image:url('images/other_images/textile.png');"></div>
+    <div class="hero-bg-carousel__overlay"></div>
   </div>
-  <div class="container">
+  <!-- Dot indicators -->
+  <div class="hero-bg-carousel__dots" id="hbc-dots">
+    <button class="hero-bg-carousel__dot active" onclick="hbcGo(0)" aria-label="Tea"></button>
+    <button class="hero-bg-carousel__dot" onclick="hbcGo(1)" aria-label="Flour"></button>
+    <button class="hero-bg-carousel__dot" onclick="hbcGo(2)" aria-label="Market"></button>
+    <button class="hero-bg-carousel__dot" onclick="hbcGo(3)" aria-label="Steel"></button>
+    <button class="hero-bg-carousel__dot" onclick="hbcGo(4)" aria-label="Plastic"></button>
+    <button class="hero-bg-carousel__dot" onclick="hbcGo(5)" aria-label="Textile"></button>
+  </div>
+  <div class="container" style="position:relative;z-index:2;">
     <div class="page-hero__content">
       <p class="hero__label hero-anim">Specialist Capital</p>
       <h1 class="hero__title hero-anim" style="font-size:clamp(2.5rem,5vw,4.5rem);">
@@ -526,6 +586,22 @@
     <button class="fs-carousel__dot" onclick="fscGo(2)"></button>
   </div>
 </div>
+<script>
+(function(){
+  var hbcSlides = document.querySelectorAll('#hbc .hero-bg-carousel__slide');
+  var hbcDots   = document.querySelectorAll('#hbc-dots .hero-bg-carousel__dot');
+  var hbcCur = 0;
+  function hbcGo(n){
+    hbcSlides[hbcCur].classList.remove('active');
+    hbcDots[hbcCur].classList.remove('active');
+    hbcCur = (n + hbcSlides.length) % hbcSlides.length;
+    hbcSlides[hbcCur].classList.add('active');
+    hbcDots[hbcCur].classList.add('active');
+  }
+  window.hbcGo = hbcGo;
+  setInterval(function(){ hbcGo(hbcCur + 1); }, 5000);
+})();
+</script>
 <script>
 (function(){
   let cur = 0;

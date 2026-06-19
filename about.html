@@ -26,15 +26,18 @@
     .pc-hero { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; }
     .pc-hero .container { display: flex; flex-direction: column; gap: 0; }
     .hero-metrics {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 0;
+      right: 0;
       display: flex;
-      gap: 1.25rem;
-      margin-top: 3.5rem;
-      flex-wrap: wrap;
+      justify-content: space-evenly;
+      padding: 0 3rem;
+      z-index: 3;
     }
     .hero-metric-card {
-      flex: 1;
-      min-width: 130px;
-      max-width: 200px;
+      min-width: 200px;
+      max-width: 260px;
       background: rgba(21,46,31,0.75);
       backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(200,150,58,0.35);
@@ -242,20 +245,20 @@
         We are an East African specialist private credit and business transformation platform, built to provide the expertise, flexibility, and partnership that high-potential enterprises deserve.
       </p>
     </div>
-    <!-- Metrics inside hero -->
-    <div class="hero-metrics hero-anim">
-      <div class="hero-metric-card">
-        <div class="hero-metric-card__value">Envision</div>
-        <div class="hero-metric-card__label">We see your potential</div>
-      </div>
-      <div class="hero-metric-card">
-        <div class="hero-metric-card__value">Mobilize</div>
-        <div class="hero-metric-card__label">We deploy the capital</div>
-      </div>
-      <div class="hero-metric-card">
-        <div class="hero-metric-card__value">Transform</div>
-        <div class="hero-metric-card__label">We drive the growth</div>
-      </div>
+  </div>
+  <!-- Metrics pinned across full hero bottom -->
+  <div class="hero-metrics hero-anim">
+    <div class="hero-metric-card">
+      <div class="hero-metric-card__value">Envision</div>
+      <div class="hero-metric-card__label">We see your potential</div>
+    </div>
+    <div class="hero-metric-card">
+      <div class="hero-metric-card__value">Mobilize</div>
+      <div class="hero-metric-card__label">We deploy the capital</div>
+    </div>
+    <div class="hero-metric-card">
+      <div class="hero-metric-card__value">Transform</div>
+      <div class="hero-metric-card__label">We drive the growth</div>
     </div>
   </div>
 </section>

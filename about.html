@@ -22,6 +22,48 @@
   <link rel="icon" href="favicon.ico" sizes="32x32" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
+    /* ===== ABOUT HERO ===== */
+    .pc-hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+    .pc-hero .container { display: flex; flex-direction: column; gap: 0; }
+    .hero-metrics {
+      display: flex;
+      gap: 1.25rem;
+      margin-top: 3.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-metric-card {
+      flex: 1;
+      min-width: 180px;
+      background: rgba(21,46,31,0.75);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(200,150,58,0.35);
+      border-radius: 14px;
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(200,150,58,0.1);
+      transition: border-color 250ms ease, transform 250ms ease;
+    }
+    .hero-metric-card:hover {
+      border-color: rgba(200,150,58,0.65);
+      transform: translateY(-3px);
+    }
+    .hero-metric-card__value {
+      font-family: var(--f-display);
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: var(--c-gold);
+      line-height: 1;
+      margin-bottom: 0.6rem;
+    }
+    .hero-metric-card__label {
+      font-family: var(--f-ui);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(237,232,220,0.6);
+    }
+
     /* ===== TEAM GLASS CARDS ===== */
     .team-glass-container {
       position: relative;
@@ -184,17 +226,12 @@
 </nav>
 
 <!-- ===== PAGE HERO ===== -->
-<section class="page-hero" style="min-height:100vh;display:flex;align-items:center;">
+<section class="page-hero pc-hero">
   <div class="page-hero__bg">
-    <div class="page-hero__bg-img" style="background-image:url('images/hero/aboutushero.png');opacity:0.78;"></div>
-    <div class="page-hero__bg-overlay" style="background:linear-gradient(160deg, rgba(7,14,26,0.6) 0%, rgba(7,14,26,0.25) 50%, rgba(7,14,26,0.55) 100%);"></div>
-    <!-- Geometric accent -->
-    <div aria-hidden="true" style="
-      position:absolute; right:0; top:0; bottom:0; width:40%;
-      background: linear-gradient(135deg, transparent 0%, rgba(21,46,31,0.25) 100%);
-    "></div>
+    <div class="page-hero__bg-img" style="background-image:url('images/hero/aboutushero2.png');opacity:0.78;"></div>
+    <div class="page-hero__bg-overlay" style="background:linear-gradient(160deg, rgba(7,14,26,0.78) 0%, rgba(7,14,26,0.38) 50%, rgba(7,14,26,0.72) 100%);"></div>
   </div>
-  <div class="container" style="width:100%;">
+  <div class="container" style="position:relative;z-index:2;">
     <div class="page-hero__content">
       <p class="hero__label hero-anim">About Ratelrock</p>
       <h1 class="hero__title hero-anim" style="font-size:clamp(2.5rem,5vw,4.5rem);">
@@ -203,6 +240,21 @@
       <p class="hero__subtitle hero-anim" style="max-width:580px;">
         We are an East African specialist private credit and business transformation platform, built to provide the expertise, flexibility, and partnership that high-potential enterprises deserve.
       </p>
+    </div>
+    <!-- Metrics inside hero -->
+    <div class="hero-metrics hero-anim">
+      <div class="hero-metric-card">
+        <div class="hero-metric-card__value">Envision</div>
+        <div class="hero-metric-card__label">We see your potential</div>
+      </div>
+      <div class="hero-metric-card">
+        <div class="hero-metric-card__value">Mobilize</div>
+        <div class="hero-metric-card__label">We deploy the capital</div>
+      </div>
+      <div class="hero-metric-card">
+        <div class="hero-metric-card__value">Transform</div>
+        <div class="hero-metric-card__label">We drive the growth</div>
+      </div>
     </div>
   </div>
 </section>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3D1BM93WL2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3D1BM93WL2');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | Ratelrock</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon.ico" sizes="32x32" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--c-navy, #07090f);
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .error-page::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(180,148,76,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .error-number {
+      font-family: var(--f-display, 'Cormorant Garamond', serif);
+      font-size: clamp(7rem, 20vw, 14rem);
+      font-weight: 600;
+      line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(180,148,76,0.4);
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+    .error-title {
+      font-family: var(--f-display, 'Cormorant Garamond', serif);
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 500;
+      color: var(--c-cream, #EDE8DC);
+      margin: 0.5rem 0 1.25rem;
+    }
+    .error-body {
+      font-family: var(--f-body, 'Inter', sans-serif);
+      font-size: 1rem;
+      color: rgba(237,232,220,0.55);
+      max-width: 380px;
+      line-height: 1.7;
+      margin: 0 0 2.5rem;
+    }
+    .error-cta {
+      font-family: var(--f-ui, 'Space Grotesk', sans-serif);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--c-navy, #07090f);
+      background: var(--c-gold, #B4944C);
+      padding: 0.875rem 2.25rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .error-cta:hover {
+      opacity: 0.85;
+    }
+  </style>
+</head>
+<body>
+  <div class="error-page">
+    <p class="error-number">404</p>
+    <h1 class="error-title">Page not found</h1>
+    <p class="error-body">The page you're looking for doesn't exist or may have been moved. Let's get you back on track.</p>
+    <a href="index.html" class="error-cta">Back to Home</a>
+  </div>
+</body>
+</html>

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.ratelrock.co.ke/sitemap.xml
+Sitemap: https://www.ratelrock.com/sitemap.xml

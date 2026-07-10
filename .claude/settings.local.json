@@ -5,7 +5,30 @@
       "Bash(git add *)",
       "Bash(git commit *)",
       "Bash(git push *)",
-      "PowerShell(\\(Get-Content \"C:\\\\Users\\\\AllanK\\\\OneDrive\\\\BUSINESS\\\\Private Credit Research\\\\Web\\\\originalstufff\\\\webexample\\\\business-transformation.html\" -Raw\\) -replace 'var\\\\\\(--c-text-3\\\\\\)', 'var\\(--c-text-2\\)' | Set-Content \"C:\\\\Users\\\\AllanK\\\\OneDrive\\\\BUSINESS\\\\Private Credit Research\\\\Web\\\\originalstufff\\\\webexample\\\\business-transformation.html\" -Encoding UTF8)"
+      "PowerShell(\\(Get-Content \"C:\\\\Users\\\\AllanK\\\\OneDrive\\\\BUSINESS\\\\Private Credit Research\\\\Web\\\\originalstufff\\\\webexample\\\\business-transformation.html\" -Raw\\) -replace 'var\\\\\\(--c-text-3\\\\\\)', 'var\\(--c-text-2\\)' | Set-Content \"C:\\\\Users\\\\AllanK\\\\OneDrive\\\\BUSINESS\\\\Private Credit Research\\\\Web\\\\originalstufff\\\\webexample\\\\business-transformation.html\" -Encoding UTF8)",
+      "mcp__Claude_Preview__preview_start",
+      "PowerShell(powershell -ExecutionPolicy ByPass -c \"irm https://astral.sh/uv/install.ps1 | iex\" 2>&1)",
+      "PowerShell($env:Path = \"C:\\\\Users\\\\AllanK\\\\.local\\\\bin;$env:Path\"; Set-Location \"C:\\\\Users\\\\AllanK\\\\llm-council\"; uv sync 2>&1)",
+      "PowerShell(python --version 2>&1)",
+      "PowerShell(python3 --version 2>&1)",
+      "Bash(python -c ' *)",
+      "Bash(grep -E \"robots|sitemap|\\\\.md$\")",
+      "mcp__photoshop__photoshop_execute_script",
+      "mcp__photoshop__photoshop_get_preview",
+      "mcp__photoshop__photoshop_recipe_remove_background",
+      "mcp__photoshop__photoshop_get_state",
+      "mcp__photoshop__photoshop_undo",
+      "mcp__photoshop__photoshop_select_subject",
+      "WebFetch(domain:mcpmarket.com)",
+      "WebFetch(domain:github.com)",
+      "WebSearch",
+      "PowerShell(python --version)",
+      "PowerShell(git clone https://github.com/krVatsal/illustrator-mcp \"C:\\\\Users\\\\AllanK\\\\illustrator-mcp\" 2>&1)",
+      "mcp__illustrator__run",
+      "mcp__illustrator__view",
+      "Bash(git commit -m ' *)",
+      "WebFetch(domain:www.beardcapital.co.ke)",
+      "Bash(git remote *)"
     ]
   }
 }

@@ -28,7 +28,8 @@
       "mcp__illustrator__view",
       "Bash(git commit -m ' *)",
       "WebFetch(domain:www.beardcapital.co.ke)",
-      "Bash(git remote *)"
+      "Bash(git remote *)",
+      "Bash(vercel --prod --yes)"
     ]
   }
 }

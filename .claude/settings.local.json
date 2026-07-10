@@ -29,7 +29,8 @@
       "Bash(git commit -m ' *)",
       "WebFetch(domain:www.beardcapital.co.ke)",
       "Bash(git remote *)",
-      "Bash(vercel --prod --yes)"
+      "Bash(vercel --prod --yes)",
+      "Bash(git commit -m 'Remove remaining CMA-exposure leftovers found in follow-up audit *)"
     ]
   }
 }

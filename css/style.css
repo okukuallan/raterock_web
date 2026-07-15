@@ -268,8 +268,21 @@ input, textarea, select { font-family: inherit; }
 
 .nav__ctas {
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.375rem;
+  margin-top: -0.375rem;
+}
+
+.nav__tagline {
+  font-family: var(--f-ui);
+  font-size: 0.5625rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--c-gold);
+  white-space: nowrap;
 }
 
 .nav__email {

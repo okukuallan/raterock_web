@@ -36,7 +36,8 @@
       "Bash(git commit -m 'Fix mobile responsiveness: hero-metrics overlap and site-wide horizontal scroll *)",
       "Bash(git commit -m 'Update RATEL core values to Resilience, Access, Trust, Empowerment, Legacy *)",
       "Bash(git commit -m 'Fix mezzanine investment-return language and correct financing-gap stat *)",
-      "Bash(git commit -m 'Soften operational commitments per colleague feedback *)"
+      "Bash(git commit -m 'Soften operational commitments per colleague feedback *)",
+      "Bash(git commit -m 'Add ENVISION | MOBILIZE | TRANSFORM tagline under nav email, swap contact icon to phone *)"
     ]
   }
 }

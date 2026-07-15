@@ -34,7 +34,8 @@
       "Bash(git commit -m 'Replace Media & General mailto link with a contact form; center Our Offices section *)",
       "Bash(git commit -m 'Redesign contact page: unified reach-us card, merged offices layout, glass cards *)",
       "Bash(git commit -m 'Fix mobile responsiveness: hero-metrics overlap and site-wide horizontal scroll *)",
-      "Bash(git commit -m 'Update RATEL core values to Resilience, Access, Trust, Empowerment, Legacy *)"
+      "Bash(git commit -m 'Update RATEL core values to Resilience, Access, Trust, Empowerment, Legacy *)",
+      "Bash(git commit -m 'Fix mezzanine investment-return language and correct financing-gap stat *)"
     ]
   }
 }

@@ -37,7 +37,14 @@
       "Bash(git commit -m 'Update RATEL core values to Resilience, Access, Trust, Empowerment, Legacy *)",
       "Bash(git commit -m 'Fix mezzanine investment-return language and correct financing-gap stat *)",
       "Bash(git commit -m 'Soften operational commitments per colleague feedback *)",
-      "Bash(git commit -m 'Add ENVISION | MOBILIZE | TRANSFORM tagline under nav email, swap contact icon to phone *)"
+      "Bash(git commit -m 'Add ENVISION | MOBILIZE | TRANSFORM tagline under nav email, swap contact icon to phone *)",
+      "Bash(git commit -m 'Switch email domain from .com to .co.ke across the site *)",
+      "Bash(soffice --version)",
+      "Bash(where soffice.exe)",
+      "Bash(python -c \"import docx; print\\('python-docx available'\\)\")",
+      "Bash(pip install *)",
+      "Bash(python -c \"import docx; print\\('ok'\\)\")",
+      "Bash(rm -f \"/c/Users/AllanK/AppData/Local/Temp/claude/C--Users-AllanK-OneDrive-BUSINESS-Private-Credit-Research-Web-originalstufff-Web-Before-LPs/3c2c8738-9029-4f96-bc91-3d4b762ef527/scratchpad/Ratelrock_PrivacyPolicy_v2.docx\")"
     ]
   }
 }

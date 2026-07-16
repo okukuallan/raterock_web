@@ -36,10 +36,11 @@
 
 /* ===== ACTIVE NAV LINK ===== */
 (function () {
-  const path = window.location.pathname.split('/').pop() || 'index.html';
+  const normalize = (p) => p.split('#')[0].replace(/\/+$/, '') || '/';
+  const path = normalize(window.location.pathname);
   document.querySelectorAll('.nav__link').forEach(link => {
-    const href = link.getAttribute('href') || '';
-    if (href === path || (path === '' && href === 'index.html')) {
+    const href = normalize(link.getAttribute('href') || '');
+    if (href === path) {
       link.classList.add('active');
     }
   });

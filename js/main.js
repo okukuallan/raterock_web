@@ -45,6 +45,28 @@
   });
 })();
 
+/* ===== COOKIE CONSENT BANNER ===== */
+(function () {
+  const STORAGE_KEY = 'ratelrock_cookie_notice_dismissed';
+  const banner = document.querySelector('.cookie-banner');
+  if (!banner) return;
+
+  if (!localStorage.getItem(STORAGE_KEY)) {
+    requestAnimationFrame(() => banner.classList.add('visible'));
+  } else {
+    banner.style.display = 'none';
+  }
+
+  const acceptBtn = banner.querySelector('.cookie-banner__btn--accept');
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', () => {
+      localStorage.setItem(STORAGE_KEY, '1');
+      banner.classList.remove('visible');
+      setTimeout(() => { banner.style.display = 'none'; }, 400);
+    });
+  }
+})();
+
 /* ===== SCROLL REVEAL ===== */
 (function () {
   const io = new IntersectionObserver((entries) => {

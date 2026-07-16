@@ -11,6 +11,10 @@ RewriteEngine On
 RewriteCond %{HTTP_USER_AGENT} (GPTBot|ClaudeBot|CCBot|Google-Extended|Bytespider|Applebot-Extended|Meta-ExternalAgent|FacebookBot|Amazonbot) [NC]
 RewriteRule ^ - [F,L]
 
+# Redirect .html URLs to their clean, extensionless equivalent
+RewriteCond %{THE_REQUEST} \s/+(.+)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
 # Remove .html extension from URLs
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

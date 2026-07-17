@@ -1,5 +1,5 @@
 ﻿/* ======================================================
-   RATELROCK — Global Stylesheet
+   RATELROCK - Global Stylesheet
    Premium Private Credit · East Africa
    ====================================================== */
 
@@ -2352,7 +2352,7 @@ input, textarea, select { font-family: inherit; }
 }
 
 /* ===================================================
-   MOBILE — COMPREHENSIVE PHONE OPTIMISATION
+   MOBILE - COMPREHENSIVE PHONE OPTIMISATION
    Overrides inline grid styles that CSS classes can't
    reach, plus targeted fixes for all inner pages.
    =================================================== */
@@ -2403,7 +2403,7 @@ input, textarea, select { font-family: inherit; }
   }
 }
 
-/* --- 3. Hero sections — better phone height & spacing --- */
+/* --- 3. Hero sections - better phone height & spacing --- */
 @media (max-width: 768px) {
   .hero {
     min-height: 100svh;
@@ -2437,7 +2437,7 @@ input, textarea, select { font-family: inherit; }
   }
 }
 
-/* --- 4. Full-bleed image sections — shorter on phones --- */
+/* --- 4. Full-bleed image sections - shorter on phones --- */
 @media (max-width: 768px) {
   .img-full-section {
     height: 260px;
@@ -2447,7 +2447,7 @@ input, textarea, select { font-family: inherit; }
   }
 }
 
-/* --- 5. Contact page — forms stack cleanly --- */
+/* --- 5. Contact page - forms stack cleanly --- */
 @media (max-width: 768px) {
   .contact-panel__form [style*="grid-template-columns"],
   .contact-panel__form [style*="grid-template-columns:1fr 1fr 1fr"] {
@@ -2462,7 +2462,7 @@ input, textarea, select { font-family: inherit; }
   }
 }
 
-/* --- 6. Comparison table — scrollable on small screens --- */
+/* --- 6. Comparison table - scrollable on small screens --- */
 @media (max-width: 768px) {
   .comparison-table {
     display: block;
@@ -2480,7 +2480,7 @@ input, textarea, select { font-family: inherit; }
   }
 }
 
-/* --- 7. Impact cards — full width on phones --- */
+/* --- 7. Impact cards - full width on phones --- */
 @media (max-width: 768px) {
   .impact-grid {
     grid-template-columns: 1fr;
@@ -2502,13 +2502,13 @@ input, textarea, select { font-family: inherit; }
   }
 }
 
-/* --- 9. Nav logo — prevent text overflow on very small screens --- */
+/* --- 9. Nav logo - prevent text overflow on very small screens --- */
 @media (max-width: 360px) {
   .nav__logo-text { font-size: 1.125rem; }
   .nav__logo-sub  { display: none; }
 }
 
-/* --- 10. Section stats rows — single col on phones --- */
+/* --- 10. Section stats rows - single col on phones --- */
 @media (max-width: 480px) {
   .stats-row { grid-template-columns: 1fr; }
   .market-highlight__stats { grid-template-columns: 1fr; }
@@ -2517,7 +2517,7 @@ input, textarea, select { font-family: inherit; }
   .btn--lg { padding: 0.875rem 1.5rem; font-size: 0.8125rem; }
 }
 
-/* --- 11. Team cards — stretch full width on phone --- */
+/* --- 11. Team cards - stretch full width on phone --- */
 @media (max-width: 768px) {
   .team-grid {
     grid-template-columns: 1fr;
@@ -2530,14 +2530,14 @@ input, textarea, select { font-family: inherit; }
   }
 }
 
-/* --- 12. pullquote — tighten on phones --- */
+/* --- 12. pullquote - tighten on phones --- */
 @media (max-width: 480px) {
   .pullquote { padding: 1.5rem 1.25rem; }
   .pullquote::before { font-size: 3.5rem; left: 1rem; }
   .pullquote__text { font-size: 1.0625rem; }
 }
 
-/* --- 13. Footer links — more readable spacing --- */
+/* --- 13. Footer links - more readable spacing --- */
 @media (max-width: 768px) {
   .footer__links { gap: 0.875rem; }
   .footer__col-title { margin-top: 0.5rem; }
@@ -2561,7 +2561,7 @@ input, textarea, select { font-family: inherit; }
 }
 
 /* ===================================================
-   VIDEO HERO — CROSS-BROWSER FIX (incl. Brave)
+   VIDEO HERO - CROSS-BROWSER FIX (incl. Brave)
    Explicit top/left + min-width/height ensure the
    video fills its container even when object-fit:cover
    is applied before the browser knows the video size.
@@ -2587,7 +2587,7 @@ input, textarea, select { font-family: inherit; }
 }
 
 /* ===================================================
-   PAGE HERO BACKGROUND IMAGES — mobile reliability
+   PAGE HERO BACKGROUND IMAGES - mobile reliability
    Avoid fixed-attachment flicker on iOS Safari
    =================================================== */
 .page-hero__bg-img {
@@ -2595,7 +2595,7 @@ input, textarea, select { font-family: inherit; }
 }
 
 /* ===================================================
-   CAROUSEL — PHONE VIEW
+   CAROUSEL - PHONE VIEW
    !important overrides the page-level <style> block
    which declares height:340px after the external sheet
    =================================================== */
@@ -2610,7 +2610,7 @@ input, textarea, select { font-family: inherit; }
 }
 
 /* ===================================================
-   SPECIALIST CAPITAL — HERO METRIC CARDS ON PHONE
+   SPECIALIST CAPITAL - HERO METRIC CARDS ON PHONE
    !important for same cascade-order reason as above
    =================================================== */
 @media (max-width: 640px) {
@@ -2624,11 +2624,11 @@ input, textarea, select { font-family: inherit; }
 }
 
 /* ===================================================
-   IMPACT PAGE — MOBILE FIXES
+   IMPACT PAGE - MOBILE FIXES
    =================================================== */
 @media (max-width: 768px) {
   /* Nairobi callout at hero bottom-right overlaps main
-     content on narrow screens — hide it */
+     content on narrow screens - hide it */
   .impact-nairobi-callout { display: none; }
 
   /* Hero stats: stack vertically, hide separator bars */
@@ -2641,7 +2641,7 @@ input, textarea, select { font-family: inherit; }
   /* SDG section standalone img-panel */
   .sdg-img-panel { height: 200px !important; }
 
-  /* Our Borrowers quote section — reduce min-height */
+  /* Our Borrowers quote section - reduce min-height */
   .impact-hero-stats + * { min-height: auto; }
 }
 

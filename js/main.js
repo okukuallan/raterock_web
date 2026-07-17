@@ -1,5 +1,5 @@
 /* ======================================================
-   RATELROCK — Main JavaScript
+   RATELROCK - Main JavaScript
    ====================================================== */
 
 'use strict';
@@ -150,7 +150,7 @@
       btn.disabled = true;
 
       setTimeout(() => {
-        btn.textContent = '✓ Sent — We\'ll be in touch';
+        btn.textContent = '✓ Sent. We\'ll be in touch';
         btn.style.background = 'rgba(26,77,51,0.5)';
         btn.style.borderColor = '#2A5A3A';
         btn.style.color = '#8FCCA8';

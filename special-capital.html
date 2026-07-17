@@ -35,7 +35,7 @@
   <link rel="icon" href="favicon.ico" sizes="32x32" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    /* ===== PC HERO — TALLER + METRICS ROW ===== */
+    /* ===== PC HERO â€” TALLER + METRICS ROW ===== */
     .pc-hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
     .pc-hero .container { display: flex; flex-direction: column; gap: 0; }
     .hero-metrics {
@@ -117,7 +117,7 @@
     .rld-shapes { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
     .rld-shape  { position: absolute; border-radius: 70px; will-change: transform; }
 
-    /* ===== WHY WE EXIST — glass cards ===== */
+    /* ===== WHY WE EXIST â€” glass cards ===== */
     .wwe-glass {
       background: rgba(255,255,255,0.55);
       backdrop-filter: blur(20px) saturate(1.5);
@@ -804,10 +804,10 @@
     '  n += sin((uv.x+uv.y)*4.4 + u_time*0.48) * 0.40;',
     '  n  = clamp(n*0.50 + 0.50, 0.0, 1.0);',
     '',
-    '  // Deep navy ? mid navy ? lighter navy — matches the segment card palette',
-    '  vec3 c0 = vec3(0.027, 0.055, 0.102);',  // #070E1A — deepest navy (base bg)
-    '  vec3 c1 = vec3(0.085, 0.130, 0.220);',  // #162038 — lighter navy blue
-    '  vec3 c2 = vec3(0.051, 0.094, 0.161);',  // #0D1829 — mid navy (card bg)
+    '  // Deep navy ? mid navy ? lighter navy â€” matches the segment card palette',
+    '  vec3 c0 = vec3(0.027, 0.055, 0.102);',  // #070E1A â€” deepest navy (base bg)
+    '  vec3 c1 = vec3(0.085, 0.130, 0.220);',  // #162038 â€” lighter navy blue
+    '  vec3 c2 = vec3(0.051, 0.094, 0.161);',  // #0D1829 â€” mid navy (card bg)
     '',
     '  vec3 col = mix(c0, c1, n);',
     '  float sweep = sin(uv.x*1.8 + u_time*0.38)*0.5+0.5;',

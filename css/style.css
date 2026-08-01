@@ -2071,9 +2071,9 @@ input, textarea, select { font-family: inherit; }
 
 .footer__inner {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr auto;
   gap: 3rem;
-  
+
 }
 
 .footer__brand-name {
@@ -2129,33 +2129,41 @@ input, textarea, select { font-family: inherit; }
   color: var(--c-gold);
 }
 
+.footer__social-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .footer__social {
   display: flex;
-  gap: 0.625rem;
-  margin-top: 1.25rem;
+  flex-direction: column;
+  gap: 0.875rem;
 }
 
 .footer__social-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  border: 1px solid var(--c-border);
-  color: var(--c-text-muted);
-  transition: border-color 200ms var(--ease-out), color 200ms var(--ease-out), transform 200ms var(--ease-out);
+  border: 1px solid var(--c-gold-border);
+  background: var(--c-gold-bg);
+  color: var(--c-gold);
+  transition: border-color 200ms var(--ease-out), background 200ms var(--ease-out), color 200ms var(--ease-out), transform 200ms var(--ease-out);
 }
 
 .footer__social-link:hover {
   border-color: var(--c-gold);
-  color: var(--c-gold);
+  background: var(--c-gold);
+  color: var(--c-dark-text);
   transform: translateY(-2px);
 }
 
 .footer__social-link svg {
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
 }
 
 .footer__disclaimer-block {
@@ -2337,6 +2345,8 @@ input, textarea, select { font-family: inherit; }
   .diff-grid { grid-template-columns: repeat(2, 1fr); }
   .framework-grid { grid-template-columns: repeat(3, 1fr); }
   .footer__inner { grid-template-columns: 1fr 1fr; }
+  .footer__social-col { grid-column: 1 / -1; align-items: flex-start; margin-top: 0.5rem; }
+  .footer__social { flex-direction: row; }
   .contact-grid { grid-template-columns: 1fr; }
   .process-timeline { grid-template-columns: repeat(2, 1fr); }
   .process-timeline::before { display: none; }
@@ -2365,6 +2375,7 @@ input, textarea, select { font-family: inherit; }
   .market-highlight__stats { grid-template-columns: 1fr; gap: 1.5rem; }
   .framework-grid { grid-template-columns: repeat(2, 1fr); }
   .footer__inner { grid-template-columns: 1fr; }
+  .footer__social-col { align-items: flex-start; }
   .footer__bottom { flex-direction: column; align-items: flex-start; }
   .contact-info-row { flex-direction: column; gap: 1.5rem; }
   .process-timeline { grid-template-columns: 1fr; }

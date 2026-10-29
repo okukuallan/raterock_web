@@ -11,22 +11,22 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Specialist Capital, Ratelrock</title>
-  <meta name="description" content="Specialist debt advisory for enterprises. Financing structured and arranged around your actual revenue cycle." />
+  <title>Specialist Capital Advisory, Ratelrock</title>
+  <meta name="description" content="Independent private credit and debt advisory. We structure, raise, refinance and restructure debt for enterprises, built around how they actually generate cash. We do not lend or manage funds." />
   <link rel="canonical" href="https://www.ratelrock.com/special-capital" />
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Ratelrock" />
-  <meta property="og:title" content="Specialist Capital | Ratelrock" />
-  <meta property="og:description" content="Specialist debt advisory for enterprises. Financing structured and arranged around your actual revenue cycle." />
+  <meta property="og:title" content="Specialist Capital Advisory | Ratelrock" />
+  <meta property="og:description" content="Independent private credit and debt advisory. We structure, raise, refinance and restructure debt for enterprises, built around how they actually generate cash. We do not lend or manage funds." />
   <meta property="og:url" content="https://www.ratelrock.com/special-capital" />
   <meta property="og:image" content="https://www.ratelrock.com/images/og/ratelrock-og.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Specialist Capital | Ratelrock" />
-  <meta name="twitter:description" content="Specialist debt advisory for enterprises. Financing structured and arranged around your actual revenue cycle." />
+  <meta name="twitter:title" content="Specialist Capital Advisory | Ratelrock" />
+  <meta name="twitter:description" content="Independent private credit and debt advisory. We structure, raise, refinance and restructure debt for enterprises, built around how they actually generate cash. We do not lend or manage funds." />
   <meta name="twitter:image" content="https://www.ratelrock.com/images/og/ratelrock-og.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="css/style.css" />
   <style>
     /* ===== PC HERO - TALLER + METRICS ROW ===== */
-    .pc-hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+    .pc-hero { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; }
     .pc-hero .container { display: flex; flex-direction: column; gap: 0; }
     .hero-metrics {
       display: flex;
@@ -138,6 +138,89 @@
       .wwe-cards  { grid-template-columns: 1fr !important; }
     }
 
+    /* ===== EDITORIAL INTRO ===== */
+    .ed-grid { display: grid; grid-template-columns: 5fr 6fr; gap: 4rem; align-items: start; }
+    .ed-grid .section-title { margin: 0; color: var(--c-dark-text); }
+    .ed-lead { font-size: 1.0625rem; line-height: 1.8; color: var(--c-dark-text-2); }
+    .ed-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; padding-top: 1.75rem; border-top: 1px solid var(--c-border-light); }
+    .ed-cols p { font-size: 0.9375rem; line-height: 1.8; color: var(--c-dark-text-2); }
+    .conv-list { border-top: 1px solid var(--c-border-light); }
+    .conv-row { display: grid; grid-template-columns: 4rem 1fr 1.6fr; gap: 2rem; padding: 1.1rem 0; border-bottom: 1px solid var(--c-border-light); align-items: baseline; }
+    .conv-row__n { font-family: var(--f-ui); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; color: var(--c-gold); }
+    .conv-row h3 { font-family: var(--f-display); font-size: 1.375rem; font-weight: 500; line-height: 1.2; color: var(--c-dark-text); }
+    .conv-row p { font-size: 0.875rem; line-height: 1.6; color: var(--c-dark-text-2); }
+
+    /* ===== LIFE-OF-DEBT TIMELINE ===== */
+    .lc { position: relative; display: grid; grid-template-columns: repeat(6, 1fr); margin: 2rem 0 2.5rem; }
+    .lc::before { content: ''; position: absolute; left: calc(100% / 12); right: calc(100% / 12); top: 11px; height: 1px; background: var(--c-gold-border); }
+    .lc-stage { position: relative; display: flex; flex-direction: column; align-items: center; gap: 0.875rem; padding: 0 0.25rem; color: var(--c-text-2); font-family: var(--f-ui); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; transition: color 250ms ease; }
+    .lc-stage:hover { color: var(--c-text); }
+    .lc-stage__dot { position: relative; z-index: 1; width: 23px; height: 23px; border-radius: 50%; background: var(--c-bg); border: 1px solid var(--c-gold-border); transition: border-color 250ms ease; }
+    .lc-stage__dot::after { content: ''; position: absolute; inset: 6px; border-radius: 50%; background: var(--c-gold); transform: scale(0); transition: transform 250ms var(--ease-out); }
+    .lc-stage.active { color: var(--c-gold-2); }
+    .lc-stage.active .lc-stage__dot { border-color: var(--c-gold); }
+    .lc-stage.active .lc-stage__dot::after { transform: scale(1); }
+
+    /* ===== SERVICES MASTER / DETAIL ===== */
+    .svc { display: grid; grid-template-columns: minmax(260px, 5fr) 7fr; gap: 0 3rem; align-items: start; }
+    .svc-item { display: contents; }
+    .svc-tab { grid-column: 1; display: flex; gap: 1rem; align-items: baseline; width: 100%; padding: 0.85rem 1.25rem; text-align: left; border-top: 1px solid var(--c-border); border-left: 2px solid transparent; color: var(--c-text-2); font-family: var(--f-display); font-size: 1.375rem; line-height: 1.25; transition: color 250ms ease, background 250ms ease, border-color 250ms ease; }
+    .svc-item:last-of-type .svc-tab { border-bottom: 1px solid var(--c-border); }
+    .svc-tab span { font-family: var(--f-ui); font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.14em; color: var(--c-gold); }
+    .svc-tab:hover { color: var(--c-text); }
+    .svc-tab[aria-selected="true"] { color: var(--c-text); background: var(--c-gold-bg); border-left-color: var(--c-gold); }
+    .svc-panel { display: none; grid-column: 2; grid-row: 1 / span 6; padding: 2.25rem 2.5rem; border: 1px solid var(--c-border); border-radius: 14px; background: rgba(21,46,31,0.55); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+    .svc-panel.active { display: block; animation: svcIn 350ms var(--ease-out); }
+    @keyframes svcIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    .svc-panel__tag { font-family: var(--f-ui); font-size: 0.625rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--c-gold); margin-bottom: 0.75rem; }
+    .svc-panel h3 { font-family: var(--f-display); font-size: 2rem; font-weight: 400; line-height: 1.15; color: var(--c-text); margin-bottom: 1rem; }
+    .svc-panel p { font-size: 1rem; line-height: 1.75; color: var(--c-text-2); margin-bottom: 1.25rem; }
+    .svc-panel ul { margin-bottom: 1.5rem; }
+    .svc-panel li { position: relative; padding: 0.55rem 0 0.55rem 1.5rem; border-top: 1px solid var(--c-border); font-size: 0.9375rem; line-height: 1.6; color: var(--c-text); }
+    .svc-panel li::before { content: ''; position: absolute; left: 0; top: 1.15rem; width: 0.7rem; height: 1px; background: var(--c-gold); }
+    .svc-panel__link { font-family: var(--f-ui); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-gold); }
+    .svc-panel__link:hover { color: var(--c-gold-2); }
+    .svc-cta { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--c-border); }
+    .svc-cta p { font-family: var(--f-display); font-size: 1.5rem; color: var(--c-text); }
+
+    /* ===== CAPITAL STACK ===== */
+    .stack { display: grid; grid-template-columns: 9rem 1fr; gap: 1.75rem; margin-top: 2rem; }
+    .stack-axis { position: relative; display: flex; flex-direction: column; justify-content: space-between; padding-right: 1.25rem; text-align: right; font-family: var(--f-ui); font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c-dark-text-2); }
+    .stack-axis::after { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(180deg, var(--c-green-2), var(--c-gold)); }
+    .stack-bands { display: flex; flex-direction: column; gap: 0.5rem; }
+    .stack-band { display: grid; grid-template-columns: 1fr 1.6fr; gap: 2rem; align-items: center; padding: 1rem 1.5rem; border-radius: 10px; color: #fff; }
+    .stack-band h3 { font-family: var(--f-display); font-size: 1.5rem; font-weight: 500; line-height: 1.2; margin-bottom: 0.25rem; }
+    .stack-band__tag { font-family: var(--f-ui); font-size: 0.625rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.8; }
+    .stack-band p { font-size: 0.875rem; line-height: 1.55; }
+    .stack-band--1 { background: #152E1F; }
+    .stack-band--2 { background: #1E4430; }
+    .stack-band--3 { background: #7A5A1E; }
+    .stack-band--4 { background: transparent; color: var(--c-dark-text); border: 1px dashed var(--c-gold); }
+    .stack-note { margin-top: 1.25rem; font-size: 0.875rem; line-height: 1.7; color: var(--c-dark-text-2); max-width: 760px; }
+
+    /* ===== SITUATION ROWS ===== */
+    .sit-list { margin-top: 2rem; border-top: 1px solid var(--c-border); }
+    .sit-row { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; padding: 1rem 0.5rem; border-bottom: 1px solid var(--c-border); transition: background 250ms ease, padding 250ms var(--ease-out); }
+    .sit-row:hover { background: var(--c-gold-bg); padding-left: 1.25rem; }
+    .sit-row__q { font-family: var(--f-display); font-size: clamp(1.25rem, 2vw, 1.75rem); line-height: 1.25; color: var(--c-text); }
+    .sit-row__q small { display: block; margin-top: 0.35rem; font-family: var(--f-body); font-size: 0.875rem; line-height: 1.6; color: var(--c-text-2); }
+    .sit-row__a { font-family: var(--f-ui); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; color: var(--c-gold); }
+
+    @media (max-width: 900px) {
+      .ed-grid, .ed-cols { grid-template-columns: 1fr; gap: 1.5rem; }
+      .conv-row { grid-template-columns: 2.5rem 1fr; gap: 0.5rem 1rem; }
+      .conv-row p { grid-column: 2; }
+      .lc { grid-template-columns: repeat(3, 1fr); row-gap: 1.5rem; }
+      .lc::before { display: none; }
+      .svc { display: block; }
+      .svc-item { display: block; }
+      .svc-panel { margin: 0 0 0.75rem; padding: 1.5rem; }
+      .svc-panel h3 { font-size: 1.5rem; }
+      .stack { grid-template-columns: 1fr; }
+      .stack-axis { display: none; }
+      .stack-band { grid-template-columns: 1fr; gap: 0.75rem; }
+      .sit-row { grid-template-columns: 1fr; gap: 0.75rem; }
+    }
 
     /* ===== HERO BACKGROUND CAROUSEL ===== */
     .hero-bg-carousel {
@@ -189,7 +272,7 @@
     .fs-carousel {
       position: relative;
       width: 100%;
-      height: 340px;
+      height: 220px;
       overflow: hidden;
     }
     .fs-carousel__track {
@@ -333,19 +416,19 @@
   </div>
   <div class="container" style="position:relative;z-index:2;">
     <div class="page-hero__content">
-      <p class="hero__label hero-anim">Specialist Capital</p>
+      <p class="hero__label hero-anim">Specialist Capital Advisory</p>
       <h1 class="hero__title hero-anim" style="font-size:clamp(2.5rem,5vw,4.5rem);">
-        Capital structured<br>around <em>how your<br>business works.</em>
+        Debt structured<br>around <em>how your<br>business works.</em>
       </h1>
       <p class="hero__subtitle hero-anim" style="color:#ffffff;">
-        Specialist debt advisory for enterprises that need financing built around how they actually operate, structured and arranged around your actual revenue cycle.
+        Independent private credit advisory for enterprises. We structure, raise, refinance and restructure debt around your actual revenue cycle, and we sit on your side of the table with banks, DFIs and private credit providers.
       </p>
     </div>
     <!-- Metrics inside hero -->
     <div class="hero-metrics hero-anim">
       <div class="hero-metric-card">
-        <div class="hero-metric-card__value">Expertise</div>
-        <div class="hero-metric-card__label">Built for each unique situation</div>
+        <div class="hero-metric-card__value">Independent</div>
+        <div class="hero-metric-card__label">We advise. We do not lend.</div>
       </div>
       <div class="hero-metric-card">
         <div class="hero-metric-card__value">Structure</div>
@@ -353,165 +436,245 @@
       </div>
       <div class="hero-metric-card">
         <div class="hero-metric-card__value">Partnership</div>
-        <div class="hero-metric-card__label">Built for long term trust</div>
+        <div class="hero-metric-card__label">Alongside you before, during and after close</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ===== WHY WE EXIST ===== -->
-<section class="section section--light" style="position:relative;overflow:hidden;">
-  <div class="ps-shapes" aria-hidden="true">
-    <div class="ps-shape" style="width:520px;height:110px;top:-50px;left:-100px;background:rgba(21,46,31,0.07);box-shadow:0 4px 32px rgba(21,46,31,0.05),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.06);animation:ps-float-a 22s ease-in-out infinite;"></div>
-    <div class="ps-shape" style="width:360px;height:82px;top:60px;right:50px;background:rgba(200,150,58,0.07);box-shadow:0 4px 28px rgba(200,150,58,0.06),inset 0 1px 0 rgba(255,255,255,0.6);border:1px solid rgba(200,150,58,0.09);animation:ps-float-b 26s ease-in-out infinite;animation-delay:-5s;"></div>
-    <div class="ps-shape" style="width:440px;height:90px;top:40%;left:-70px;background:rgba(21,46,31,0.06);box-shadow:0 4px 24px rgba(21,46,31,0.05),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.05);animation:ps-float-d 30s ease-in-out infinite;animation-delay:-10s;"></div>
-    <div class="ps-shape" style="width:560px;height:115px;bottom:-45px;right:-130px;background:rgba(21,46,31,0.07);box-shadow:0 4px 36px rgba(21,46,31,0.05),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.05);animation:ps-float-c 28s ease-in-out infinite;animation-delay:-14s;"></div>
-    <div class="ps-shape" style="width:310px;height:72px;bottom:80px;left:30px;background:rgba(200,150,58,0.06);box-shadow:0 4px 24px rgba(200,150,58,0.05),inset 0 1px 0 rgba(255,255,255,0.6);border:1px solid rgba(200,150,58,0.08);animation:ps-float-a 20s ease-in-out infinite;animation-delay:-4s;"></div>
-    <div class="ps-shape" style="width:400px;height:86px;top:25%;left:20%;background:rgba(21,46,31,0.05);box-shadow:0 4px 26px rgba(21,46,31,0.04),inset 0 1px 0 rgba(255,255,255,0.45);border:1px solid rgba(21,46,31,0.05);animation:ps-float-c 32s ease-in-out infinite;animation-delay:-8s;"></div>
-    <div class="ps-shape" style="width:360px;height:80px;top:62%;left:38%;background:rgba(200,150,58,0.05);box-shadow:0 4px 22px rgba(200,150,58,0.04),inset 0 1px 0 rgba(255,255,255,0.55);border:1px solid rgba(200,150,58,0.07);animation:ps-float-d 27s ease-in-out infinite;animation-delay:-18s;"></div>
-  </div>
+<section class="section section--light" id="intro" style="position:relative;overflow:hidden;">
   <div class="container" style="position:relative;z-index:1;">
 
-    <div class="section-header section-header--center reveal">
-      <div class="gold-line gold-line--center"></div>
-      <p class="section-eyebrow">Why we exist</p>
-      <h2 class="section-title" style="color:var(--c-dark-text);">Why private credit. Why Africa. <em>Why now.</em></h2>
-      <p class="section-subtitle" style="max-width:760px;margin:0 auto;color:var(--c-dark-text-2);">Many of Africa&rsquo;s most productive enterprises sit between the established lanes of finance, each of which serves its own purpose well. These businesses simply need something built for them: capital that is flexible, properly secured, and structured around how they actually operate. It is a question of <strong style="color:var(--c-dark-text);">fit, not of quality.</strong> The gap is structural, not temporary, and it is widening. Ratelrock was built specifically to close it.</p>
+    <div class="ed-grid reveal">
+      <div>
+        <div class="gold-line"></div>
+        <p class="section-eyebrow">Why we exist</p>
+        <h2 class="section-title">Why private credit. Why Africa. <em>Why now.</em></h2>
+      </div>
+      <p class="ed-lead">Many of Africa&rsquo;s most productive enterprises sit between the established lanes of finance, each of which serves its own purpose well. These businesses simply need debt that is flexible, properly secured, and structured around how they actually operate, and an advisor who can put that case to the right lender. It is a question of <strong style="color:var(--c-dark-text);">fit, not of quality.</strong> The gap is structural, not temporary, and it is widening. Ratelrock was built specifically to help close it.</p>
     </div>
 
-    <p class="section-eyebrow" style="margin:4.5rem 0 1.25rem;">An ideal market, by structure not sentiment</p>
-    <div class="wwe-market reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
-      <div class="wwe-glass" style="padding:1.9rem;display:flex;align-items:center;">
-        <p class="section-subtitle" style="color:var(--c-dark-text-2);margin:0;max-width:none;width:100%;font-size:0.9375rem;">We don&rsquo;t work in this market because conditions look easy. We work here because it is <em style="color:var(--c-gold);font-family:var(--f-display);">genuinely underserved.</em> Every form of capital is built for the borrower it was designed to serve, and serves it well. Between those mandates sits a deep, growing pool of creditworthy enterprises that no single provider is structured to reach.</p>
-      </div>
-      <div class="wwe-glass" style="padding:1.9rem;display:flex;align-items:center;">
-        <p class="section-subtitle" style="color:var(--c-dark-text-2);margin:0;max-width:none;width:100%;font-size:0.9375rem;">That gap is the opportunity. Where strong businesses outnumber the capital built to assess them, an advisor designed for exactly this segment, one that understands it properly, structures facilities soundly and supports them actively, is built to serve it well, consistently and predictably, not as a bet on macro conditions. That reliability is engineered through collateral, structure and discipline.</p>
-      </div>
+    <p class="section-eyebrow" style="margin:3rem 0 1rem;">An ideal market, by structure not sentiment</p>
+    <div class="ed-cols reveal">
+      <p>We don&rsquo;t work in this market because conditions look easy. We work here because it is <em style="color:var(--c-gold);font-family:var(--f-display);">genuinely underserved.</em> Every form of capital is built for the borrower it was designed to serve, and serves it well. Between those mandates sits a deep, growing pool of creditworthy enterprises that no single provider is structured to reach, and a growing number of banks, DFIs and private credit providers looking for well-prepared deals to finance.</p>
+      <p>That gap is where we work. Where strong businesses outnumber the lenders built to assess them, an advisor designed for exactly this segment, one that understands it properly, structures debt soundly and presents it credibly, connects the two sides. Because we do not lend and do not manage a fund, we have no balance sheet to fill and no product to push: our only job is the right structure, from the right provider, on the right terms.</p>
     </div>
 
-    <p class="section-eyebrow" style="margin:4.5rem 0 1.25rem;">Our conviction</p>
-    <div class="wwe-cards reveal" style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;">
-      <div class="wwe-glass" style="padding:1.9rem;">
-        <div style="width:36px;height:36px;border-radius:8px;background:var(--c-gold-bg);border:1px solid var(--c-gold-border);display:flex;align-items:center;justify-content:center;color:var(--c-gold);margin-bottom:1rem;">&#8599;</div>
-        <h3 class="product-card__title" style="color:var(--c-dark-text);">Built for the businesses in between.</h3>
-        <p class="product-card__body" style="color:var(--c-dark-text-2);">Specialist credit exists for borrowers who sit just outside a standard lending model, and tightening global standards keep widening that group. These enterprises don&rsquo;t disappear; they need a partner built specifically for them, on terms that fit how they actually work.</p>
+    <p class="section-eyebrow" style="margin:3rem 0 1rem;">Our conviction</p>
+    <div class="conv-list reveal">
+      <div class="conv-row">
+        <span class="conv-row__n">01</span>
+        <h3>Built for the businesses in between.</h3>
+        <p>Specialist credit exists for borrowers who sit just outside a standard lending model, and tightening global standards keep widening that group. These enterprises don&rsquo;t disappear; they need an advisor who knows which lenders will finance them, and how to structure terms that fit how they actually work.</p>
       </div>
-      <div class="wwe-glass" style="padding:1.9rem;">
-        <div style="width:36px;height:36px;border-radius:8px;background:var(--c-gold-bg);border:1px solid var(--c-gold-border);display:flex;align-items:center;justify-content:center;color:var(--c-gold);margin-bottom:1rem;">&#9678;</div>
-        <h3 class="product-card__title" style="color:var(--c-dark-text);">Security in more than land.</h3>
-        <p class="product-card__body" style="color:var(--c-dark-text-2);">Where a business&rsquo;s value sits in equipment, inventory, receivables or contracted cash flows rather than property, we know how to value it and structure security around it, through assigned contracts and controlled accounts. Sound enterprises become fundable, and every facility we structure is properly collateralised.</p>
+      <div class="conv-row">
+        <span class="conv-row__n">02</span>
+        <h3>Security in more than land.</h3>
+        <p>Where a business&rsquo;s value sits in equipment, inventory, receivables or contracted cash flows rather than property, we know how to value it and structure security around it: registered security rights over movable assets under Kenya&rsquo;s Movable Property Security Rights Act, assigned contracts and controlled collection accounts. Sound enterprises become fundable, and lenders see a security package they can rely on.</p>
       </div>
-      <div class="wwe-glass" style="padding:1.9rem;">
-        <div style="width:36px;height:36px;border-radius:8px;background:var(--c-gold-bg);border:1px solid var(--c-gold-border);display:flex;align-items:center;justify-content:center;color:var(--c-gold);margin-bottom:1rem;">&#9671;</div>
-        <h3 class="product-card__title" style="color:var(--c-dark-text);">Flexibility by design.</h3>
-        <p class="product-card__body" style="color:var(--c-dark-text-2);">We structure debt financing around how each business actually generates cash, not around a standard form. Because we understand the hindrances that stall conventional lenders, flexibility comes with speed, and with structures priced to reflect real risk and the value created.</p>
+      <div class="conv-row">
+        <span class="conv-row__n">03</span>
+        <h3>Flexibility by design.</h3>
+        <p>We structure debt around how each business actually generates cash, not around a standard form. Because we understand what stalls a credit committee, we prepare for it in advance, so flexibility comes with speed and with pricing that reflects real risk, not perceived risk.</p>
       </div>
-      <div class="wwe-glass" style="padding:1.9rem;">
-        <div style="width:36px;height:36px;border-radius:8px;background:var(--c-gold-bg);border:1px solid var(--c-gold-border);display:flex;align-items:center;justify-content:center;color:var(--c-gold);margin-bottom:1rem;">&#9728;</div>
-        <h3 class="product-card__title" style="color:var(--c-dark-text);">Partnership is real-time risk control.</h3>
-        <p class="product-card__body" style="color:var(--c-dark-text-2);">Our embedded support is not soft value-add; it is risk mitigation. The closer we sit to a business, the earlier we read the signals, and the sooner we can act to keep the facility performing long before a problem becomes a loss.</p>
+      <div class="conv-row">
+        <span class="conv-row__n">04</span>
+        <h3>On your side of the table.</h3>
+        <p>Lenders negotiate debt every day; most business owners do it a few times in their lives. We close that gap. The closer we sit to a business, the earlier we read the signals, and the sooner we can renegotiate, reset or refinance, long before a covenant breach becomes a default.</p>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ===== KEY METRICS BAND ===== -->
-
-<!-- ===== WHO WE FUND ===== -->
-<section class="section" id="who-we-fund" style="position:relative;overflow:hidden;">
+<!-- ===== WHAT WE DO ===== -->
+<section class="section" id="advisory-services" style="position:relative;overflow:hidden;">
   <canvas id="who-fund-canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block;"></canvas>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="section-header reveal">
+      <div class="gold-line"></div>
+      <p class="section-eyebrow">What We Do</p>
+      <h2 class="section-title">Advice across the<br><em>full life of your debt.</em></h2>
+      <p class="section-subtitle">We structure, arrange and negotiate debt on behalf of the business. Financing is always provided by third-party lenders; our role is to make sure it is the right financing.</p>
+    </div>
+
+    <div class="lc reveal" role="group" aria-label="Stages in the life of a debt">
+      <button type="button" class="lc-stage active" data-idx="0"><span class="lc-stage__dot"></span>Prepare</button>
+      <button type="button" class="lc-stage" data-idx="1"><span class="lc-stage__dot"></span>Raise</button>
+      <button type="button" class="lc-stage" data-idx="2"><span class="lc-stage__dot"></span>Close</button>
+      <button type="button" class="lc-stage" data-idx="3"><span class="lc-stage__dot"></span>Manage</button>
+      <button type="button" class="lc-stage" data-idx="4"><span class="lc-stage__dot"></span>Refinance</button>
+      <button type="button" class="lc-stage" data-idx="5"><span class="lc-stage__dot"></span>Restructure</button>
+    </div>
+
+    <div class="svc reveal" role="tablist" aria-label="Advisory services">
+      <div class="svc-item">
+        <button type="button" class="svc-tab" id="lender-readiness" role="tab" aria-selected="true" aria-controls="lender-readiness-panel"><span>01</span>Credit Readiness &amp; Collateral</button>
+        <div class="svc-panel active" id="lender-readiness-panel" role="tabpanel" aria-labelledby="lender-readiness">
+          <p class="svc-panel__tag">Stage 1: Prepare</p>
+          <h3>Credit Readiness &amp; Collateral Advisory</h3>
+          <p>Before going to market, we review the business the way a credit committee will: cash flow quality, management information, governance and collateral. We close the gaps that would otherwise cost you a facility or a better rate.</p>
+          <ul>
+          <li>Cash flow and debt capacity review</li>
+          <li>Registering usable security over equipment, inventory, receivables and contracts</li>
+          <li>Lender-grade management accounts, financial model and information memorandum</li>
+          </ul>
+          <a href="/contact" class="svc-panel__link">Discuss this with us &rarr;</a>
+        </div>
+      </div>
+      <div class="svc-item">
+        <button type="button" class="svc-tab" id="debt-raising" role="tab" aria-selected="false" aria-controls="debt-raising-panel"><span>02</span>Debt Structuring &amp; Raising</button>
+        <div class="svc-panel" id="debt-raising-panel" role="tabpanel" aria-labelledby="debt-raising">
+          <p class="svc-panel__tag">Stage 2: Raise</p>
+          <h3>Debt Structuring &amp; Raising</h3>
+          <p>We size the debt, design the structure and run a competitive process across commercial banks, DFIs and private credit providers, then negotiate through to close.</p>
+          <ul>
+          <li>Debt sizing and structure design around your revenue cycle</li>
+          <li>A targeted lender shortlist and a managed process</li>
+          <li>Term sheets compared side by side, not one at a time</li>
+          </ul>
+          <a href="/contact" class="svc-panel__link">Discuss this with us &rarr;</a>
+        </div>
+      </div>
+      <div class="svc-item">
+        <button type="button" class="svc-tab" id="covenants" role="tab" aria-selected="false" aria-controls="covenants-panel"><span>03</span>Term Sheet &amp; Covenant Negotiation</button>
+        <div class="svc-panel" id="covenants-panel" role="tabpanel" aria-labelledby="covenants">
+          <p class="svc-panel__tag">Stage 3: Close</p>
+          <h3>Term Sheet, Covenant &amp; Security Negotiation</h3>
+          <p>The headline rate is rarely where the real cost sits. We negotiate the terms that drive it, with people who read term sheets every day.</p>
+          <ul>
+          <li>Financial covenants set with real headroom, tested against your forecasts</li>
+          <li>Fees, prepayment terms and cash sweeps</li>
+          <li>Security, guarantees and intercreditor terms when more than one lender is involved</li>
+          </ul>
+          <a href="/contact" class="svc-panel__link">Discuss this with us &rarr;</a>
+        </div>
+      </div>
+      <div class="svc-item">
+        <button type="button" class="svc-tab" id="monitoring" role="tab" aria-selected="false" aria-controls="monitoring-panel"><span>04</span>Post-Close Debt Management</button>
+        <div class="svc-panel" id="monitoring-panel" role="tabpanel" aria-labelledby="monitoring">
+          <p class="svc-panel__tag">Stage 4: Manage</p>
+          <h3>Post-Close Debt Management</h3>
+          <p>Closing is the start, not the finish. We help you stay ahead of the lender relationship so issues are raised and resolved on your terms, not the lender&rsquo;s.</p>
+          <ul>
+          <li>Covenant and reporting calendar</li>
+          <li>Headroom forecasting and early warning signs</li>
+          <li>Lender communication, with waivers requested early</li>
+          </ul>
+          <a href="/contact" class="svc-panel__link">Discuss this with us &rarr;</a>
+        </div>
+      </div>
+      <div class="svc-item">
+        <button type="button" class="svc-tab" id="refinancing" role="tab" aria-selected="false" aria-controls="refinancing-panel"><span>05</span>Refinancing &amp; Amend-and-Extend</button>
+        <div class="svc-panel" id="refinancing-panel" role="tabpanel" aria-labelledby="refinancing">
+          <p class="svc-panel__tag">Stage 5: Refinance</p>
+          <h3>Refinancing &amp; Amend-and-Extend</h3>
+          <p>Debt that is too expensive, too short or in the wrong currency holds a business back. We start early, well before a maturity becomes urgent.</p>
+          <ul>
+          <li>Market test against your incumbent lender</li>
+          <li>Consolidating fragmented facilities</li>
+          <li>Maturity extensions, repricing and covenant resets</li>
+          </ul>
+          <a href="/contact" class="svc-panel__link">Discuss this with us &rarr;</a>
+        </div>
+      </div>
+      <div class="svc-item">
+        <button type="button" class="svc-tab" id="restructuring" role="tab" aria-selected="false" aria-controls="restructuring-panel"><span>06</span>Debt Restructuring</button>
+        <div class="svc-panel" id="restructuring-panel" role="tabpanel" aria-labelledby="restructuring">
+          <p class="svc-panel__tag">Stage 6: Restructure</p>
+          <h3>Debt Restructuring</h3>
+          <p>When cash flow no longer supports the debt, we build an independent view of what the business can sustain, then negotiate with creditors on your behalf.</p>
+          <ul>
+          <li>Standstills, covenant waivers and resets</li>
+          <li>Rescheduling, partial write-downs and debt-to-equity conversions</li>
+          <li>Formal options under Kenya&rsquo;s Insolvency Act, 2015, with your legal advisors</li>
+          </ul>
+          <p style="margin-bottom:1rem;"><a href="/transformation-support-advisory#turnaround" class="svc-panel__link">Our Turnaround &amp; Restructuring practice &rarr;</a></p>
+          <a href="/contact" class="svc-panel__link">Discuss this with us &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-cta">
+      <p>Have a financing decision on the table?</p>
+      <a href="/contact" class="btn btn--primary">Speak to an advisor</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STRUCTURES: CAPITAL STACK ===== -->
+<section class="section section--light" id="structures" style="position:relative;overflow:hidden;">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="section-header reveal">
+      <div class="gold-line"></div>
+      <p class="section-eyebrow">Structures We Advise On</p>
+      <h2 class="section-title" style="color:var(--c-dark-text);">Four structures.<br><em>One independent view.</em></h2>
+      <p class="section-subtitle">We advise on, structure and arrange each of these with third-party lenders, built around how your business actually generates cash, not how lenders prefer to receive it.</p>
+    </div>
+
+    <div class="stack reveal">
+      <div class="stack-axis" aria-hidden="true">
+        <span>First claim<br>Lower cost</span>
+        <span>Later claim<br>Higher cost</span>
+      </div>
+      <div class="stack-bands">
+        <div class="stack-band stack-band--1">
+          <div><h3>Senior Secured Financing</h3><p class="stack-band__tag">Term loans &amp; working capital lines</p></div>
+          <p>Secured on a wide asset base at realistic enforcement values. We negotiate repayment around your revenue cycle: interest-only periods, seasonal bullets and harvest-aligned schedules.</p>
+        </div>
+        <div class="stack-band stack-band--2">
+          <div><h3>Asset Finance</h3><p class="stack-band__tag">Equipment, leaseback &amp; receivables</p></div>
+          <p>Lenders who look at productive cash flow, not liquidation value alone, including specialist and second-hand equipment, sale-and-leaseback, and receivables or invoice finance.</p>
+        </div>
+        <div class="stack-band stack-band--3">
+          <div><h3>Mezzanine / Quasi-Equity</h3><p class="stack-band__tag">Subordinated &amp; hybrid debt</p></div>
+          <p>Growth capital without giving up control. We model the true cost and negotiate the features that matter: payment-in-kind interest, equity kickers, intercreditor terms and board rights.</p>
+        </div>
+        <div class="stack-band stack-band--4">
+          <div><h3>Bridge &amp; Special Situation Finance</h3><p class="stack-band__tag">Short-tenor, time-critical</p></div>
+          <p>For a pending refinancing, a defined liquidity event or a management transition. We find providers who can move quickly and negotiate a clear exit route from day one.</p>
+        </div>
+      </div>
+    </div>
+    <p class="stack-note reveal">Bands show the usual order of repayment priority and cost for each structure. Where each structure sits in a particular deal depends on the documents, so we confirm it with the lender and your legal advisors.</p>
+  </div>
+</section>
+
+<!-- ===== WHO WE ADVISE ===== -->
+<section class="section" id="who-we-advise" style="position:relative;overflow:hidden;">
   <div class="container" style="position:relative;z-index:1;">
     <div class="section-header reveal">
       <div class="gold-line"></div>
       <p class="section-eyebrow">Who This Is Built For</p>
       <h2 class="section-title">Real revenues. Real assets.<br><em>Real growth plans.</em></h2>
-
+      <p class="section-subtitle">Start from where you are. Each situation below leads to the service built for it.</p>
     </div>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;" class="stagger-children">
-
-      <div class="product-card">
-        <p class="product-card__label">Segment 01</p>
-        <h3 class="product-card__title">High-growth, asset-light enterprises</h3>
-        <p class="product-card__body">Businesses whose value lies in contracts, recurring revenue, intellectual property, and relationships rather than fixed assets. We know how to structure financing around intangible-heavy models.</p>
-      </div>
-
-      <div class="product-card">
-        <p class="product-card__label">Segment 02</p>
-        <h3 class="product-card__title">Seasonal or project-based revenue cycles</h3>
-        <p class="product-card__body">Where standard amortisation schedules do not reflect actual cash generation patterns. We build repayment around your harvest, contract milestones, or seasonal cycles, not a generic template.</p>
-      </div>
-
-      <div class="product-card">
-        <p class="product-card__label">Segment 03</p>
-        <h3 class="product-card__title">Complex capital structures</h3>
-        <p class="product-card__body">Strong cash flows that require subordinated capital structured around existing obligations. We work with complexity, not against it.</p>
-      </div>
-
-      <div class="product-card">
-        <p class="product-card__label">Segment 04</p>
-        <h3 class="product-card__title">Acquisition &amp; transition situations</h3>
-        <p class="product-card__body">Management buyouts, management buy-ins, ownership transitions, and expansion financing. We structure and arrange the specialist financing these events require.</p>
-      </div>
-
-      <div class="product-card" style="grid-column:1 / -1;">
-        <p class="product-card__label">Segment 05</p>
-        <h3 class="product-card__title">Turnaround &amp; special situations</h3>
-        <p class="product-card__body">Fundamentally sound businesses navigating a period of stress that require both financing and active support. This is where our credit judgment and our transformation capability come together. <a href="/transformation-support-advisory" style="color:var(--c-gold);">Learn about our Business Transformation service ?</a></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PRODUCT SUITE ===== -->
-<section class="section section--light" id="product-suite" style="position:relative;overflow:hidden;">
-  <div class="ps-shapes" aria-hidden="true">
-    <!-- EDGE SHAPES -->
-    <div class="ps-shape" style="width:540px;height:118px;top:-55px;left:-120px;background:rgba(21,46,31,0.09);box-shadow:0 4px 40px rgba(21,46,31,0.07),inset 0 1px 0 rgba(255,255,255,0.55);border:1px solid rgba(21,46,31,0.07);animation:ps-float-a 22s ease-in-out infinite;"></div>
-    <div class="ps-shape" style="width:380px;height:90px;top:50px;right:60px;background:rgba(200,150,58,0.07);box-shadow:0 4px 30px rgba(200,150,58,0.06),inset 0 1px 0 rgba(255,255,255,0.6);border:1px solid rgba(200,150,58,0.1);animation:ps-float-b 26s ease-in-out infinite;animation-delay:-6s;"></div>
-    <div class="ps-shape" style="width:440px;height:78px;top:38%;left:-80px;background:rgba(21,46,31,0.07);box-shadow:0 4px 24px rgba(21,46,31,0.05),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.05);animation:ps-float-d 30s ease-in-out infinite;animation-delay:-10s;"></div>
-    <div class="ps-shape" style="width:580px;height:124px;bottom:-50px;right:-140px;background:rgba(21,46,31,0.08);box-shadow:0 4px 40px rgba(21,46,31,0.06),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.06);animation:ps-float-c 28s ease-in-out infinite;animation-delay:-14s;"></div>
-    <div class="ps-shape" style="width:320px;height:80px;bottom:70px;left:40px;background:rgba(200,150,58,0.06);box-shadow:0 4px 24px rgba(200,150,58,0.05),inset 0 1px 0 rgba(255,255,255,0.6);border:1px solid rgba(200,150,58,0.08);animation:ps-float-a 20s ease-in-out infinite;animation-delay:-4s;"></div>
-    <div class="ps-shape" style="width:420px;height:82px;top:55%;right:-60px;background:rgba(21,46,31,0.07);box-shadow:0 4px 28px rgba(21,46,31,0.05),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.05);animation:ps-float-b 24s ease-in-out infinite;animation-delay:-18s;"></div>
-    <!-- CENTRAL SHAPES -->
-    <div class="ps-shape" style="width:400px;height:88px;top:22%;left:18%;background:rgba(21,46,31,0.06);box-shadow:0 4px 28px rgba(21,46,31,0.04),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.05);animation:ps-float-c 32s ease-in-out infinite;animation-delay:-8s;"></div>
-    <div class="ps-shape" style="width:360px;height:80px;top:46%;left:32%;background:rgba(200,150,58,0.05);box-shadow:0 4px 24px rgba(200,150,58,0.04),inset 0 1px 0 rgba(255,255,255,0.55);border:1px solid rgba(200,150,58,0.07);animation:ps-float-a 27s ease-in-out infinite;animation-delay:-20s;"></div>
-    <div class="ps-shape" style="width:420px;height:86px;top:68%;left:28%;background:rgba(21,46,31,0.06);box-shadow:0 4px 28px rgba(21,46,31,0.04),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.05);animation:ps-float-d 34s ease-in-out infinite;animation-delay:-12s;"></div>
-  </div>
-  <div class="container" style="position:relative;z-index:1;">
-    <div class="section-header section-header--center reveal">
-      <div class="gold-line gold-line--center"></div>
-      <p class="section-eyebrow">Financing Structures</p>
-      <h2 class="section-title" style="color:var(--c-dark-text);">Four structures.<br><em>One approach.</em></h2>
-      <p class="section-subtitle" style="margin:0 auto;">Each structure is built around how businesses actually generate cash, not how lenders prefer to receive it.</p>
-    </div>
-
-    <div class="product-grid stagger-children">
-
-      <!-- Senior Secured -->
-      <div class="product-card" id="senior" style="background:var(--c-white);border-color:var(--c-border-light);">
-        <p class="product-card__label" style="color:var(--c-gold);">Product 01</p>
-        <h3 class="product-card__title" style="color:var(--c-dark-text);">Senior Secured Financing</h3>
-        <p class="product-card__body" style="color:var(--c-dark-text-2);">Secured against a wide asset base, property, equipment, contracts, receivables, inventory, and working capital, valued at realistic enforcement values. Repayment is built around your revenue cycle: interest-only periods, seasonal bullet repayments, and harvest-aligned structures are standard, not exceptions.</p>      </div>
-
-      <!-- Asset Finance -->
-      <div class="product-card" id="asset" style="background:var(--c-white);border-color:var(--c-border-light);">
-        <p class="product-card__label" style="color:var(--c-gold);">Product 02</p>
-        <h3 class="product-card__title" style="color:var(--c-dark-text);">Asset Finance</h3>
-        <p class="product-card__body" style="color:var(--c-dark-text-2);">We structure financing for critical income-generating equipment, including specialist or second-hand assets where the focus is on productive cash flow, not liquidation value alone. Sale-leaseback structures available to unlock working capital from existing assets.</p>      </div>
-
-      <!-- Mezzanine -->
-      <div class="product-card" id="mezz" style="background:var(--c-white);border-color:var(--c-border-light);">
-        <p class="product-card__label" style="color:var(--c-gold);">Product 03</p>
-        <h3 class="product-card__title" style="color:var(--c-dark-text);">Mezzanine / Quasi-Equity</h3>
-        <p class="product-card__body" style="color:var(--c-dark-text-2);">Growth financing structured as subordinated debt, with terms that flex as the business scales. The entrepreneur retains majority ownership and control; we structure the facility around the business's growth trajectory and provide strategic input, without taking governance control. Patient, flexible financing for long-term value creation.</p>      </div>
-
-      <!-- Bridge -->
-      <div class="product-card" id="bridge" style="background:var(--c-white);border-color:var(--c-border-light);">
-        <p class="product-card__label" style="color:var(--c-gold);">Product 04</p>
-        <h3 class="product-card__title" style="color:var(--c-dark-text);">Bridge Loans &amp; Special Situation Finance</h3>
-        <p class="product-card__body" style="color:var(--c-dark-text-2);">Short-tenor financing for time-critical or structurally complex situations, pending a refinancing, awaiting a defined liquidity event, post-event recovery, or management transition. These engagements require our deepest credit judgment and most active partnership, and are structured and priced accordingly.</p>      </div>
+    <div class="sit-list stagger-children">
+      <a href="#refinancing" class="sit-row" data-goto="refinancing">
+        <div class="sit-row__q">A maturity is approaching.<small>Debt that is expensive, short or in the wrong currency against shilling revenues.</small></div>
+        <span class="sit-row__a">Refinancing &rarr;</span>
+      </a>
+      <a href="#restructuring" class="sit-row" data-goto="restructuring">
+        <div class="sit-row__q">A covenant is at risk, or lenders are pressing.<small>Sound businesses under stress need a credible plan and someone to lead the conversation.</small></div>
+        <span class="sit-row__a">Debt Restructuring &rarr;</span>
+      </a>
+      <a href="#debt-raising" class="sit-row" data-goto="debt-raising">
+        <div class="sit-row__q">Repayments do not match how you earn.<small>Seasonal, harvest-linked or project-based cash flow that a standard schedule ignores.</small></div>
+        <span class="sit-row__a">Debt Structuring &rarr;</span>
+      </a>
+      <a href="#lender-readiness" class="sit-row" data-goto="lender-readiness">
+        <div class="sit-row__q">Your value sits in contracts, IP or equipment, not land.<small>Asset-light and high-growth businesses that lenders struggle to assess.</small></div>
+        <span class="sit-row__a">Credit Readiness &rarr;</span>
+      </a>
+      <a href="#debt-raising" class="sit-row" data-goto="debt-raising">
+        <div class="sit-row__q">You are buying, buying out, or handing over a business.<small>Acquisition, management buyout, buy-in and succession financing.</small></div>
+        <span class="sit-row__a">Debt Structuring &rarr;</span>
+      </a>
+      <a href="#refinancing" class="sit-row" data-goto="refinancing">
+        <div class="sit-row__q">Several lenders, mixed terms, no clear picture.<small>We map the whole capital structure, then simplify and reprice it.</small></div>
+        <span class="sit-row__a">Refinancing &rarr;</span>
+      </a>
     </div>
   </div>
 </section>
@@ -583,44 +746,6 @@
 })();
 </script>
 
-<!-- ===== THE RATELROCK DIFFERENCE ===== -->
-<section class="section section--light" id="difference" style="position:relative;overflow:hidden;">
-  <div class="rld-shapes" aria-hidden="true">
-    <div class="rld-shape" style="width:540px;height:112px;top:-50px;left:-110px;background:rgba(21,46,31,0.07);box-shadow:0 4px 32px rgba(21,46,31,0.05),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.06);animation:ps-float-a 24s ease-in-out infinite;"></div>
-    <div class="rld-shape" style="width:380px;height:85px;top:55px;right:50px;background:rgba(200,150,58,0.07);box-shadow:0 4px 28px rgba(200,150,58,0.05),inset 0 1px 0 rgba(255,255,255,0.55);border:1px solid rgba(200,150,58,0.09);animation:ps-float-b 27s ease-in-out infinite;animation-delay:-6s;"></div>
-    <div class="rld-shape" style="width:460px;height:95px;top:42%;left:-75px;background:rgba(21,46,31,0.06);box-shadow:0 4px 24px rgba(21,46,31,0.04),inset 0 1px 0 rgba(255,255,255,0.45);border:1px solid rgba(21,46,31,0.05);animation:ps-float-d 31s ease-in-out infinite;animation-delay:-11s;"></div>
-    <div class="rld-shape" style="width:340px;height:75px;top:60%;right:-40px;background:rgba(200,150,58,0.06);box-shadow:0 4px 24px rgba(200,150,58,0.04),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(200,150,58,0.08);animation:ps-float-a 22s ease-in-out infinite;animation-delay:-4s;"></div>
-    <div class="rld-shape" style="width:560px;height:115px;bottom:-45px;right:-90px;background:rgba(21,46,31,0.07);box-shadow:0 4px 36px rgba(21,46,31,0.05),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(21,46,31,0.06);animation:ps-float-c 29s ease-in-out infinite;animation-delay:-17s;"></div>
-    <div class="rld-shape" style="width:300px;height:70px;bottom:75px;left:25px;background:rgba(200,150,58,0.05);box-shadow:0 4px 20px rgba(200,150,58,0.04),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(200,150,58,0.07);animation:ps-float-b 25s ease-in-out infinite;animation-delay:-8s;"></div>
-    <div class="rld-shape" style="width:420px;height:88px;top:24%;left:22%;background:rgba(21,46,31,0.05);box-shadow:0 4px 26px rgba(21,46,31,0.04),inset 0 1px 0 rgba(255,255,255,0.45);border:1px solid rgba(21,46,31,0.05);animation:ps-float-c 33s ease-in-out infinite;animation-delay:-13s;"></div>
-    <div class="rld-shape" style="width:360px;height:78px;top:66%;left:35%;background:rgba(200,150,58,0.05);box-shadow:0 4px 22px rgba(200,150,58,0.04),inset 0 1px 0 rgba(255,255,255,0.5);border:1px solid rgba(200,150,58,0.07);animation:ps-float-d 28s ease-in-out infinite;animation-delay:-19s;"></div>
-  </div>
-  <div class="container">
-    <div class="section-header section-header--center reveal">
-      <div class="gold-line gold-line--center"></div>
-      <p class="section-eyebrow">The Ratelrock Difference</p>
-      <h2 class="section-title">Built for how<br><em>businesses actually work.</em></h2>
-    </div>
-    <div class="diff-grid stagger-children">
-      <div class="diff-card">
-        <div class="diff-card__number" aria-hidden="true">01</div>
-        <h3 class="diff-card__title">Speed</h3>
-        <p class="diff-card__body">Short, responsive timelines from first conversation to a structured financing proposal. The result of a lean decision-making structure, dedicated deal teams, and technology-enabled cash flow analysis that replaces months of paper-based review.</p>
-      </div>
-      <div class="diff-card">
-        <div class="diff-card__number" aria-hidden="true">02</div>
-        <h3 class="diff-card__title">Flexibility</h3>
-        <p class="diff-card__body">Every enterprise has a unique revenue cycle, asset base, and growth trajectory. We structure facilities around your business, with repayment aligned to actual cash cycles and a wide range of collateral options.</p>
-      </div>
-      <div class="diff-card">
-        <div class="diff-card__number" aria-hidden="true">03</div>
-        <h3 class="diff-card__title">Partnership</h3>
-        <p class="diff-card__body">Every Ratelrock engagement comes with continuous, active post-financing support: monitoring financial health, supporting governance improvements, and working toward graduating your business to full bankability.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ===== THE RATELROCK WAY (Comparison Table) ===== -->
 <section class="section" id="the-ratelrock-way" style="position:relative;overflow:hidden;">
   <div id="tsparticles-ratelrock-way" aria-hidden="true" style="position:absolute;inset:0;z-index:0;pointer-events:none;"></div>
@@ -628,7 +753,7 @@
     <div class="section-header reveal">
       <div class="gold-line"></div>
       <p class="section-eyebrow">The Ratelrock Way</p>
-      <h2 class="section-title">How our approach compares<br>to <em>standard lending.</em></h2>
+      <h2 class="section-title">What changes with an<br><em>advisor on your side.</em></h2>
     </div>
 
     <div class="reveal" style="overflow-x:auto;">
@@ -636,94 +761,53 @@
         <thead>
           <tr>
             <th>What Matters</th>
-            <th>Ratelrock</th>
+            <th>With Ratelrock</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Decision Timeline</td>
-            <td>Short and responsive to client need, from engagement to structured financing proposal</td>
-          </tr>
-          <tr>
             <td>Collateral</td>
-            <td>Wide asset class coverage, contracts, receivables, machinery, inventory, valued at realistic enforcement values</td>
+            <td>Wide asset class coverage, contracts, receivables, machinery, inventory, structured and registered so lenders can rely on them</td>
           </tr>
           <tr>
             <td>Repayment Structure</td>
-            <td>Revenue-cycle aligned, seasonal, interest-only, project-based, harvest-linked</td>
+            <td>Negotiated to your revenue cycle: seasonal, interest-only, project-based, harvest-linked</td>
           </tr>
           <tr>
-            <td>Credit Assessment</td>
-            <td>Holistic, cash flow forensics, management quality, business model viability, future trajectory</td>
+            <td>Choice of Lender</td>
+            <td>Competitive process across banks, DFIs and private credit providers, with term sheets compared side by side</td>
           </tr>
           <tr>
-            <td>Post-Financing</td>
-            <td>Continuous, active support. Financial monitoring, strategic reviews, and graduation management</td>
+            <td>Terms &amp; Covenants</td>
+            <td>Negotiated by people who read term sheets every day, with covenant headroom tested against your forecasts</td>
           </tr>
           <tr>
-            <td>Decision Accountability</td>
-            <td>Clear accountability and direct access to decision-makers</td>
+            <td>After Close</td>
+            <td>Continuous, active support. Covenant monitoring, lender reporting, early renegotiation, and graduation management</td>
+          </tr>
+          <tr>
+            <td>Independence</td>
+            <td>We do not lend or manage funds, so our advice is not tied to any balance sheet or product</td>
           </tr>
         </tbody>
       </table>
     </div>
+    <p class="reveal" style="max-width:760px;margin-top:2.5rem;font-size:1.0625rem;line-height:1.75;color:var(--c-text-2);">Our goal is not to be a permanent fixture. It is to <em style="color:var(--c-gold);font-style:italic;">graduate you</em>: to build the track record, governance and resilience that make your business attractive to mainstream lenders at a lower cost of capital.</p>
   </div>
 </section>
 
-<!-- ===== ACTIVE PARTNERSHIP ===== -->
+<!-- ===== CLOSING CTA ===== -->
 <section class="section investor-band">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;" class="reveal">
-      <div>
-        <p class="section-eyebrow">Beyond the Deal</p>
-        <h2 class="section-title">Active partnership<br><em>from day one.</em></h2>
-        <p style="font-size:1.0625rem;line-height:1.75;color:var(--c-text-2);margin-bottom:1.25rem;">
-          Ratelrock's engagement does not end when the financing closes. Every engagement includes continuous, active post-financing support: financial monitoring, regular strategic reviews, and hands-on governance support.
-        </p>
-        <p style="font-size:1.0625rem;line-height:1.75;color:var(--c-text-2);margin-bottom:2rem;">
-          Our goal is not to be a permanent fixture. It is to <em style="color:var(--c-gold);font-style:italic;">graduate you</em>, to build the financial track record, governance infrastructure, and operational resilience that makes your business attractive to mainstream financing at a lower cost of capital.
-        </p>
-      </div>
-      <div>
-        <div style="display:flex;flex-direction:column;gap:1rem;">
-          <div style="display:flex;gap:1rem;align-items:flex-start;padding:1.5rem;background:var(--c-bg-card);border:1px solid var(--c-border);border-radius:10px;">
-            <div style="width:36px;height:36px;border-radius:8px;background:var(--c-gold-bg);border:1px solid var(--c-gold-border);display:flex;align-items:center;justify-content:center;color:var(--c-gold);flex-shrink:0;font-family:var(--f-ui);font-size:0.8125rem;font-weight:700;">01</div>
-            <div>
-              <p style="font-family:var(--f-ui);font-size:0.8125rem;font-weight:600;color:var(--c-text);margin-bottom:0.25rem;">Continuous, Active Support</p>
-              <p style="font-size:0.875rem;color:var(--c-text-2);">Hands-on engagement with your business from day one of the facility.</p>
-            </div>
-          </div>
-          <div style="display:flex;gap:1rem;align-items:flex-start;padding:1.5rem;background:var(--c-bg-card);border:1px solid var(--c-border);border-radius:10px;">
-            <div style="width:36px;height:36px;border-radius:8px;background:var(--c-gold-bg);border:1px solid var(--c-gold-border);display:flex;align-items:center;justify-content:center;color:var(--c-gold);flex-shrink:0;font-family:var(--f-ui);font-size:0.8125rem;font-weight:700;">02</div>
-            <div>
-              <p style="font-family:var(--f-ui);font-size:0.8125rem;font-weight:600;color:var(--c-text);margin-bottom:0.25rem;">Active Financial Monitoring</p>
-              <p style="font-size:0.875rem;color:var(--c-text-2);">Regular financial health reviews, cash flow tracking, and early intervention when needed.</p>
-            </div>
-          </div>
-          <div style="display:flex;gap:1rem;align-items:flex-start;padding:1.5rem;background:var(--c-bg-card);border:1px solid var(--c-border);border-radius:10px;">
-            <div style="width:36px;height:36px;border-radius:8px;background:var(--c-gold-bg);border:1px solid var(--c-gold-border);display:flex;align-items:center;justify-content:center;color:var(--c-gold);flex-shrink:0;font-family:var(--f-ui);font-size:0.8125rem;font-weight:700;">03</div>
-            <div>
-              <p style="font-family:var(--f-ui);font-size:0.8125rem;font-weight:600;color:var(--c-text);margin-bottom:0.25rem;">Graduation Management</p>
-              <p style="font-size:0.875rem;color:var(--c-text-2);">A clear path toward bankability, building the track record and governance that unlocks mainstream financing.</p>
-            </div>
-          </div>
-          <div style="display:flex;gap:1rem;align-items:flex-start;padding:1.5rem;background:var(--c-bg-card);border:1px solid var(--c-border);border-radius:10px;">
-            <div style="width:36px;height:36px;border-radius:8px;background:var(--c-gold-bg);border:1px solid var(--c-gold-border);display:flex;align-items:center;justify-content:center;color:var(--c-gold);flex-shrink:0;font-family:var(--f-ui);font-size:0.8125rem;font-weight:700;">04</div>
-            <div>
-              <p style="font-family:var(--f-ui);font-size:0.8125rem;font-weight:600;color:var(--c-text);margin-bottom:0.25rem;">Regular Strategy Sessions</p>
-              <p style="font-size:0.875rem;color:var(--c-text-2);">Strategic reviews to keep your business on track and accelerate the path to your next financing milestone.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="reveal" style="max-width:760px;">
+      <p class="section-eyebrow">Next step</p>
+      <h2 class="section-title">Speak to us before the term sheet, <em>not after.</em></h2>
+      <p style="font-size:1.0625rem;line-height:1.75;color:var(--c-text-2);margin-bottom:2rem;">Early conversations give you the most options, whether you are raising your first facility or renegotiating your largest. Tell us about the situation and we will tell you honestly how we can help.</p>
+      <a href="/contact" class="btn btn--primary">Speak to an advisor</a>
     </div>
   </div>
 </section>
 
-
-
-  </div>
-</div>
 <!-- ===== FOOTER ===== -->
 <footer class="footer" role="contentinfo">
   <div class="container">
@@ -744,12 +828,12 @@
         </ul>
       </div>
       <div>
-        <p class="footer__col-title">Products</p>
+        <p class="footer__col-title">Advisory Services</p>
         <ul class="footer__links">
-          <li><a href="#senior" class="footer__link">Senior Secured Financing</a></li>
-          <li><a href="#asset"  class="footer__link">Asset Finance</a></li>
-          <li><a href="#mezz"   class="footer__link">Mezzanine / Quasi-Equity</a></li>
-          <li><a href="#bridge" class="footer__link">Bridge &amp; Special Situations</a></li>
+          <li><a href="#debt-raising"  class="footer__link">Debt Structuring &amp; Raising</a></li>
+          <li><a href="#refinancing"   class="footer__link">Refinancing</a></li>
+          <li><a href="#restructuring" class="footer__link">Debt Restructuring</a></li>
+          <li><a href="#covenants"     class="footer__link">Covenant &amp; Security Negotiation</a></li>
         </ul>
       </div>
       <div>
@@ -785,6 +869,40 @@
   </div>
 </div>
 <script src="js/main.js"></script>
+<script>
+(function () {
+  var tabs = [].slice.call(document.querySelectorAll('.svc-tab'));
+  var panels = [].slice.call(document.querySelectorAll('.svc-panel'));
+  var stages = [].slice.call(document.querySelectorAll('.lc-stage'));
+  if (!tabs.length) return;
+  function show(i) {
+    tabs.forEach(function (t, k) { t.setAttribute('aria-selected', k === i ? 'true' : 'false'); });
+    panels.forEach(function (p, k) { p.classList.toggle('active', k === i); });
+    stages.forEach(function (g, k) { g.classList.toggle('active', k === i); });
+  }
+  function jump(i) {
+    show(i);
+    var box = document.querySelector('.svc');
+    if (box) box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  tabs.forEach(function (t, i) { t.addEventListener('click', function () { show(i); }); });
+  stages.forEach(function (g, i) { g.addEventListener('click', function () { show(i); }); });
+  [].slice.call(document.querySelectorAll('[data-goto]')).forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var i = tabs.findIndex(function (t) { return t.id === a.getAttribute('data-goto'); });
+      if (i > -1) { e.preventDefault(); jump(i); }
+    });
+  });
+  function fromHash() {
+    var h = location.hash.slice(1);
+    var i = tabs.findIndex(function (t) { return t.id === h; });
+    if (i > -1) jump(i);
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>
+
 <script>
 (function () {
   var canvas = document.getElementById('who-fund-canvas');

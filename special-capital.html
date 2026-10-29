@@ -399,6 +399,8 @@
       -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 90px, #000 calc(100% - 90px), transparent 100%);
               mask-image: linear-gradient(180deg, transparent 0, #000 90px, #000 calc(100% - 90px), transparent 100%); }
 
+    /* overlap neighbouring sections by 1px so no sub-pixel seam shows at the wavy breaks */
+    #advisory-services, #structures, #who-we-advise { margin-top: -1px; }
     section > .container, .investor-band .container { position: relative; z-index: 1; }
     .footer { position: relative; z-index: 2; }
   </style>
@@ -918,19 +920,65 @@
 </div>
 <script src="js/main.js"></script>
 <script>
+/* Wavy light/dark section breaks. A light SVG shape is drawn over the dark section at each
+   boundary (inside the dark section's top, or inside the upper dark section's bottom), so the
+   straight edge becomes a slowly undulating curve. window.__wave.y() exposes the live curve
+   so the particle swarm can stay on the right side of it. */
+(function () {
+  var TAU = Math.PI * 2, LIGHT = '#F5F1EB';
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var DEFS = [['advisory-services', 'top'], ['advisory-services', 'bottom'], ['who-we-advise', 'top']];
+  var ns = 'http://www.w3.org/2000/svg', A = 88;
+  var waves = DEFS.map(function (d, k) {
+    var host = document.getElementById(d[0]); if (!host) return null;
+    var svg = document.createElementNS(ns, 'svg'), path = document.createElementNS(ns, 'path');
+    svg.setAttribute('viewBox', '0 0 1000 100'); svg.setAttribute('preserveAspectRatio', 'none'); svg.setAttribute('aria-hidden', 'true');
+    path.setAttribute('fill', LIGHT); svg.appendChild(path);
+    svg.style.cssText = 'position:absolute;left:0;width:100%;pointer-events:none;z-index:0;display:block;' + (d[1] === 'top' ? 'top:-1px;' : 'bottom:-1px;');
+    host.appendChild(svg);
+    return { k: k, host: host, side: d[1], svg: svg, path: path, r: host.getBoundingClientRect(), t: 0 };
+  });
+  function size() { A = window.innerWidth < 700 ? 44 : 88; waves.forEach(function (w) { if (w) w.svg.style.height = A + 'px'; }); }
+  function edge(k, u, t) { return 0.5 + 0.5 * (0.6 * Math.sin(TAU * u + t * 0.35 + k * 1.7) + 0.4 * Math.sin(TAU * (2.3 * u + 0.2 * k) - t * 0.28 + k)); }
+  function curvePx(w, u) { var e = edge(w.k, u, w.t); return w.side === 'top' ? A * (0.12 + 0.78 * e) : A * (0.08 + 0.8 * e); }
+  function update(w, t) {
+    w.t = t; w.r = w.host.getBoundingClientRect();
+    var r = w.r;
+    if (r.bottom < -300 || r.top > window.innerHeight + 300) return;
+    var N = 64, d = w.side === 'top' ? 'M0,0 L1000,0' : 'M0,100 L1000,100';
+    for (var i = N; i >= 0; i--) { var u = i / N; d += ' L' + (u * 1000).toFixed(1) + ',' + (curvePx(w, u) / A * 100).toFixed(2); }
+    w.path.setAttribute('d', d + ' Z');
+  }
+  /* viewport y of the curve at viewport x (px) */
+  window.__wave = {
+    y: function (i, x) {
+      var w = waves[i]; if (!w) return null;
+      var top = w.side === 'top' ? w.r.top - 1 : w.r.bottom + 1 - A;
+      return top + curvePx(w, Math.max(0, Math.min(1, x / window.innerWidth)));
+    }
+  };
+  size();
+  window.addEventListener('resize', function () { size(); waves.forEach(function (w) { if (w) update(w, w.t); }); });
+  waves.forEach(function (w) { if (w) update(w, 0); });
+  if (reduce) { window.addEventListener('load', function () { waves.forEach(function (w) { if (w) update(w, 0); }); }); return; }
+  function loop(now) { requestAnimationFrame(loop); waves.forEach(function (w) { if (w) update(w, now / 1000); }); }
+  requestAnimationFrame(loop);
+})();
+</script>
+<script>
 /* One particle swarm for the whole page. It follows the pointer as a group, is nudged by
    scrolling, and is clipped to the section it is in: particles fade out before every
    section edge and are never drawn in other sections (hero, photos, table, footer). */
 (function () {
   if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var TAU = Math.PI * 2;
-  var ZONES = [['intro', 0], ['advisory-services', 1], ['structures', 0], ['who-we-advise', 1]];
+  var ZONES = [['intro', 0, -1, 0], ['advisory-services', 1, 0, 1], ['structures', 0, 1, 2], ['who-we-advise', 1, 2, -1]];
   var PAL = [
     { colors: ['#2D6FB7', '#5B5BD6', '#C0392B', '#D4622F', '#C8963A'], alpha: 0.85 },
     { colors: ['#6FA8FF', '#9B8CFF', '#F27A7A', '#F08A5D', '#E8BF63'], alpha: 0.9 }
   ];
   var TEXT = '.ed-lead,.ed-cols p,.section-title,.section-subtitle,.section-eyebrow,.conv-row,.svc-tab,.svc-panel,.sit-row,.stack-band,.stack-note,.svc-cta,.lc-stage';
-  var zones = ZONES.map(function (z) { var el = document.getElementById(z[0]); return el ? { el: el, pal: PAL[z[1]], key: z[1] } : null; }).filter(Boolean);
+  var zones = ZONES.map(function (z) { var el = document.getElementById(z[0]); return el ? { el: el, pal: PAL[z[1]], key: z[1], topW: z[2], botW: z[3] } : null; }).filter(Boolean);
   if (!zones.length) return;
 
   var cv = document.createElement('canvas');
@@ -986,7 +1034,8 @@
   function frame(now) {
     requestAnimationFrame(frame);
     var t = now / 1000, sy = window.pageYOffset;
-    var zr = zones.map(function (z) { var r = z.el.getBoundingClientRect(); return { top: r.top, bot: r.bottom, pal: z.pal, key: z.key }; });
+    var zr = zones.map(function (z) { var r = z.el.getBoundingClientRect(); return { top: r.top, bot: r.bottom, pal: z.pal, key: z.key, topW: z.topW, botW: z.botW }; });
+    var WV = window.__wave;
     var any = zr.some(function (z) { return z.bot > 0 && z.top < H; });
     ctx.clearRect(0, 0, W, H);
     if (!any) return;
@@ -1009,7 +1058,10 @@
       /* which section is this particle in? none = not drawn; near an edge = faded */
       var zi = -1, fade = 0;
       for (var z = 0; z < zr.length; z++) {
-        if (p.y >= zr[z].top && p.y <= zr[z].bot) { zi = z; fade = Math.max(0, Math.min(1, (Math.min(p.y - zr[z].top, zr[z].bot - p.y) - 40) / 110)); break; }
+        var zt = zr[z].top, zb = zr[z].bot, wy;
+        if (WV && zr[z].topW >= 0 && (wy = WV.y(zr[z].topW, p.x)) !== null) zt = wy;
+        if (WV && zr[z].botW >= 0 && (wy = WV.y(zr[z].botW, p.x)) !== null) zb = wy;
+        if (p.y >= zt && p.y <= zb) { zi = z; fade = Math.max(0, Math.min(1, (Math.min(p.y - zt, zb - p.y) - 40) / 110)); break; }
       }
       if (zi < 0 || fade <= 0.02) continue;
       var under = false, py2 = p.y + sy;

@@ -34,6 +34,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="favicon.ico" sizes="32x32" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/nav-float.css?v=9" />
   <style>
     /* Mobile responsive grids */
     @media (max-width: 768px) {
@@ -57,22 +58,24 @@
     <a href="/" class="nav__logo" aria-label="Ratelrock, Home">
       <img src="images/Logos/logo.png" alt="Ratelrock" style="width:157px;height:56px;object-fit:contain;display:block;">
     </a>
-    <ul class="nav__links" role="list">
+    <div class="nav__pill">
+      <ul class="nav__links" role="list">
       <li><a href="/"                   class="nav__link">Home</a></li>
       <li><a href="/about"                   class="nav__link">About Us</a></li>
       <li><a href="/special-capital"          class="nav__link">Specialist Capital</a></li>
-      <li class="nav__item nav__item--dropdown"><a href="/transformation-support-advisory" class="nav__link">Transformation Support &amp; Advisory</a><ul class="nav__dropdown"><li><a href="/transformation-support-advisory#turnaround" class="nav__dropdown__link">Turnaround &amp; Restructuring</a></li><li><a href="/transformation-support-advisory#transaction" class="nav__dropdown__link">Transaction Advisory</a></li><li><a href="/transformation-support-advisory#corporate-finance" class="nav__dropdown__link">Corporate Finance Advisory</a></li><li><a href="/transformation-support-advisory#growth-governance" class="nav__dropdown__link">Growth &amp; Governance</a></li></ul></li>
+      <li><a href="/transformation-support-advisory" class="nav__link">Transformation Support &amp; Advisory</a></li>
       <li><a href="/impact"                  class="nav__link">Impact</a></li>
       <li><a href="/news"                    class="nav__link">News</a></li>
       <li><a href="/contact"                 class="nav__link nav__link--active">Contact</a></li>
     </ul>
+      <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    </div>
     <div class="nav__ctas">
       <a href="mailto:info@ratelrock.co.ke" class="nav__email" aria-label="Email Ratelrock">info@ratelrock.co.ke</a>
       <p class="nav__tagline">Envision | Mobilize | Transform</p>
     </div>
-    <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
   </div>
 </nav>
 <nav class="mobile-nav" aria-label="Mobile navigation" style="display:none;">
@@ -252,26 +255,7 @@
   </div>
 </div>
 <script src="js/main.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.12.0/tsparticles.slim.bundle.min.js"></script>
-<script>
-(function () {
-  if (typeof tsParticles === "undefined") return;
-  if (!document.getElementById("tsparticles-contact")) return;
-  tsParticles.load("tsparticles-contact", {
-    fullScreen: { enable: false },
-    background: { color: { value: "transparent" } },
-    fpsLimit: 60, detectRetina: true,
-    interactivity: { events: { onClick: { enable: false }, onHover: { enable: false } } },
-    particles: {
-      number: { density: { enable: true, area: 900 }, value: 160 },
-      color: { value: "#ffffff" },
-      opacity: { value: { min: 0.25, max: 0.9 }, animation: { enable: true, speed: 1.0, sync: false } },
-      size: { value: { min: 0.8, max: 2.4 } },
-      move: { enable: true, speed: { min: 0.1, max: 0.7 }, direction: "none", random: true, straight: false, outModes: { default: "out" } },
-      shape: { type: "circle" }, links: { enable: false }
-    }
-  });
-})();
-</script>
+<script src="js/nav-float.js?v=1"></script>
+<script src="js/stars.js?v=2"></script>
 </body>
 </html>

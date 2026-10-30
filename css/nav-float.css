@@ -1,0 +1,173 @@
+/* ======================================================
+   Floating menu bubble
+   A centred pill that floats over the page and swaps colour with what is behind it: deep green over
+   light areas, ivory over dark areas. The email and tagline sit outside the pill, to its right.
+   js/nav-float.js sets .nav--on-dark when the page behind the menu is dark.
+   ====================================================== */
+
+.nav {
+  --np-bg: rgba(21, 46, 31, 0.92);
+  --np-bd: rgba(223, 181, 94, 0.30);
+  --np-fg: #D8D2C4;
+  --np-fg-strong: #FFFFFF;
+  --np-accent: #DFB55E;
+  --np-bubble: rgba(223, 181, 94, 0.18);
+  --np-shadow: 0 10px 36px rgba(11, 22, 35, 0.28);
+  --out-fg: #152E1F;
+  --out-bd: rgba(21, 46, 31, 0.32);
+  --out-tag: #8A6526;
+  --logo-filter: none;
+}
+.nav.nav--on-dark {
+  --np-bg: rgba(245, 241, 235, 0.93);
+  --np-bd: rgba(21, 46, 31, 0.16);
+  --np-fg: #2D3A33;
+  --np-fg-strong: #0B1623;
+  --np-accent: #8A6526;
+  --np-bubble: rgba(200, 150, 58, 0.22);
+  --np-shadow: 0 10px 36px rgba(0, 0, 0, 0.45);
+  --out-fg: #EDE8DC;
+  --out-bd: rgba(237, 232, 220, 0.34);
+  --out-tag: #DFB55E;
+  --logo-filter: brightness(0.62) saturate(1.35);
+}
+
+.nav,
+.nav.scrolled {
+  height: auto;
+  padding: 14px 0 10px;
+  background: transparent;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  pointer-events: none;
+}
+.nav__inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: start;
+  gap: 1.25rem;
+}
+
+.nav__pill {
+  grid-column: 2;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.6rem clamp(0.9rem, 1.4vw, 1.5rem);
+  border-radius: 999px;
+  pointer-events: auto;
+  background: var(--np-bg);
+  border: 1px solid var(--np-bd);
+  box-shadow: var(--np-shadow);
+  -webkit-backdrop-filter: blur(18px) saturate(1.6);
+  backdrop-filter: blur(18px) saturate(1.6);
+  transition: background 450ms ease, border-color 450ms ease, box-shadow 450ms ease, padding 300ms ease;
+}
+.nav.scrolled .nav__pill { padding-top: 0.45rem; padding-bottom: 0.45rem; }
+
+.nav__logo {
+  grid-column: 1;
+  pointer-events: auto;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  padding: 0 clamp(0.9rem, 1.2vw, 1.3rem);
+  border-radius: 999px;
+  background: var(--np-bg);
+  border: 1px solid var(--np-bd);
+  box-shadow: var(--np-shadow);
+  -webkit-backdrop-filter: blur(18px) saturate(1.6);
+  backdrop-filter: blur(18px) saturate(1.6);
+  transition: background 450ms ease, border-color 450ms ease, box-shadow 450ms ease;
+}
+.nav__logo img {
+  width: auto !important;
+  height: 34px !important;
+  filter: var(--logo-filter);
+  transition: filter 450ms ease, height 300ms ease;
+}
+.nav.scrolled .nav__logo img { height: 30px !important; }
+
+.nav__links { position: relative; gap: 2px; }
+.nav__link {
+  position: relative;
+  z-index: 1;
+  color: var(--np-fg);
+  padding: 0.6rem clamp(0.8rem, 1.2vw, 1.4rem);
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: color 250ms ease;
+}
+.nav__link:hover { color: var(--np-fg-strong); background: transparent; }
+.nav__link.active, .nav__link--active {
+  color: var(--np-accent);
+  text-decoration: none;
+  background: transparent;
+}
+.nav__bubble {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  border-radius: 999px;
+  background: var(--np-bubble);
+  opacity: 0;
+  z-index: 0;
+  pointer-events: none;
+  transition: left 380ms cubic-bezier(0.22, 1, 0.36, 1), width 380ms cubic-bezier(0.22, 1, 0.36, 1), opacity 200ms ease, background 450ms ease;
+}
+
+/* email sits in its own pill (same look as the menu pill) with the tagline under it; together they match the menu's height */
+.nav__ctas {
+  grid-column: 3;
+  justify-self: end;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 5px;
+  margin: 0;
+  pointer-events: auto;
+}
+.nav__email {
+  padding: 0.38rem 1.1rem;
+  line-height: 1.2;
+  border-radius: 999px;
+  color: var(--np-fg-strong);
+  background: var(--np-bg);
+  border: 1px solid var(--np-bd);
+  box-shadow: var(--np-shadow);
+  -webkit-backdrop-filter: blur(18px) saturate(1.6);
+  backdrop-filter: blur(18px) saturate(1.6);
+  transition: background 450ms ease, border-color 450ms ease, box-shadow 450ms ease, color 450ms ease;
+}
+.nav__email:hover { color: var(--np-accent); background: var(--np-bg); border-color: var(--np-accent); }
+.nav__tagline { color: var(--out-tag); line-height: 1; margin: 0; transition: color 450ms ease; }
+
+.nav__hamburger { margin-left: auto; padding: 8px 10px; }
+.nav__hamburger span { background: var(--np-fg-strong); transition: background 450ms ease, all 300ms ease; }
+
+@media (max-width: 1240px) {
+  .nav__ctas { display: none; }
+  .nav__inner { grid-template-columns: auto 1fr; }
+}
+@media (max-width: 1024px) {
+  .nav__inner { grid-template-columns: 1fr auto; }
+  .nav__logo { justify-self: start; }
+  .nav__pill { grid-column: 2; justify-self: end; padding: 0.2rem; }
+  .nav__links { display: none; }
+  .nav__hamburger { display: flex; margin-left: 0; padding: 10px 12px; }
+}
+@media (max-width: 768px) {
+  .nav, .nav.scrolled { padding: 10px 0 8px; }
+  .nav__logo { padding: 0 0.8rem; }
+  .nav__logo img { height: 28px !important; }
+  .nav.scrolled .nav__logo img { height: 26px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav__pill, .nav__logo img, .nav__link, .nav__bubble, .nav__email, .nav__tagline { transition: none; }
+}

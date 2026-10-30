@@ -44,6 +44,7 @@
     })();
   </script>
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/nav-float.css?v=9" />
   <style>
     /* ===== PC HERO - TALLER + METRICS ROW ===== */
     .pc-hero { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; }
@@ -413,22 +414,24 @@
     <a href="/" class="nav__logo" aria-label="Ratelrock, Home">
       <img src="images/Logos/logo.png" alt="Ratelrock" style="width:157px;height:56px;object-fit:contain;display:block;">
     </a>
-    <ul class="nav__links" role="list">
+    <div class="nav__pill">
+      <ul class="nav__links" role="list">
       <li><a href="/"                   class="nav__link">Home</a></li>
       <li><a href="/about"                   class="nav__link">About Us</a></li>
       <li><a href="/special-capital"          class="nav__link nav__link--active">Specialist Capital</a></li>
-      <li class="nav__item nav__item--dropdown"><a href="/transformation-support-advisory" class="nav__link">Transformation Support &amp; Advisory</a><ul class="nav__dropdown"><li><a href="/transformation-support-advisory#turnaround" class="nav__dropdown__link">Turnaround &amp; Restructuring</a></li><li><a href="/transformation-support-advisory#transaction" class="nav__dropdown__link">Transaction Advisory</a></li><li><a href="/transformation-support-advisory#corporate-finance" class="nav__dropdown__link">Corporate Finance Advisory</a></li><li><a href="/transformation-support-advisory#growth-governance" class="nav__dropdown__link">Growth &amp; Governance</a></li></ul></li>
+      <li><a href="/transformation-support-advisory" class="nav__link">Transformation Support &amp; Advisory</a></li>
       <li><a href="/impact"                  class="nav__link">Impact</a></li>
       <li><a href="/news"                    class="nav__link">News</a></li>
       <li><a href="/contact"                 class="nav__link">Contact</a></li>
     </ul>
+      <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    </div>
     <div class="nav__ctas">
       <a href="mailto:info@ratelrock.co.ke" class="nav__email" aria-label="Email Ratelrock">info@ratelrock.co.ke</a>
       <p class="nav__tagline">Envision | Mobilize | Transform</p>
     </div>
-    <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
   </div>
 </nav>
 <nav class="mobile-nav" aria-label="Mobile navigation" style="display:none;">
@@ -492,7 +495,7 @@
 </section>
 
 <!-- ===== WHY WE EXIST ===== -->
-<section class="section section--light" id="intro" style="position:relative;overflow:hidden;">
+<section class="section section--light" id="intro" data-swarm="light" data-swarm-bot-wave="0" style="position:relative;overflow:hidden;">
   <div class="container" style="position:relative;z-index:1;">
 
     <div class="ed-grid">
@@ -538,7 +541,7 @@
 </section>
 
 <!-- ===== WHAT WE DO ===== -->
-<section class="section" id="advisory-services" style="position:relative;overflow:hidden;">
+<section class="section" id="advisory-services" data-wave="top bottom" data-swarm="dark" data-swarm-top-wave="0" data-swarm-bot-wave="1" style="position:relative;overflow:hidden;">
   <canvas id="who-fund-canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block;"></canvas>
   <div class="container" style="position:relative;z-index:1;">
     <div class="section-header reveal">
@@ -570,7 +573,7 @@
           <li>Registering usable security over equipment, inventory, receivables and contracts</li>
           <li>Lender-grade management accounts, financial model and information memorandum</li>
           </ul>
-          <a href="/contact" class="svc-panel__link">Discuss this with us &rarr;</a>
+          <a href="mailto:info@ratelrock.co.ke?subject=Enquiry%3A%20Credit%20readiness%20and%20collateral%20advisory&amp;body=Hello%20Ratelrock%2C%0A%0AI%20would%20like%20to%20discuss%20this%20with%20an%20advisor.%0A%0ACompany%3A%0AWhat%20we%20need%20help%20with%3A%0A" class="svc-panel__link">Discuss this with us &rarr;</a>
         </div>
       </div>
       <div class="svc-item">
@@ -584,7 +587,7 @@
           <li>A targeted lender shortlist and a managed process</li>
           <li>Term sheets compared side by side, not one at a time</li>
           </ul>
-          <a href="/contact" class="svc-panel__link">Discuss this with us &rarr;</a>
+          <a href="mailto:info@ratelrock.co.ke?subject=Enquiry%3A%20Debt%20structuring%20and%20raising&amp;body=Hello%20Ratelrock%2C%0A%0AI%20would%20like%20to%20discuss%20this%20with%20an%20advisor.%0A%0ACompany%3A%0AWhat%20we%20need%20help%20with%3A%0A" class="svc-panel__link">Discuss this with us &rarr;</a>
         </div>
       </div>
       <div class="svc-item">
@@ -598,7 +601,7 @@
           <li>Fees, prepayment terms and cash sweeps</li>
           <li>Security, guarantees and intercreditor terms when more than one lender is involved</li>
           </ul>
-          <a href="/contact" class="svc-panel__link">Discuss this with us &rarr;</a>
+          <a href="mailto:info@ratelrock.co.ke?subject=Enquiry%3A%20Term%20sheet%2C%20covenant%20and%20security%20negotiation&amp;body=Hello%20Ratelrock%2C%0A%0AI%20would%20like%20to%20discuss%20this%20with%20an%20advisor.%0A%0ACompany%3A%0AWhat%20we%20need%20help%20with%3A%0A" class="svc-panel__link">Discuss this with us &rarr;</a>
         </div>
       </div>
       <div class="svc-item">
@@ -612,7 +615,7 @@
           <li>Headroom forecasting and early warning signs</li>
           <li>Lender communication, with waivers requested early</li>
           </ul>
-          <a href="/contact" class="svc-panel__link">Discuss this with us &rarr;</a>
+          <a href="mailto:info@ratelrock.co.ke?subject=Enquiry%3A%20Post-close%20debt%20management&amp;body=Hello%20Ratelrock%2C%0A%0AI%20would%20like%20to%20discuss%20this%20with%20an%20advisor.%0A%0ACompany%3A%0AWhat%20we%20need%20help%20with%3A%0A" class="svc-panel__link">Discuss this with us &rarr;</a>
         </div>
       </div>
       <div class="svc-item">
@@ -626,7 +629,7 @@
           <li>Consolidating fragmented facilities</li>
           <li>Maturity extensions, repricing and covenant resets</li>
           </ul>
-          <a href="/contact" class="svc-panel__link">Discuss this with us &rarr;</a>
+          <a href="mailto:info@ratelrock.co.ke?subject=Enquiry%3A%20Refinancing%20and%20amend-and-extend&amp;body=Hello%20Ratelrock%2C%0A%0AI%20would%20like%20to%20discuss%20this%20with%20an%20advisor.%0A%0ACompany%3A%0AWhat%20we%20need%20help%20with%3A%0A" class="svc-panel__link">Discuss this with us &rarr;</a>
         </div>
       </div>
       <div class="svc-item">
@@ -640,21 +643,21 @@
           <li>Rescheduling, partial write-downs and debt-to-equity conversions</li>
           <li>Formal options under Kenya&rsquo;s Insolvency Act, 2015, with your legal advisors</li>
           </ul>
-          <p style="margin-bottom:1rem;"><a href="/transformation-support-advisory#turnaround" class="svc-panel__link">Our Turnaround &amp; Restructuring practice &rarr;</a></p>
-          <a href="/contact" class="svc-panel__link">Discuss this with us &rarr;</a>
+          <p style="margin-bottom:1rem;"><a href="transformation-support-advisory.html#turnaround" class="svc-panel__link">Our Turnaround &amp; Restructuring practice &rarr;</a></p>
+          <a href="mailto:info@ratelrock.co.ke?subject=Enquiry%3A%20Debt%20restructuring&amp;body=Hello%20Ratelrock%2C%0A%0AI%20would%20like%20to%20discuss%20this%20with%20an%20advisor.%0A%0ACompany%3A%0AWhat%20we%20need%20help%20with%3A%0A" class="svc-panel__link">Discuss this with us &rarr;</a>
         </div>
       </div>
     </div>
 
     <div class="svc-cta">
       <p>Have a financing decision on the table?</p>
-      <a href="/contact" class="btn btn--primary">Speak to an advisor</a>
+      <a href="contact.html" class="btn btn--primary">Speak to an advisor</a>
     </div>
   </div>
 </section>
 
 <!-- ===== STRUCTURES: CAPITAL STACK ===== -->
-<section class="section section--light" id="structures" style="position:relative;overflow:hidden;">
+<section class="section section--light" id="structures" data-swarm="light" data-swarm-top-wave="1" data-swarm-bot-wave="2" style="position:relative;overflow:hidden;">
   <div class="container" style="position:relative;z-index:1;">
     <div class="section-header reveal">
       <div class="gold-line"></div>
@@ -692,7 +695,7 @@
 </section>
 
 <!-- ===== WHO WE ADVISE ===== -->
-<section class="section" id="who-we-advise" style="position:relative;overflow:hidden;">
+<section class="section" id="who-we-advise" data-wave="top" data-swarm="dark" data-swarm-top-wave="2" style="position:relative;overflow:hidden;">
   <div class="container" style="position:relative;z-index:1;">
     <div class="section-header reveal">
       <div class="gold-line"></div>
@@ -846,18 +849,6 @@
   </div>
 </section>
 
-<!-- ===== CLOSING CTA ===== -->
-<section class="section investor-band">
-  <div class="container">
-    <div class="reveal" style="max-width:760px;">
-      <p class="section-eyebrow">Next step</p>
-      <h2 class="section-title">Speak to us before the term sheet, <em>not after.</em></h2>
-      <p style="font-size:1.0625rem;line-height:1.75;color:var(--c-text-2);margin-bottom:2rem;">Early conversations give you the most options, whether you are raising your first facility or renegotiating your largest. Tell us about the situation and we will tell you honestly how we can help.</p>
-      <a href="/contact" class="btn btn--primary">Speak to an advisor</a>
-    </div>
-  </div>
-</section>
-
 <!-- ===== FOOTER ===== -->
 <footer class="footer" role="contentinfo">
   <div class="container">
@@ -919,172 +910,9 @@
   </div>
 </div>
 <script src="js/main.js"></script>
-<script>
-/* Wavy light/dark section breaks. A light SVG shape is drawn over the dark section at each
-   boundary (inside the dark section's top, or inside the upper dark section's bottom), so the
-   straight edge becomes a slowly undulating curve. window.__wave.y() exposes the live curve
-   so the particle swarm can stay on the right side of it. */
-(function () {
-  var TAU = Math.PI * 2, LIGHT = '#F5F1EB';
-  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var DEFS = [['advisory-services', 'top'], ['advisory-services', 'bottom'], ['who-we-advise', 'top']];
-  var ns = 'http://www.w3.org/2000/svg', A = 88;
-  var waves = DEFS.map(function (d, k) {
-    var host = document.getElementById(d[0]); if (!host) return null;
-    var svg = document.createElementNS(ns, 'svg'), path = document.createElementNS(ns, 'path');
-    svg.setAttribute('viewBox', '0 0 1000 100'); svg.setAttribute('preserveAspectRatio', 'none'); svg.setAttribute('aria-hidden', 'true');
-    path.setAttribute('fill', LIGHT); svg.appendChild(path);
-    svg.style.cssText = 'position:absolute;left:0;width:100%;pointer-events:none;z-index:0;display:block;' + (d[1] === 'top' ? 'top:-1px;' : 'bottom:-1px;');
-    host.appendChild(svg);
-    return { k: k, host: host, side: d[1], svg: svg, path: path, r: host.getBoundingClientRect(), t: 0 };
-  });
-  function size() { A = window.innerWidth < 700 ? 44 : 88; waves.forEach(function (w) { if (w) w.svg.style.height = A + 'px'; }); }
-  function edge(k, u, t) { return 0.5 + 0.5 * (0.6 * Math.sin(TAU * u + t * 0.35 + k * 1.7) + 0.4 * Math.sin(TAU * (2.3 * u + 0.2 * k) - t * 0.28 + k)); }
-  function curvePx(w, u) { var e = edge(w.k, u, w.t); return w.side === 'top' ? A * (0.12 + 0.78 * e) : A * (0.08 + 0.8 * e); }
-  function update(w, t) {
-    w.t = t; w.r = w.host.getBoundingClientRect();
-    var r = w.r;
-    if (r.bottom < -300 || r.top > window.innerHeight + 300) return;
-    var N = 64, d = w.side === 'top' ? 'M0,0 L1000,0' : 'M0,100 L1000,100';
-    for (var i = N; i >= 0; i--) { var u = i / N; d += ' L' + (u * 1000).toFixed(1) + ',' + (curvePx(w, u) / A * 100).toFixed(2); }
-    w.path.setAttribute('d', d + ' Z');
-  }
-  /* viewport y of the curve at viewport x (px) */
-  window.__wave = {
-    y: function (i, x) {
-      var w = waves[i]; if (!w) return null;
-      var top = w.side === 'top' ? w.r.top - 1 : w.r.bottom + 1 - A;
-      return top + curvePx(w, Math.max(0, Math.min(1, x / window.innerWidth)));
-    }
-  };
-  size();
-  window.addEventListener('resize', function () { size(); waves.forEach(function (w) { if (w) update(w, w.t); }); });
-  waves.forEach(function (w) { if (w) update(w, 0); });
-  if (reduce) { window.addEventListener('load', function () { waves.forEach(function (w) { if (w) update(w, 0); }); }); return; }
-  function loop(now) { requestAnimationFrame(loop); waves.forEach(function (w) { if (w) update(w, now / 1000); }); }
-  requestAnimationFrame(loop);
-})();
-</script>
-<script>
-/* One particle swarm for the whole page. It follows the pointer as a group, is nudged by
-   scrolling, and is clipped to the section it is in: particles fade out before every
-   section edge and are never drawn in other sections (hero, photos, table, footer). */
-(function () {
-  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var TAU = Math.PI * 2;
-  var ZONES = [['intro', 0, -1, 0], ['advisory-services', 1, 0, 1], ['structures', 0, 1, 2], ['who-we-advise', 1, 2, -1]];
-  var PAL = [
-    { colors: ['#2D6FB7', '#5B5BD6', '#C0392B', '#D4622F', '#C8963A'], alpha: 0.85 },
-    { colors: ['#6FA8FF', '#9B8CFF', '#F27A7A', '#F08A5D', '#E8BF63'], alpha: 0.9 }
-  ];
-  var TEXT = '.ed-lead,.ed-cols p,.section-title,.section-subtitle,.section-eyebrow,.conv-row,.svc-tab,.svc-panel,.sit-row,.stack-band,.stack-note,.svc-cta,.lc-stage';
-  var zones = ZONES.map(function (z) { var el = document.getElementById(z[0]); return el ? { el: el, pal: PAL[z[1]], key: z[1], topW: z[2], botW: z[3] } : null; }).filter(Boolean);
-  if (!zones.length) return;
-
-  var cv = document.createElement('canvas');
-  cv.setAttribute('aria-hidden', 'true');
-  cv.style.cssText = 'position:fixed;left:0;top:0;width:100vw;height:100vh;z-index:0;pointer-events:none;display:block;';
-  var footer = document.querySelector('footer.footer');
-  document.body.insertBefore(cv, footer || null);
-  var ctx = cv.getContext('2d');
-
-  var W = 0, H = 0, R = 260, pts = [], rects = [], c = { x: 0, y: 0 }, ready = false;
-  var pointer = { x: 0, y: 0, has: false }, lastScroll = window.pageYOffset;
-
-  function measure() {
-    var y = window.pageYOffset;
-    rects = [].slice.call(document.querySelectorAll(TEXT)).map(function (el) {
-      var r = el.getBoundingClientRect();
-      return { l: r.left - 8, r: r.right + 8, t: r.top + y - 8, b: r.bottom + y + 8, w: r.width, h: r.height };
-    }).filter(function (r) { return r.w > 4 && r.h > 4; });
-  }
-  function build() {
-    W = window.innerWidth; H = window.innerHeight;
-    var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    var small = W < 700;
-    R = small ? Math.min(180, W * 0.5) : Math.max(260, Math.min(520, W * 0.34));
-    var gap = small ? 46 : 54, minD = gap / R * 0.82, cand = [], guard = 0;
-    while (cand.length < 400 && guard++ < 6000) {
-      var a = Math.random() * TAU, rr = Math.sqrt(Math.random()), x = Math.cos(a) * rr, y = Math.sin(a) * rr, ok = true;
-      for (var j = 0; j < cand.length; j++) { var dx = cand[j][0] - x, dy = cand[j][1] - y; if (dx * dx + dy * dy < minD * minD) { ok = false; break; } }
-      if (ok) cand.push([x, y]);
-    }
-    if (!ready) { c.x = W * 0.5; c.y = H * 0.5; ready = true; }
-    pts = cand.map(function (q) {
-      return { ux: q[0], uy: q[1], r: Math.sqrt(q[0] * q[0] + q[1] * q[1]), ph: Math.random() * TAU, k: 0.05 + Math.random() * 0.08,
-        u: Math.max(0, Math.min(0.999, (q[1] + 1) / 2 * 0.7 + (q[0] + 1) / 2 * 0.3 + (Math.random() - 0.5) * 0.18)),
-        x: c.x + q[0] * R, y: c.y + q[1] * R };
-    });
-    measure();
-  }
-  build();
-  window.addEventListener('resize', build);
-  window.addEventListener('load', measure);
-  setInterval(measure, 3000);
-  document.addEventListener('click', function () { setTimeout(measure, 700); });
-  window.addEventListener('pointermove', function (e) { pointer.x = e.clientX; pointer.y = e.clientY; pointer.has = true; }, { passive: true });
-  document.addEventListener('pointerleave', function () { pointer.has = false; });
-  window.addEventListener('scroll', function () {
-    var y = window.pageYOffset, dy = y - lastScroll; lastScroll = y;
-    c.y -= Math.max(-220, Math.min(220, dy)) * 0.55;   /* swarm gets dragged along by scrolling */
-  }, { passive: true });
-
-  var LV = 4;
-  function frame(now) {
-    requestAnimationFrame(frame);
-    var t = now / 1000, sy = window.pageYOffset;
-    var zr = zones.map(function (z) { var r = z.el.getBoundingClientRect(); return { top: r.top, bot: r.bottom, pal: z.pal, key: z.key, topW: z.topW, botW: z.botW }; });
-    var WV = window.__wave;
-    var any = zr.some(function (z) { return z.bot > 0 && z.top < H; });
-    ctx.clearRect(0, 0, W, H);
-    if (!any) return;
-    var px = pointer.has ? pointer.x : null, py = pointer.has ? pointer.y : null;
-    var tx = px !== null ? px : W * 0.5 + Math.sin(t * 0.21) * W * 0.28;
-    var ty = py !== null ? py : H * 0.5 + Math.cos(t * 0.16) * H * 0.22;
-    c.x += (tx - c.x) * 0.035; c.y += (ty - c.y) * 0.035;
-    var rot = t * 0.05, cr = Math.cos(rot), sr = Math.sin(rot), buckets = {}, nr = rects.length;
-    for (var i = 0; i < pts.length; i++) {
-      var p = pts[i], rx = p.ux * cr - p.uy * sr, ry = p.ux * sr + p.uy * cr, a = Math.atan2(ry, rx);
-      var edge = 1 + 0.07 * Math.sin(3 * a + t * 0.7) + 0.05 * Math.sin(5 * a - t * 0.55);
-      var gx = c.x + rx * R * edge + Math.sin(t * 0.9 + p.ph * 3) * 12 + Math.sin(t * 1.7 + p.ph) * 5;
-      var gy = c.y + ry * R * edge + Math.cos(t * 0.8 + p.ph * 2) * 12 + Math.cos(t * 1.5 + p.ph * 5) * 5;
-      if (px !== null) {
-        var ddx = gx - px, ddy = gy - py, d = Math.sqrt(ddx * ddx + ddy * ddy) || 1;
-        var e = (d - 120) / 60, push = Math.exp(-e * e) * 34 + Math.exp(-(d * d) / (95 * 95)) * 40;
-        gx += ddx / d * push; gy += ddy / d * push;
-      }
-      var mx = gx - p.x, my = gy - p.y; p.x += mx * p.k; p.y += my * p.k;
-      /* which section is this particle in? none = not drawn; near an edge = faded */
-      var zi = -1, fade = 0;
-      for (var z = 0; z < zr.length; z++) {
-        var zt = zr[z].top, zb = zr[z].bot, wy;
-        if (WV && zr[z].topW >= 0 && (wy = WV.y(zr[z].topW, p.x)) !== null) zt = wy;
-        if (WV && zr[z].botW >= 0 && (wy = WV.y(zr[z].botW, p.x)) !== null) zb = wy;
-        if (p.y >= zt && p.y <= zb) { zi = z; fade = Math.max(0, Math.min(1, (Math.min(p.y - zt, zb - p.y) - 40) / 110)); break; }
-      }
-      if (zi < 0 || fade <= 0.02) continue;
-      var under = false, py2 = p.y + sy;
-      for (var u = 0; u < nr; u++) { var rc = rects[u]; if (p.x > rc.l && p.x < rc.r && py2 > rc.t && py2 < rc.b) { under = true; break; } }
-      var al = fade * zr[zi].pal.alpha * (under ? 0.35 : 1), lv = Math.round(al * LV);
-      if (lv < 1) continue;
-      var mot = Math.sqrt(mx * mx + my * my), w = Math.min(1, mot / 8), rad = a + Math.sin(t * 0.6 + p.ph) * 0.7, mv = Math.atan2(my, mx);
-      var ang = Math.atan2(Math.sin(rad) * (1 - w) + Math.sin(mv) * w, Math.cos(rad) * (1 - w) + Math.cos(mv) * w);
-      var size = 1 - 0.5 * p.r * p.r * p.r, len = (1.3 + Math.min(mot * 0.12, 3)) * size, hx = Math.cos(ang) * len, hy = Math.sin(ang) * len;
-      var ci = Math.floor(p.u * 5), bk = zr[zi].key * 100 + ci * 10 + lv;
-      (buckets[bk] || (buckets[bk] = [])).push(p.x - hx, p.y - hy, p.x + hx, p.y + hy);
-    }
-    ctx.lineCap = 'round'; ctx.lineWidth = 1.9;
-    for (var k in buckets) {
-      var kk = +k, lv2 = kk % 10, ci2 = Math.floor(kk / 10) % 10, pal = PAL[kk >= 100 ? 1 : 0], arr = buckets[k];
-      ctx.globalAlpha = lv2 / LV; ctx.strokeStyle = pal.colors[ci2]; ctx.beginPath();
-      for (var s = 0; s < arr.length; s += 4) { ctx.moveTo(arr[s], arr[s + 1]); ctx.lineTo(arr[s + 2], arr[s + 3]); }
-      ctx.stroke();
-    }
-  }
-  requestAnimationFrame(frame);
-})();
-</script>
+<script src="js/nav-float.js?v=1"></script>
+<script src="js/waves.js?v=2"></script>
+<script src="js/swarm.js?v=1"></script>
 <script src="https://cdn.jsdelivr.net/npm/motion@11.18.2/dist/motion.js"></script>
 <script>
 (function () {
@@ -1284,40 +1112,6 @@
   render();
 })();
 </script>
-<script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.12.0/tsparticles.slim.bundle.min.js"></script>
-<script>
-(function () {
-  if (typeof tsParticles === "undefined") return;
-
-  var cfg = {
-    fullScreen: { enable: false },
-    background: { color: { value: "transparent" } },
-    fpsLimit: 60,
-    detectRetina: true,
-    interactivity: { events: { onClick: { enable: false }, onHover: { enable: false } } },
-    particles: {
-      number: { density: { enable: true, area: 900 }, value: 160 },
-      color: { value: "#ffffff" },
-      opacity: {
-        value: { min: 0.06, max: 0.65 },
-        animation: { enable: true, speed: 1.0, sync: false }
-      },
-      size: { value: { min: 0.5, max: 1.8 } },
-      move: {
-        enable: true,
-        speed: { min: 0.1, max: 0.7 },
-        direction: "none", random: true, straight: false,
-        outModes: { default: "out" }
-      },
-      shape: { type: "circle" },
-      links: { enable: false }
-    }
-  };
-
-  if (document.getElementById("tsparticles-ratelrock-way")) {
-    tsParticles.load("tsparticles-ratelrock-way", cfg);
-  }
-})();
-</script>
+<script src="js/stars.js?v=2"></script>
 </body>
 </html>

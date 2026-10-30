@@ -34,6 +34,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="favicon.ico" sizes="32x32" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/nav-float.css?v=9" />
   <style>
     /* ===== ABOUT HERO ===== */
     .pc-hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
@@ -234,22 +235,24 @@
     <a href="/" class="nav__logo" aria-label="Ratelrock, Home">
       <img src="images/Logos/logo.png" alt="Ratelrock" style="width:157px;height:56px;object-fit:contain;display:block;">
     </a>
-    <ul class="nav__links" role="list">
+    <div class="nav__pill">
+      <ul class="nav__links" role="list">
       <li><a href="/"                   class="nav__link">Home</a></li>
       <li><a href="/about"                   class="nav__link nav__link--active">About Us</a></li>
       <li><a href="/special-capital"          class="nav__link">Specialist Capital</a></li>
-      <li class="nav__item nav__item--dropdown"><a href="/transformation-support-advisory" class="nav__link">Transformation Support &amp; Advisory</a><ul class="nav__dropdown"><li><a href="/transformation-support-advisory#turnaround" class="nav__dropdown__link">Turnaround &amp; Restructuring</a></li><li><a href="/transformation-support-advisory#transaction" class="nav__dropdown__link">Transaction Advisory</a></li><li><a href="/transformation-support-advisory#corporate-finance" class="nav__dropdown__link">Corporate Finance Advisory</a></li><li><a href="/transformation-support-advisory#growth-governance" class="nav__dropdown__link">Growth &amp; Governance</a></li></ul></li>
+      <li><a href="/transformation-support-advisory" class="nav__link">Transformation Support &amp; Advisory</a></li>
       <li><a href="/impact"                  class="nav__link">Impact</a></li>
       <li><a href="/news"                    class="nav__link">News</a></li>
       <li><a href="/contact"                 class="nav__link">Contact</a></li>
     </ul>
+      <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    </div>
     <div class="nav__ctas">
       <a href="mailto:info@ratelrock.co.ke" class="nav__email" aria-label="Email Ratelrock">info@ratelrock.co.ke</a>
       <p class="nav__tagline">Envision | Mobilize | Transform</p>
     </div>
-    <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
   </div>
 </nav>
 <nav class="mobile-nav" aria-label="Mobile navigation" style="display:none;">
@@ -336,7 +339,7 @@
 </section>
 
 <!-- ===== INVESTMENT PHILOSOPHY ===== -->
-<section class="section" style="background:var(--c-bg-2); border-top:1px solid var(--c-border); border-bottom:1px solid var(--c-border);">
+<section class="section" data-swarm="dark" style="background:var(--c-bg-2); border-top:1px solid var(--c-border); border-bottom:1px solid var(--c-border);">
   <div class="container">
     <div class="section-header section-header--center reveal">
       <div class="gold-line gold-line--center"></div>
@@ -375,7 +378,7 @@
 </section>
 
 <!-- ===== MISSION VISION VALUES ===== -->
-<section class="section section--light" style="position:relative;overflow:hidden;">
+<section class="section section--light" data-swarm="light" style="position:relative;overflow:hidden;">
   <div class="mvv-shapes" aria-hidden="true">
     <!-- EDGE SHAPES (bigger) -->
     <!-- Large green pill: top-left -->
@@ -601,5 +604,7 @@
   </div>
 </div>
 <script src="js/main.js"></script>
+<script src="js/nav-float.js?v=1"></script>
+<script src="js/swarm.js?v=1"></script>
 </body>
 </html>

@@ -8,14 +8,14 @@
   var seen = false;
   try { seen = sessionStorage.getItem('rr_intro') === '1'; } catch (e) {}
   if (document.querySelector('.gateway') && !reduce && !seen) {
-    base = 1300;
+    base = 900;
     var cur = document.createElement('div');
     cur.className = 'm-curtain';
     cur.setAttribute('aria-hidden', 'true');
     cur.innerHTML = '<div class="m-curtain__word">Ratelrock</div>';
     document.body.appendChild(cur);
-    setTimeout(function () { cur.classList.add('m-go'); }, 700);
-    setTimeout(function () { cur.remove(); }, 2600);
+    setTimeout(function () { cur.classList.add('m-go'); }, 450);
+    setTimeout(function () { cur.remove(); }, 2000);
     try { sessionStorage.setItem('rr_intro', '1'); } catch (e) {}
   }
 

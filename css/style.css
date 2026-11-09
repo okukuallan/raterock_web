@@ -2033,18 +2033,7 @@ input, textarea, select { font-family: inherit; }
 /* ===== FOOTER ===== */
 /* ===== FOOTER: a closing line on brand green, then a plain letterhead base ===== */
 .footer { background: #040810; }
-.footer__close { background: var(--c-green); border-top: 1px solid var(--c-gold); padding: clamp(2rem, 3.5vw, 3rem) 0; }
-.footer__close-inner { display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem; align-items: end; }
-.footer__lead { font-family: var(--f-display); font-weight: 400; font-size: clamp(1.75rem, 3vw, 2.5rem); line-height: 1.1; color: var(--c-text); margin: 0; }
-.footer__lead em { font-style: normal; color: var(--c-gold); }
-.footer__mail { display: inline-block; font-family: var(--f-display); font-size: clamp(1.25rem, 1.8vw, 1.5rem); color: var(--c-gold); text-decoration: none; border-bottom: 1px solid rgba(200,150,58,0.5); padding-bottom: 0.25rem; transition: border-color 0.25s ease; }
-.footer__mail:hover { border-color: var(--c-gold); }
-.footer__phones, .footer__place { font-size: 0.9375rem; color: var(--c-text-2); margin: 0.625rem 0 0; }
-.footer__place { margin-top: 0.125rem; }
-.footer__phones a { color: var(--c-text-2); text-decoration: none; }
-.footer__phones a:hover { color: var(--c-gold); }
-
-.footer__base { position: relative; isolation: isolate; padding: 2.25rem 0 1.5rem; }
+.footer__base { position: relative; isolation: isolate; border-top: 1px solid var(--c-gold); padding: 2.25rem 0 1.5rem; }
 /* the Nairobi skyline sits along the foot of the page, tinted into the brand navy */
 .footer__base::before {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
@@ -2063,10 +2052,13 @@ input, textarea, select { font-family: inherit; }
 .footer__social-link { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--c-gold-border); background: var(--c-gold-bg); color: var(--c-gold); transition: border-color 200ms var(--ease-out), background 200ms var(--ease-out), color 200ms var(--ease-out); }
 .footer__social-link:hover { border-color: var(--c-gold); background: var(--c-gold); color: var(--c-dark-text); }
 .footer__social-link svg { width: 20px; height: 20px; }
+.footer__contact { font-size: 0.9375rem; line-height: 1.7; color: var(--c-text-2); margin: 1rem 0 0; }
+.footer__contact a { color: var(--c-text-2); text-decoration: none; transition: color 0.2s ease; }
+.footer__contact a:hover { color: var(--c-gold); }
 .footer__legal { font-size: 0.75rem; line-height: 1.55; color: var(--c-text-2); text-shadow: 0 1px 2px rgba(4,8,16,0.9); max-width: 44rem; margin: 0; }
 .footer__legal a { color: var(--c-gold); text-decoration: underline; }
 @media (max-width: 900px) {
-  .footer__close-inner, .footer__grid { grid-template-columns: 1fr; gap: 2rem; }
+  .footer__grid { grid-template-columns: 1fr; gap: 2rem; }
   .footer__social { flex-direction: row; }
   /* the legal text runs long on a phone, so the skyline gives way to plain dark */
   .footer__base::before { background: #040810; }

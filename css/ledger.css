@@ -1,0 +1,41 @@
+/* Ledger look: real photography as tinted bands, hairline rails that fill with scroll,
+   paper grain on ivory, larger section figures. Replaces the particle backgrounds. */
+
+/* 1. Photographic bands behind dark sections */
+.ledger-band { position: relative; isolation: isolate; }
+.ledger-band::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(12,27,46,0.86) 0%, rgba(12,27,46,0.62) 45%, rgba(12,27,46,0.10) 85%),
+    linear-gradient(180deg, rgba(12,27,46,0.88) 0%, rgba(21,46,31,0.42) 38%, rgba(21,46,31,0.38) 62%, rgba(12,27,46,0.90) 100%),
+    var(--photo) center / cover no-repeat;
+  transform: scale(1.1);
+  transition: transform 3s var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1));
+}
+.ledger-band.is-in::before { transform: scale(1); }
+/* text sits on the right: keep the scrim on that side instead */
+.ledger-band--right::before {
+  background:
+    linear-gradient(270deg, rgba(12,27,46,0.88) 0%, rgba(12,27,46,0.70) 55%, rgba(12,27,46,0.25) 100%),
+    linear-gradient(180deg, rgba(12,27,46,0.88) 0%, rgba(21,46,31,0.42) 38%, rgba(21,46,31,0.38) 62%, rgba(12,27,46,0.90) 100%),
+    var(--photo) center / cover no-repeat;
+}
+/* content always sits above the photo layer */
+.ledger-band > .container { position: relative; z-index: 1; }
+
+/* 2. Hairline rail: a thin gold line down the left gutter that fills as you read the section */
+.ledger-rail { display: none; }
+@media (min-width: 1200px) {
+  .ledger-rail { display: block; position: absolute; left: clamp(20px, 3vw, 56px); top: 5rem; bottom: 5rem; width: 1px; z-index: 1; background: rgba(200,150,58,0.30); pointer-events: none; }
+  .ledger-rail::after { content: ""; position: absolute; left: 0; top: 0; width: 1px; height: calc(var(--p, 0) * 100%); background: var(--c-gold, #C8963A); }
+  .ledger-rail::before { content: ""; position: absolute; left: -3px; top: calc(var(--p, 0) * 100%); width: 7px; height: 7px; border-radius: 50%; background: var(--c-gold, #C8963A); transform: translateY(-50%); }
+  .section--light .ledger-rail, .practice--light .ledger-rail { background: rgba(200,150,58,0.30); }
+  .section--light .ledger-rail::after, .section--light .ledger-rail::before, .practice--light .ledger-rail::after, .practice--light .ledger-rail::before { background: var(--c-gold, #C8963A); }
+}
+
+/* 4. Section titles carry more of the page */
+.ledger-band .section-title, .section--light .section-title { font-size: clamp(2.25rem, 4.4vw, 3.75rem); line-height: 1.08; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ledger-band::before { transform: none; transition: none; }
+}

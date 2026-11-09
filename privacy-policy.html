@@ -28,14 +28,15 @@
   <meta name="twitter:title" content="Privacy Policy | Ratelrock" />
   <meta name="twitter:description" content="How Ratelrock collects, uses, and protects personal data on ratelrock.co.ke, in accordance with the Kenya Data Protection Act, 2019." />
   <meta name="twitter:image" content="https://www.ratelrock.com/images/og/ratelrock-og.jpg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="icon" href="favicon.png" type="image/png" sizes="32x32" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="favicon.ico" sizes="32x32" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preload" href="fonts/hanken-grotesk-normal-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/newsreader-normal-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/fonts.css?v=1" />
+  <link rel="stylesheet" href="css/style.css?v=c3" />
   <link rel="stylesheet" href="css/nav-float.css?v=9" />
-  <link rel="stylesheet" href="css/motion.css?v=5" />
+  <link rel="stylesheet" href="css/motion.css?v=6" />
   <style>
     .legal-content { max-width: 780px; margin: 0 auto; }
     .legal-content h2 {
@@ -54,7 +55,7 @@
       margin: 1.75rem 0 0.75rem;
     }
     .legal-content p {
-      font-size: 0.9375rem;
+      font-size:1rem;
       line-height: 1.75;
       color: var(--c-text-2);
       margin-bottom: 1rem;
@@ -64,7 +65,7 @@
       padding-left: 1.25rem;
     }
     .legal-content li {
-      font-size: 0.9375rem;
+      font-size:1rem;
       line-height: 1.75;
       color: var(--c-text-2);
       margin-bottom: 0.5rem;
@@ -86,10 +87,9 @@
     }
     .legal-box p:first-child {
       font-family: var(--f-ui);
-      font-size: 0.625rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
+      font-size:0.75rem;
+      font-weight:500;
+      letter-spacing:0.02em;
       color: var(--c-gold);
       margin-bottom: 0.5rem;
     }

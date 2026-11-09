@@ -28,14 +28,16 @@
   <meta name="twitter:title" content="Contact | Ratelrock" />
   <meta name="twitter:description" content="Get in touch with Ratelrock, Africa's specialist private credit and business transformation platform. Nairobi, Kenya." />
   <meta name="twitter:image" content="https://www.ratelrock.com/images/og/ratelrock-og.jpg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="icon" href="favicon.png" type="image/png" sizes="32x32" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="favicon.ico" sizes="32x32" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preload" href="fonts/hanken-grotesk-normal-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/newsreader-normal-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/fonts.css?v=1" />
+  <link rel="stylesheet" href="css/style.css?v=c3" />
   <link rel="stylesheet" href="css/nav-float.css?v=9" />
-  <link rel="stylesheet" href="css/motion.css?v=5" />
+  <link rel="stylesheet" href="css/motion.css?v=6" />
+  <link rel="stylesheet" href="css/ledger.css?v=8" />
   <style>
     /* Mobile responsive grids */
     @media (max-width: 768px) {
@@ -97,17 +99,8 @@
   <div class="page-hero__bg">
     <!-- Photo: professionals in a meeting, warm, human, East Africa context -->
     <div class="page-hero__bg-img" style="background-image:url('images/hero/contact2.webp');"></div>
-    <div aria-hidden="true" style="position:absolute;inset:0;background:
-      radial-gradient(ellipse 60% 80% at 20% 50%, rgba(21,46,31,0.45) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 60% at 85% 30%, rgba(200,150,58,0.05) 0%, transparent 55%),
-      linear-gradient(160deg, rgba(7,14,26,0.82) 0%, rgba(11,22,35,0.78) 60%, rgba(7,14,26,0.85) 100%);"></div>
-    <div aria-hidden="true" style="position:absolute;inset:0;
-      background-image: linear-gradient(rgba(200,150,58,0.035) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(200,150,58,0.035) 1px, transparent 1px);
-      background-size: 72px 72px;
-      mask-image: radial-gradient(ellipse 65% 65% at 50% 50%, black, transparent);
-      -webkit-mask-image: radial-gradient(ellipse 65% 65% at 50% 50%, black, transparent);"></div>
-  </div>
+    <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(160deg, rgba(7,14,26,0.82) 0%, rgba(11,22,35,0.78) 60%, rgba(7,14,26,0.85) 100%);"></div>
+    </div>
   <div class="container">
     <div class="page-hero__content" style="max-width:680px;">
       <p class="hero__label hero-anim">Contact</p>
@@ -120,7 +113,6 @@
 
 <!-- ===== HOW TO REACH US ===== -->
 <section class="section" id="reach-us" style="padding-top:2rem;padding-bottom:5rem;position:relative;overflow:hidden;">
-  <div id="tsparticles-contact" aria-hidden="true" style="position:absolute;inset:0;z-index:0;pointer-events:none;"></div>
   <div class="container" style="position:relative;z-index:1;">
 
     <!-- Contact card + Office card, side by side -->
@@ -134,14 +126,14 @@
           </svg>
         </div>
         <div>
-          <p style="font-family:var(--f-ui);font-size:0.625rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--c-text-2);margin-bottom:0.5rem;">Call us</p>
+          <p style="font-family:var(--f-ui);font-size:0.75rem;font-weight:500;letter-spacing:0.02em;color:var(--c-text-2);margin-bottom:0.5rem;">Call us</p>
           <div style="display:flex;flex-direction:column;gap:0.25rem;align-items:center;">
             <a href="tel:+254732761929" style="font-family:var(--f-display);font-size:1.0625rem;color:var(--c-gold);text-decoration:none;border-bottom:1px solid rgba(200,150,58,0.3);padding-bottom:1px;transition:border-color 0.2s;display:inline-block;width:fit-content;">+254 732 761 929</a>
             <a href="tel:+254731855179" style="font-family:var(--f-display);font-size:1.0625rem;color:var(--c-gold);text-decoration:none;border-bottom:1px solid rgba(200,150,58,0.3);padding-bottom:1px;transition:border-color 0.2s;display:inline-block;width:fit-content;">+254 731 855 179</a>
           </div>
         </div>
         <div>
-          <p style="font-family:var(--f-ui);font-size:0.625rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--c-text-2);margin-bottom:0.5rem;">Write to us</p>
+          <p style="font-family:var(--f-ui);font-size:0.75rem;font-weight:500;letter-spacing:0.02em;color:var(--c-text-2);margin-bottom:0.5rem;">Write to us</p>
           <a href="mailto:info@ratelrock.co.ke" style="font-family:var(--f-display);font-size:1.0625rem;color:var(--c-gold);text-decoration:none;border-bottom:1px solid rgba(200,150,58,0.3);padding-bottom:1px;transition:border-color 0.2s;">info@ratelrock.co.ke</a>
         </div>
         <p style="font-size:0.8125rem;color:var(--c-text-2);line-height:1.6;padding-top:0.5rem;border-top:1px solid rgba(200,150,58,0.2);margin-top:auto;">All enquiries are treated with strict confidentiality as a matter of policy. We respond promptly to every message.</p>
@@ -173,10 +165,10 @@
           </span>
           <div>
             <h3 style="font-family:var(--f-display);font-size:1.625rem;font-weight:400;color:var(--c-text);margin-bottom:0.25rem;">Nairobi</h3>
-            <p style="font-family:var(--f-ui);font-size:0.6875rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-gold);">Kenya, Primary Operations</p>
+            <p style="font-family:var(--f-ui);font-size:0.75rem;font-weight:600;letter-spacing:0.02em;color:var(--c-gold);">Kenya, Primary Operations</p>
           </div>
         </div>
-        <p style="font-size:0.9375rem;line-height:1.75;color:var(--c-text-2);margin-bottom:1.5rem;">
+        <p style="font-size:1rem;line-height:1.75;color:var(--c-text-2);margin-bottom:1.5rem;">
           Financing advisory, deal structuring, and our transformation practice. This is where our enterprise relationships are built and managed.
         </p>
         <div style="display:flex;flex-direction:column;gap:0.5rem;">
@@ -261,6 +253,6 @@
 <script src="js/main.js"></script>
 <script src="js/nav-float.js?v=1"></script>
 <script src="js/motion.js?v=5"></script>
-<script src="js/stars.js?v=2"></script>
+<script src="js/ledger.js?v=2"></script>
 </body>
 </html>

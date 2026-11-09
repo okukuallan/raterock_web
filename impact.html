@@ -28,14 +28,16 @@
   <meta name="twitter:title" content="Impact | Ratelrock" />
   <meta name="twitter:description" content="Every Ratelrock engagement is a direct contribution to Africa's economic fabric, measured, reported, and embedded in everything we do." />
   <meta name="twitter:image" content="https://www.ratelrock.com/images/og/ratelrock-og.jpg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="icon" href="favicon.png" type="image/png" sizes="32x32" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="favicon.ico" sizes="32x32" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preload" href="fonts/hanken-grotesk-normal-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/newsreader-normal-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/fonts.css?v=1" />
+  <link rel="stylesheet" href="css/style.css?v=c3" />
   <link rel="stylesheet" href="css/nav-float.css?v=9" />
-  <link rel="stylesheet" href="css/motion.css?v=5" />
+  <link rel="stylesheet" href="css/motion.css?v=6" />
+  <link rel="stylesheet" href="css/ledger.css?v=8" />
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -83,7 +85,6 @@
   <div class="page-hero__bg">
     <div class="page-hero__bg-img" style="background-image:url('images/hero/impact.webp');"></div>
     <div class="page-hero__bg-overlay"></div>
-    <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(ellipse 50% 70% at 10% 60%, rgba(21,46,31,0.5) 0%, transparent 60%);"></div>
   </div>
   <div class="container">
     <div class="page-hero__content" style="max-width:780px;">
@@ -97,31 +98,30 @@
       <div style="display:flex;gap:1.5rem;margin-top:2.5rem;flex-wrap:wrap;" class="hero-anim impact-hero-stats">
         <div>
           <p style="font-family:var(--f-display);font-size:3rem;font-weight:400;color:var(--c-gold);line-height:1;" data-counter data-target="15" data-suffix="M">0</p>
-          <p style="font-family:var(--f-ui);font-size:0.7rem;font-weight:600;letter-spacing:0.1em;color:var(--c-text-2);text-transform:uppercase;">People employed by<br>our client enterprises</p>
+          <p style="font-family:var(--f-ui);font-size:0.75rem;font-weight:600;letter-spacing:0.02em;color:var(--c-text-2);">People employed by<br>our client enterprises</p>
         </div>
         <div style="width:1px;background:var(--c-border);margin:0 0.5rem;" class="stat-divider"></div>
         <div>
           <p style="font-family:var(--f-display);font-size:3rem;font-weight:400;color:var(--c-gold);line-height:1;">5</p>
-          <p style="font-family:var(--f-ui);font-size:0.7rem;font-weight:600;letter-spacing:0.1em;color:var(--c-text-2);text-transform:uppercase;">UN SDGs directly<br>aligned with our mandate</p>
+          <p style="font-family:var(--f-ui);font-size:0.75rem;font-weight:600;letter-spacing:0.02em;color:var(--c-text-2);">UN SDGs directly<br>aligned with our mandate</p>
         </div>
         <div style="width:1px;background:var(--c-border);margin:0 0.5rem;" class="stat-divider"></div>
         <div>
           <p style="font-family:var(--f-display);font-size:3rem;font-weight:400;color:var(--c-gold);line-height:1;">100%</p>
-          <p style="font-family:var(--f-ui);font-size:0.7rem;font-weight:600;letter-spacing:0.1em;color:var(--c-text-2);text-transform:uppercase;">Of engagements with<br>ESG assessment from day one</p>
+          <p style="font-family:var(--f-ui);font-size:0.75rem;font-weight:600;letter-spacing:0.02em;color:var(--c-text-2);">Of engagements with<br>ESG assessment from day one</p>
         </div>
       </div>
     </div>
   </div>
   <!-- Nairobi callout - bottom right -->
   <div class="impact-nairobi-callout" style="position:absolute;bottom:2.5rem;right:clamp(1.25rem,3vw,3.5rem);text-align:right;z-index:2;">
-    <p style="font-family:var(--f-ui);font-size:0.8125rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--c-gold);margin-bottom:0.5rem;">Nairobi, Kenya</p>
-    <p style="font-family:var(--f-display);font-size:clamp(1.375rem,2.5vw,2.25rem);font-weight:400;color:var(--c-text);max-width:500px;line-height:1.25;">East Africa's commercial hub, home to 7.4 million enterprises and the engine of regional growth.</p>
+    <p style="font-family:var(--f-ui);font-size:0.8125rem;font-weight:500;letter-spacing:0.02em;color:var(--c-gold);margin-bottom:0.5rem;">Nairobi, Kenya</p>
+    <p style="font-family:var(--f-display);font-size:clamp(1.375rem,2.5vw,2.25rem);font-weight:400;color:var(--c-text);max-width:500px;line-height:1.35;">East Africa's commercial hub, home to 7.4 million enterprises and the engine of regional growth.</p>
   </div>
 </section>
 
 <!-- ===== IMPACT PILLARS ===== -->
-<section class="section" id="impact-pillars" style="position:relative;overflow:hidden;">
-  <div id="tsparticles-pillars" aria-hidden="true" style="position:absolute;inset:0;z-index:0;pointer-events:none;"></div>
+<section class="ledger-band section" id="impact-pillars" style="--photo:url(../images/other_images/landscape.webp);position:relative;overflow:hidden;">
   <div class="container" style="position:relative;z-index:1;">
     <div class="section-header section-header--center reveal">
       <div class="gold-line gold-line--center"></div>
@@ -301,7 +301,7 @@
         <p style="font-family:var(--f-display);font-size:clamp(1.375rem,2.5vw,2rem);font-style:italic;font-weight:400;color:var(--c-text);line-height:1.55;margin-bottom:1.25rem;">
           "Our clients are not just engagements. They are businesses employing people, feeding communities, and building the supply chains that Africa's economy depends on. That responsibility shapes how we advise, how we engage, and how we measure success."
         </p>
-        <p style="font-family:var(--f-ui);font-size:0.6875rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--c-gold);">The Ratelrock Philosophy</p>
+        <p style="font-family:var(--f-ui);font-size:0.75rem;font-weight:500;letter-spacing:0.02em;color:var(--c-gold);">The Ratelrock Philosophy</p>
       </div>
     </div>
   </div>
@@ -394,6 +394,6 @@
 <script src="js/main.js"></script>
 <script src="js/nav-float.js?v=1"></script>
 <script src="js/motion.js?v=5"></script>
-<script src="js/stars.js?v=2"></script>
+<script src="js/ledger.js?v=2"></script>
 </body>
 </html>

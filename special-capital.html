@@ -28,8 +28,6 @@
   <meta name="twitter:title" content="Specialist Capital Advisory | Ratelrock" />
   <meta name="twitter:description" content="Independent private credit and debt advisory. We structure, raise, refinance and restructure debt for enterprises, built around how they actually generate cash. We do not lend or manage funds." />
   <meta name="twitter:image" content="https://www.ratelrock.com/images/og/ratelrock-og.jpg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="icon" href="favicon.png" type="image/png" sizes="32x32" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="favicon.ico" sizes="32x32" />
@@ -43,50 +41,55 @@
       setTimeout(function () { if (!window.__motionOk) d.classList.remove('motion-ready'); }, 3500);
     })();
   </script>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preload" href="fonts/hanken-grotesk-normal-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/newsreader-normal-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/fonts.css?v=1" />
+  <link rel="stylesheet" href="css/style.css?v=c3" />
   <link rel="stylesheet" href="css/nav-float.css?v=9" />
-  <link rel="stylesheet" href="css/motion.css?v=5" />
+  <link rel="stylesheet" href="css/motion.css?v=6" />
+  <link rel="stylesheet" href="css/ledger.css?v=8" />
   <style>
     /* ===== PC HERO - TALLER + METRICS ROW ===== */
     .pc-hero { min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; }
     .pc-hero .container { display: flex; flex-direction: column; gap: 0; }
     .hero-metrics {
-      display: flex;
-      gap: 1.25rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       margin-top: 3.5rem;
-      flex-wrap: wrap;
+      background: linear-gradient(0deg, rgba(7,14,26,0.86) 0%, rgba(7,14,26,0.62) 100%);
+      border-top: 1px solid var(--c-gold);
     }
     .hero-metric-card {
-      flex: 1;
-      min-width: 180px;
-      background: rgba(21,46,31,0.75);
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(200,150,58,0.35);
-      border-radius: 14px;
-      padding: 1.75rem 1.5rem;
-      text-align: center;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(200,150,58,0.1);
-      transition: border-color 250ms ease, transform 250ms ease;
+      position: relative;
+      padding: 1.75rem 2rem 2rem;
     }
-    .hero-metric-card:hover {
-      border-color: rgba(200,150,58,0.65);
-      transform: translateY(-3px);
+    .hero-metric-card + .hero-metric-card::before {
+      content: ""; position: absolute; left: 0; top: 1.75rem; bottom: 2rem; width: 1px; background: rgba(237,232,220,0.16);
     }
     .hero-metric-card__value {
       font-family: var(--f-display);
-      font-size: 2.5rem;
+      font-size: clamp(1.5rem, 2.2vw, 2rem);
       font-weight: 400;
-      color: var(--c-gold);
-      line-height: 1;
-      margin-bottom: 0.6rem;
+      color: var(--c-text);
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
     }
+    .hero-metric-card__value::after {
+      content: ""; display: block; width: 2rem; height: 1px; margin-top: 0.75rem; background: var(--c-gold-2);
+      transition: width 500ms var(--ease-out);
+    }
+    .hero-metric-card:hover .hero-metric-card__value::after { width: 4rem; }
     .hero-metric-card__label {
       font-family: var(--f-ui);
-      font-size: 0.6875rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(237,232,220,0.6);
+      font-size:1rem;
+      line-height: 1.5;
+      font-weight: 400;
+      color: rgba(237,232,220,0.88);
+    }
+    @media (max-width: 700px) {
+      .hero-metrics { grid-template-columns: 1fr; }
+      .hero-metric-card { padding: 1.25rem 1.25rem 1.25rem; }
+      .hero-metric-card + .hero-metric-card::before { left: 1.25rem; right: 1.25rem; top: 0; bottom: auto; width: auto; height: 1px; }
     }
 
     /* ===== PRODUCT SUITE FLOATING SHAPES ===== */
@@ -155,57 +158,57 @@
     .ed-grid .section-title { margin: 0; color: var(--c-dark-text); }
     .ed-lead { font-size: 1.0625rem; line-height: 1.8; color: var(--c-dark-text-2); }
     .ed-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; padding-top: 1.75rem; border-top: 1px solid var(--c-border-light); }
-    .ed-cols p { font-size: 0.9375rem; line-height: 1.8; color: var(--c-dark-text-2); }
+    .ed-cols p { font-size:1rem; line-height: 1.8; color: var(--c-dark-text-2); }
     .conv-list { border-top: 1px solid var(--c-border-light); }
     .conv-row { display: grid; grid-template-columns: 4rem 1fr 1.6fr; gap: 2rem; padding: 1.1rem 0; border-bottom: 1px solid var(--c-border-light); align-items: baseline; }
-    .conv-row__n { font-family: var(--f-ui); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; color: var(--c-gold); }
+    .conv-row__n { font-family: var(--f-ui); font-size: 0.75rem; font-weight:500; letter-spacing:0.02em; color: var(--c-gold); }
     .conv-row h3 { font-family: var(--f-display); font-size: 1.375rem; font-weight: 500; line-height: 1.2; color: var(--c-dark-text); }
     .conv-row p { font-size: 0.875rem; line-height: 1.6; color: var(--c-dark-text-2); }
 
     /* ===== LIFE-OF-DEBT TIMELINE ===== */
     .lc { position: relative; display: grid; grid-template-columns: repeat(6, 1fr); margin: 2rem 0 2.5rem; }
     .lc::before { content: ''; position: absolute; left: calc(100% / 12); right: calc(100% / 12); top: 9.5px; height: 4px; border-radius: 4px; background: rgba(200,150,58,0.18); }
-    .lc-stage { position: relative; display: flex; flex-direction: column; align-items: center; gap: 0.875rem; padding: 0 0.25rem; color: var(--c-text-2); font-family: var(--f-ui); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; transition: color 250ms ease; }
+    .lc-stage { position: relative; display: flex; flex-direction: column; align-items: center; gap: 0.875rem; padding: 0 0.25rem; color: var(--c-text-2); font-family: var(--f-ui); font-size: 0.75rem; font-weight: 600; letter-spacing:0.02em; transition: color 250ms ease; }
     .lc-stage:hover { color: var(--c-text); }
     .lc-stage__dot { position: relative; z-index: 1; width: 23px; height: 23px; border-radius: 50%; background: var(--c-bg); border: 1px solid var(--c-gold-border); transition: border-color 250ms ease; }
     .lc-stage__dot::after { content: ''; position: absolute; inset: 6px; border-radius: 50%; background: var(--c-gold); transform: scale(0); transition: transform 250ms var(--ease-out); }
     .lc-stage.active { color: var(--c-gold-2); }
-    .lc-stage.active .lc-stage__dot { border-color: var(--c-gold-2); box-shadow: 0 0 0 5px rgba(223,181,94,0.18), 0 0 22px 6px rgba(223,181,94,0.75); animation: dotGlow 2.2s ease-in-out infinite; }
+    .lc-stage.active .lc-stage__dot { border-color: var(--c-gold-2); box-shadow: 0 0 0 5px rgba(223,181,94,0.18); animation: dotGlow 2.2s ease-in-out infinite; }
     .lc-stage.done .lc-stage__dot { border-color: var(--c-gold); }
     .lc-stage.done .lc-stage__dot::after { transform: scale(0.55); }
-    @keyframes dotGlow { 0%, 100% { box-shadow: 0 0 0 5px rgba(223,181,94,0.18), 0 0 18px 4px rgba(223,181,94,0.6); } 50% { box-shadow: 0 0 0 8px rgba(223,181,94,0.12), 0 0 30px 9px rgba(223,181,94,0.9); } }
+    @keyframes dotGlow { 0%, 100% { box-shadow: 0 0 0 5px rgba(223,181,94,0.18); } 50% { box-shadow: 0 0 0 8px rgba(223,181,94,0.12); } }
     .lc-stage.active .lc-stage__dot::after { transform: scale(1); }
 
     /* ===== SERVICES MASTER / DETAIL ===== */
     .svc { display: grid; grid-template-columns: minmax(260px, 5fr) 7fr; gap: 0 3rem; align-items: start; }
     .svc-item { display: contents; }
-    .svc-tab { grid-column: 1; display: flex; gap: 1rem; align-items: baseline; width: 100%; padding: 0.85rem 1.25rem; text-align: left; border-top: 1px solid var(--c-border); border-left: 2px solid transparent; color: var(--c-text-2); font-family: var(--f-display); font-size: 1.375rem; line-height: 1.25; transition: color 250ms ease, background 250ms ease, border-color 250ms ease; }
+    .svc-tab { grid-column: 1; display: flex; gap: 1rem; align-items: baseline; width: 100%; padding: 0.85rem 1.25rem; text-align: left; border-top: 1px solid var(--c-border); border-left: 2px solid transparent; color: var(--c-text-2); font-family: var(--f-display); font-size: 1.375rem; line-height:1.35; transition: color 250ms ease, background 250ms ease, border-color 250ms ease; }
     .svc-item:last-of-type .svc-tab { border-bottom: 1px solid var(--c-border); }
-    .svc-tab span { font-family: var(--f-ui); font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.14em; color: var(--c-gold); }
+    .svc-tab span { font-family: var(--f-ui); font-size:0.75rem; font-weight:500; letter-spacing:0.02em; color: var(--c-gold); }
     .svc-tab:hover { color: var(--c-text); }
     .svc-tab[aria-selected="true"] { color: var(--c-text); background: var(--c-gold-bg); border-left-color: var(--c-gold); }
     .svc-panel { display: none; grid-column: 2; grid-row: 1 / span 6; padding: 2.25rem 2.5rem; border: 1px solid var(--c-border); border-radius: 14px; background: rgba(21,46,31,0.55); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
     .svc-panel.active { display: block; animation: svcIn 350ms var(--ease-out); }
     @keyframes svcIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-    .svc-panel__tag { font-family: var(--f-ui); font-size: 0.625rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--c-gold); margin-bottom: 0.75rem; }
+    .svc-panel__tag { font-family: var(--f-ui); font-size:0.75rem; font-weight:500; letter-spacing:0.02em; color: var(--c-gold); margin-bottom: 0.75rem; }
     .svc-panel h3 { font-family: var(--f-display); font-size: 2rem; font-weight: 400; line-height: 1.15; color: var(--c-text); margin-bottom: 1rem; }
     .svc-panel p { font-size: 1rem; line-height: 1.75; color: var(--c-text-2); margin-bottom: 1.25rem; }
     .svc-panel ul { margin-bottom: 1.5rem; }
-    .svc-panel li { position: relative; padding: 0.55rem 0 0.55rem 1.5rem; border-top: 1px solid var(--c-border); font-size: 0.9375rem; line-height: 1.6; color: var(--c-text); }
+    .svc-panel li { position: relative; padding: 0.55rem 0 0.55rem 1.5rem; border-top: 1px solid var(--c-border); font-size:1rem; line-height: 1.6; color: var(--c-text); }
     .svc-panel li::before { content: ''; position: absolute; left: 0; top: 1.15rem; width: 0.7rem; height: 1px; background: var(--c-gold); }
-    .svc-panel__link { font-family: var(--f-ui); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-gold); }
+    .svc-panel__link { font-family: var(--f-ui); font-size: 0.75rem; font-weight: 600; letter-spacing:0.02em; color: var(--c-gold); }
     .svc-panel__link:hover { color: var(--c-gold-2); }
     .svc-cta { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--c-border); }
     .svc-cta p { font-family: var(--f-display); font-size: 1.5rem; color: var(--c-text); }
 
     /* ===== CAPITAL STACK ===== */
     .stack { display: grid; grid-template-columns: 9rem 1fr; gap: 1.75rem; margin-top: 2rem; }
-    .stack-axis { position: relative; display: flex; flex-direction: column; justify-content: space-between; padding-right: 1.25rem; text-align: right; font-family: var(--f-ui); font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c-dark-text-2); }
+    .stack-axis { position: relative; display: flex; flex-direction: column; justify-content: space-between; padding-right: 1.25rem; text-align: right; font-family: var(--f-ui); font-size:0.75rem; font-weight: 600; letter-spacing:0.02em; color: var(--c-dark-text-2); }
     .stack-axis::after { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(180deg, var(--c-green-2), var(--c-gold)); }
     .stack-bands { display: flex; flex-direction: column; gap: 0.5rem; }
     .stack-band { display: grid; grid-template-columns: 1fr 1.6fr; gap: 2rem; align-items: center; padding: 1rem 1.5rem; border-radius: 10px; color: #fff; }
     .stack-band h3 { font-family: var(--f-display); font-size: 1.5rem; font-weight: 500; line-height: 1.2; margin-bottom: 0.25rem; }
-    .stack-band__tag { font-family: var(--f-ui); font-size: 0.625rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.8; }
+    .stack-band__tag { font-family: var(--f-ui); font-size:0.75rem; font-weight:500; letter-spacing:0.02em; opacity: 0.8; }
     .stack-band p { font-size: 0.875rem; line-height: 1.55; }
     .stack-band--1 { background: #152E1F; }
     .stack-band--2 { background: #1E4430; }
@@ -217,9 +220,9 @@
     .sit-list { margin-top: 2rem; border-top: 1px solid var(--c-border); }
     .sit-row { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; padding: 1rem 0.5rem; border-bottom: 1px solid var(--c-border); transition: background 250ms ease, padding 250ms var(--ease-out); }
     .sit-row:hover { background: var(--c-gold-bg); padding-left: 1.25rem; }
-    .sit-row__q { font-family: var(--f-display); font-size: clamp(1.25rem, 2vw, 1.75rem); line-height: 1.25; color: var(--c-text); }
+    .sit-row__q { font-family: var(--f-display); font-size: clamp(1.25rem, 2vw, 1.75rem); line-height:1.35; color: var(--c-text); }
     .sit-row__q small { display: block; margin-top: 0.35rem; font-family: var(--f-body); font-size: 0.875rem; line-height: 1.6; color: var(--c-text-2); }
-    .sit-row__a { font-family: var(--f-ui); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; color: var(--c-gold); }
+    .sit-row__a { font-family: var(--f-ui); font-size: 0.75rem; font-weight: 600; letter-spacing:0.02em; white-space: nowrap; color: var(--c-gold); }
 
     @media (max-width: 900px) {
       .ed-grid, .ed-cols { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -260,28 +263,6 @@
       background: linear-gradient(160deg, rgba(7,14,26,0.78) 0%, rgba(7,14,26,0.38) 50%, rgba(7,14,26,0.72) 100%);
       z-index: 1;
       pointer-events: none;
-    }
-    .hero-bg-carousel__dots {
-      position: absolute;
-      bottom: 2.25rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 0.5rem;
-      z-index: 3;
-    }
-    .hero-bg-carousel__dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.38);
-      border: none;
-      cursor: pointer;
-      transition: background 0.22s, transform 0.22s;
-      padding: 0;
-    }
-    .hero-bg-carousel__dot.active {
-      background: var(--c-gold);
-      transform: scale(1.45);
     }
 
     /* ===== FOCUS SECTORS CAROUSEL ===== */
@@ -374,12 +355,12 @@
     /* ===== BRIGHTER PALETTE + MOTION ===== */
     .hero-bg-carousel__slide.active { opacity: 1; }
     .hero-bg-carousel__slide { transform: scale(1); }
-    .hero-bg-carousel__slide.active { animation: kenBurns 14s ease-out forwards; }
-    @keyframes kenBurns { from { transform: scale(1.0); } to { transform: scale(1.08); } }
+    .hero-bg-carousel__slide.active { animation: heroPush 24s ease-out forwards; will-change: transform; }
+    @keyframes heroPush { from { transform: scale(1); } to { transform: scale(1.1); } }
+    @media (prefers-reduced-motion: reduce) { .hero-bg-carousel__slide.active { animation: none; } }
     .hero-bg-carousel__overlay { background:
       linear-gradient(100deg, rgba(7,14,26,0.72) 0%, rgba(7,14,26,0.38) 42%, rgba(7,14,26,0.06) 100%),
       linear-gradient(180deg, rgba(7,14,26,0.30) 0%, rgba(7,14,26,0) 30%, rgba(7,14,26,0.35) 100%); }
-    .pc-hero .hero__title, .pc-hero .hero__subtitle { text-shadow: 0 2px 24px rgba(7,14,26,0.45); }
     .hl { display: block; overflow: hidden; padding-bottom: 0.14em; margin-bottom: -0.14em; }
     .hl > span { display: block; }
     .motion-ready .hero-anim { animation: none !important; opacity: 0; }
@@ -387,7 +368,7 @@
     .motion-ready .hl > span { transform: translateY(115%); }
     .motion-ready .svc-panel.active { animation: none; }
 
-    .lc-line { position: absolute; left: calc(100% / 12); right: calc(100% / 12); top: 9.5px; height: 4px; border-radius: 4px; background: linear-gradient(90deg, var(--c-gold), var(--c-gold-2)); transform-origin: left center; transform: scaleX(0); transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1); box-shadow: 0 0 14px rgba(223,181,94,0.65); }
+    .lc-line { position: absolute; left: calc(100% / 12); right: calc(100% / 12); top: 9.5px; height: 4px; border-radius: 4px; background: linear-gradient(90deg, var(--c-gold), var(--c-gold-2)); transform-origin: left center; transform: scaleX(0); transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1); box-shadow: 0 0 0 3px rgba(223,181,94,0.25); }
     @media (max-width: 900px) { .lc-line { display: none; } }
 
     .sit-row__a span { display: inline-block; transition: transform 250ms var(--ease-out); }
@@ -453,21 +434,7 @@
   <!-- Hero background carousel -->
   <div class="hero-bg-carousel" id="hbc" aria-hidden="true">
     <div class="hero-bg-carousel__slide active" style="background-image:url('images/other_images/tea.webp');"></div>
-    <div class="hero-bg-carousel__slide" style="background-image:url('images/other_images/flour.webp');"></div>
-    <div class="hero-bg-carousel__slide" style="background-image:url('images/other_images/market.webp');"></div>
-    <div class="hero-bg-carousel__slide" style="background-image:url('images/other_images/steel.webp');"></div>
-    <div class="hero-bg-carousel__slide" style="background-image:url('images/other_images/plastic.webp');"></div>
-    <div class="hero-bg-carousel__slide" style="background-image:url('images/other_images/textile.webp');"></div>
     <div class="hero-bg-carousel__overlay"></div>
-  </div>
-  <!-- Dot indicators -->
-  <div class="hero-bg-carousel__dots" id="hbc-dots">
-    <button class="hero-bg-carousel__dot active" onclick="hbcGo(0)" aria-label="Tea"></button>
-    <button class="hero-bg-carousel__dot" onclick="hbcGo(1)" aria-label="Flour"></button>
-    <button class="hero-bg-carousel__dot" onclick="hbcGo(2)" aria-label="Market"></button>
-    <button class="hero-bg-carousel__dot" onclick="hbcGo(3)" aria-label="Steel"></button>
-    <button class="hero-bg-carousel__dot" onclick="hbcGo(4)" aria-label="Plastic"></button>
-    <button class="hero-bg-carousel__dot" onclick="hbcGo(5)" aria-label="Textile"></button>
   </div>
   <div class="container" style="position:relative;z-index:2;">
     <div class="page-hero__content">
@@ -498,7 +465,7 @@
 </section>
 
 <!-- ===== WHY WE EXIST ===== -->
-<section class="section section--light" id="intro" data-swarm="light" data-swarm-bot-wave="0" style="position:relative;overflow:hidden;">
+<section class="section section--light" id="intro" style="position:relative;overflow:hidden;">
   <div class="container" style="position:relative;z-index:1;">
 
     <div class="ed-grid">
@@ -544,8 +511,7 @@
 </section>
 
 <!-- ===== WHAT WE DO ===== -->
-<section class="section" id="advisory-services" data-wave="top bottom" data-swarm="dark" data-swarm-top-wave="0" data-swarm-bot-wave="1" style="position:relative;overflow:hidden;">
-  <canvas id="who-fund-canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block;"></canvas>
+<section class="section ledger-band" id="advisory-services" style="--photo:url(../images/other_images/three.webp);position:relative;overflow:hidden;">
   <div class="container" style="position:relative;z-index:1;">
     <div class="section-header reveal">
       <div class="gold-line"></div>
@@ -660,7 +626,7 @@
 </section>
 
 <!-- ===== STRUCTURES: CAPITAL STACK ===== -->
-<section class="section section--light" id="structures" data-swarm="light" data-swarm-top-wave="1" data-swarm-bot-wave="2" style="position:relative;overflow:hidden;">
+<section class="section section--light" id="structures" style="position:relative;overflow:hidden;">
   <div class="container" style="position:relative;z-index:1;">
     <div class="section-header reveal">
       <div class="gold-line"></div>
@@ -698,7 +664,7 @@
 </section>
 
 <!-- ===== WHO WE ADVISE ===== -->
-<section class="section" id="who-we-advise" data-wave="top" data-swarm="dark" data-swarm-top-wave="2" style="position:relative;overflow:hidden;">
+<section class="section ledger-band" id="who-we-advise" style="--photo:url(../images/other_images/two.webp);position:relative;overflow:hidden;">
   <div class="container" style="position:relative;z-index:1;">
     <div class="section-header reveal">
       <div class="gold-line"></div>
@@ -735,76 +701,8 @@
   </div>
 </section>
 
-<!-- ===== AGRIBUSINESS IMAGE BREAK ===== -->
-<div class="fs-carousel reveal" id="fsc">
-  <div class="fs-carousel__track" id="fsc-track">
-    <div class="fs-carousel__slide">
-      <img src="images/other_images/one.webp" alt="Focus sector one" loading="lazy">
-      <div class="fs-carousel__overlay"></div>
-    </div>
-    <div class="fs-carousel__slide">
-      <img src="images/other_images/two.webp" alt="Focus sector two" loading="lazy">
-      <div class="fs-carousel__overlay"></div>
-    </div>
-    <div class="fs-carousel__slide">
-      <img src="images/other_images/three.webp" alt="Focus sector three" loading="lazy">
-      <div class="fs-carousel__overlay"></div>
-    </div>
-  </div>
-  <div class="fs-carousel__content">
-    <div style="max-width:600px;">
-      <p style="font-family:var(--f-ui);font-size:0.625rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--c-gold);margin-bottom:0.625rem;">Focus Sectors</p>
-      <p style="font-family:var(--f-display);font-size:clamp(1.375rem,2.5vw,2.25rem);font-weight:400;color:var(--c-text);line-height:1.25;">Agribusiness. Manufacturing. The value chains that feed Kenya's growth.</p>
-    </div>
-  </div>
-  <button class="fs-carousel__btn fs-carousel__btn--prev" aria-label="Previous" onclick="fscMove(-1)">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-  </button>
-  <button class="fs-carousel__btn fs-carousel__btn--next" aria-label="Next" onclick="fscMove(1)">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-  </button>
-  <div class="fs-carousel__dots" id="fsc-dots">
-    <button class="fs-carousel__dot active" onclick="fscGo(0)"></button>
-    <button class="fs-carousel__dot" onclick="fscGo(1)"></button>
-    <button class="fs-carousel__dot" onclick="fscGo(2)"></button>
-  </div>
-</div>
-<script>
-(function(){
-  var hbcSlides = document.querySelectorAll('#hbc .hero-bg-carousel__slide');
-  var hbcDots   = document.querySelectorAll('#hbc-dots .hero-bg-carousel__dot');
-  var hbcCur = 0;
-  function hbcGo(n){
-    hbcSlides[hbcCur].classList.remove('active');
-    hbcDots[hbcCur].classList.remove('active');
-    hbcCur = (n + hbcSlides.length) % hbcSlides.length;
-    hbcSlides[hbcCur].classList.add('active');
-    hbcDots[hbcCur].classList.add('active');
-  }
-  window.hbcGo = hbcGo;
-  setInterval(function(){ hbcGo(hbcCur + 1); }, 5000);
-})();
-</script>
-<script>
-(function(){
-  let cur = 0;
-  const total = 3;
-  const track = document.getElementById('fsc-track');
-  const dots = document.querySelectorAll('#fsc-dots .fs-carousel__dot');
-  function go(n){
-    cur = (n + total) % total;
-    track.style.transform = 'translateX(-' + (cur * 100) + '%)';
-    dots.forEach((d,i) => d.classList.toggle('active', i === cur));
-  }
-  window.fscMove = function(dir){ go(cur + dir); };
-  window.fscGo   = function(n){ go(n); };
-  setInterval(function(){ go(cur + 1); }, 5000);
-})();
-</script>
-
 <!-- ===== THE RATELROCK WAY (Comparison Table) ===== -->
 <section class="section" id="the-ratelrock-way" style="position:relative;overflow:hidden;">
-  <div id="tsparticles-ratelrock-way" aria-hidden="true" style="position:absolute;inset:0;z-index:0;pointer-events:none;"></div>
   <div class="container" style="position:relative;z-index:1;">
     <div class="section-header reveal">
       <div class="gold-line"></div>
@@ -848,7 +746,7 @@
         </tbody>
       </table>
     </div>
-    <p class="reveal" style="max-width:760px;margin-top:2.5rem;font-size:1.0625rem;line-height:1.75;color:var(--c-text-2);">Our goal is not to be a permanent fixture. It is to <em style="color:var(--c-gold);font-style:italic;">graduate you</em>: to build the track record, governance and resilience that make your business attractive to mainstream lenders at a lower cost of capital.</p>
+    <p class="reveal" style="max-width:760px;margin-top:2.5rem;font-size:1.0625rem;line-height:1.75;color:var(--c-text-2);">Our goal is not to be a permanent fixture. It is to <em style="color:var(--c-gold);">graduate you</em>: to build the track record, governance and resilience that make your business attractive to mainstream lenders at a lower cost of capital.</p>
   </div>
 </section>
 
@@ -916,8 +814,7 @@
 <script src="js/main.js"></script>
 <script src="js/nav-float.js?v=1"></script>
 <script src="js/motion.js?v=5"></script>
-<script src="js/waves.js?v=2"></script>
-<script src="js/swarm.js?v=1"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/motion@11.18.2/dist/motion.js"></script>
 <script>
 (function () {
@@ -1117,6 +1014,7 @@
   render();
 })();
 </script>
-<script src="js/stars.js?v=2"></script>
+
+<script src="js/ledger.js?v=1"></script>
 </body>
 </html>

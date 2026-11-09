@@ -12,12 +12,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Page Not Found | Ratelrock</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="icon" href="favicon.png" type="image/png" sizes="32x32" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="favicon.ico" sizes="32x32" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
     .error-page {
@@ -40,7 +37,7 @@
       pointer-events: none;
     }
     .error-number {
-      font-family: var(--f-display, 'Cormorant Garamond', serif);
+      font-family: var(--f-display, 'Newsreader', serif);
       font-size: clamp(7rem, 20vw, 14rem);
       font-weight: 600;
       line-height: 1;
@@ -50,14 +47,14 @@
       letter-spacing: -0.02em;
     }
     .error-title {
-      font-family: var(--f-display, 'Cormorant Garamond', serif);
+      font-family: var(--f-display, 'Newsreader', serif);
       font-size: clamp(1.5rem, 4vw, 2.5rem);
       font-weight: 500;
       color: var(--c-cream, #EDE8DC);
       margin: 0.5rem 0 1.25rem;
     }
     .error-body {
-      font-family: var(--f-body, 'Inter', sans-serif);
+      font-family: var(--f-body, 'Hanken Grotesk', sans-serif);
       font-size: 1rem;
       color: rgba(237,232,220,0.55);
       max-width: 380px;
@@ -65,7 +62,7 @@
       margin: 0 0 2.5rem;
     }
     .error-cta {
-      font-family: var(--f-ui, 'Space Grotesk', sans-serif);
+      font-family: var(--f-ui, 'Hanken Grotesk', sans-serif);
       font-size: 0.8125rem;
       font-weight: 600;
       letter-spacing: 0.12em;
@@ -81,6 +78,9 @@
       opacity: 0.85;
     }
   </style>
+  <link rel="preload" href="fonts/hanken-grotesk-normal-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/newsreader-normal-300.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/fonts.css?v=1" />
 </head>
 <body>
   <div class="error-page">

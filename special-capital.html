@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3D1BM93WL2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3D1BM93WL2');
-  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Specialist Capital Advisory, Ratelrock</title>
@@ -31,20 +23,10 @@
   <link rel="icon" href="favicon.png" type="image/png" sizes="32x32" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="favicon.ico" sizes="32x32" />
-  <script>
-    /* Motion enhancements are opt-in: skipped for reduced-motion users, and
-       reverted automatically if the animation library fails to load. */
-    (function () {
-      var d = document.documentElement;
-      if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      d.classList.add('motion-ready');
-      setTimeout(function () { if (!window.__motionOk) d.classList.remove('motion-ready'); }, 3500);
-    })();
-  </script>
   <link rel="preload" href="fonts/hanken-grotesk-normal-300.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/newsreader-normal-300.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/fonts.css?v=1" />
-  <link rel="stylesheet" href="css/style.css?v=d3" />
+  <link rel="stylesheet" href="css/style.css?v=d8" />
   <link rel="stylesheet" href="css/nav-float.css?v=9" />
   <link rel="stylesheet" href="css/motion.css?v=6" />
   <link rel="stylesheet" href="css/ledger.css?v=8" />
@@ -794,92 +776,24 @@
 
       <div class="footer__bottom">
         <p class="footer__legal">Ratelrock. All website content &copy; 2026 Ratelrock. For information purposes only and does not constitute financial, legal, or investment advice. Read our <a href="/privacy-policy">Privacy Policy</a> and <a href="/terms-of-use">Terms of Use</a>.</p>
+        <button type="button" class="footer__cookie" data-cookie-settings>Cookie settings</button>
       </div>
     </div>
   </div>
 </footer>
 
 <div class="cookie-banner" role="region" aria-label="Cookie notice">
-  <p class="cookie-banner__text">We use cookies for basic analytics to understand how visitors use this site. By continuing to browse, you agree to this. Read our <a href="/privacy-policy">Privacy Policy</a>.</p>
+  <p class="cookie-banner__text">We use Google Analytics cookies to understand how visitors use this site. They stay off unless you accept, and you can change your choice at any time from "Cookie settings" in the footer. Read our <a href="/privacy-policy">Privacy Policy</a>.</p>
   <div class="cookie-banner__actions">
-    <button type="button" class="cookie-banner__btn cookie-banner__btn--accept">Got it</button>
+    <button type="button" class="cookie-banner__btn cookie-banner__btn--decline">Decline</button>
+    <button type="button" class="cookie-banner__btn cookie-banner__btn--accept">Accept</button>
   </div>
 </div>
-<script src="js/main.js"></script>
+<script src="js/consent.js?v=4"></script>
+<script src="js/main.js?v=2"></script>
 <script src="js/nav-float.js?v=1"></script>
 <script src="js/motion.js?v=5"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/motion@11.18.2/dist/motion.js"></script>
-<script>
-(function () {
-  var M = window.Motion;
-  if (!M || !document.documentElement.classList.contains('motion-ready')) return;
-  try {
-    var animate = M.animate, inView = M.inView, stagger = M.stagger, scroll = M.scroll;
-    window.__motionOk = true;
-    var ease = [0.22, 1, 0.36, 1];
-    function $all(sel, root) { return [].slice.call((root || document).querySelectorAll(sel)); }
-
-    /* Hero entrance */
-    animate($all('.pc-hero .hl > span'), { y: ['115%', '0%'] }, { duration: 1.1, delay: stagger(0.13, { startDelay: 0.25 }), ease: ease });
-    animate($all('.pc-hero .hero__label'), { opacity: [0, 1], y: [14, 0] }, { duration: 0.8, delay: 0.1, ease: ease });
-    animate($all('.pc-hero .hero__subtitle'), { opacity: [0, 1], y: [18, 0] }, { duration: 0.9, delay: 0.75, ease: ease });
-    var metrics = $all('.pc-hero .hero-metrics');
-    metrics.forEach(function (m) { m.style.opacity = 1; });
-    animate($all('.pc-hero .hero-metric-card'), { opacity: [0, 1], y: [34, 0] }, { duration: 0.9, delay: stagger(0.12, { startDelay: 0.95 }), ease: ease });
-
-    /* Scroll reveals, once per group */
-    function once(el, fn, amount) {
-      var done = false, stop;
-      stop = inView(el, function () { if (done) return; done = true; fn(); if (stop) stop(); }, { amount: amount || 0.2 });
-    }
-    function group(containerSel, childSel, from, step) {
-      $all(containerSel).forEach(function (c) {
-        var kids = $all(childSel, c);
-        if (!kids.length) return;
-        kids.forEach(function (k) { k.style.opacity = 0; });
-        once(c, function () {
-          animate(kids, { opacity: [0, 1], x: [from.x || 0, 0], y: [from.y || 0, 0] },
-                  { duration: 0.75, delay: stagger(step || 0.1), ease: ease });
-        });
-      });
-    }
-    group('.ed-grid', ':scope > *', { y: 28 }, 0.15);
-    group('.ed-cols', ':scope > p', { y: 28 }, 0.15);
-    group('.conv-list', '.conv-row', { x: -32 }, 0.12);
-    group('.lc', '.lc-stage', { y: 18 }, 0.09);
-    group('.svc', '.svc-tab', { x: -24 }, 0.07);
-    group('.stack-bands', '.stack-band', { x: -48 }, 0.14);
-    group('.sit-list', '.sit-row', { y: 22 }, 0.09);
-
-
-    /* Service panel swap */
-    window.__panelIn = function (panel) {
-      if (!panel) return;
-      animate(panel, { opacity: [0, 1], y: [16, 0] }, { duration: 0.5, ease: ease });
-      animate($all('li', panel), { opacity: [0, 1], x: [-14, 0] }, { duration: 0.45, delay: stagger(0.08, { startDelay: 0.15 }), ease: ease });
-    };
-
-    /* Magnetic primary buttons (mouse only) */
-    if (window.matchMedia && matchMedia('(pointer: fine)').matches) {
-      $all('.btn--primary').forEach(function (b) {
-        b.addEventListener('pointermove', function (e) {
-          var r = b.getBoundingClientRect();
-          animate(b, { x: (e.clientX - r.left - r.width / 2) * 0.18, y: (e.clientY - r.top - r.height / 2) * 0.3 }, { duration: 0.25 });
-        });
-        b.addEventListener('pointerleave', function () {
-          animate(b, { x: 0, y: 0 }, { type: 'spring', stiffness: 320, damping: 18 });
-        });
-      });
-    }
-  } catch (err) {
-    window.__motionOk = false;
-    document.documentElement.classList.remove('motion-ready');
-    [].slice.call(document.querySelectorAll('[style*="opacity: 0"]')).forEach(function (e) { e.style.opacity = ''; });
-    if (window.console) console.warn('Motion enhancements disabled:', err);
-  }
-})();
-</script>
 <script>
 (function () {
   var tabs = [].slice.call(document.querySelectorAll('.svc-tab'));

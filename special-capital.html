@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Specialist Capital Advisory, Ratelrock</title>
-  <meta name="description" content="Independent private credit and debt advisory. We structure, raise, refinance and restructure debt for enterprises, built around how they actually generate cash. We do not lend or manage funds." />
+  <meta name="description" content="Independent specialist capital advisory (Private Credit, Equity &amp; Debt) for enterprises. We structure, raise, refinance and restructure debt, mezzanine and equity around your unique business circumstances. We do not lend or manage funds." />
   <link rel="canonical" href="https://www.ratelrock.com/special-capital" />
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Ratelrock" />
   <meta property="og:title" content="Specialist Capital Advisory | Ratelrock" />
-  <meta property="og:description" content="Independent private credit and debt advisory. We structure, raise, refinance and restructure debt for enterprises, built around how they actually generate cash. We do not lend or manage funds." />
+  <meta property="og:description" content="Independent specialist capital advisory (Private Credit, Equity &amp; Debt) for enterprises. We structure, raise, refinance and restructure debt, mezzanine and equity around your unique business circumstances. We do not lend or manage funds." />
   <meta property="og:url" content="https://www.ratelrock.com/special-capital" />
   <meta property="og:image" content="https://www.ratelrock.com/images/og/ratelrock-og.jpg" />
   <meta property="og:image:width" content="1200" />
@@ -18,7 +18,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Specialist Capital Advisory | Ratelrock" />
-  <meta name="twitter:description" content="Independent private credit and debt advisory. We structure, raise, refinance and restructure debt for enterprises, built around how they actually generate cash. We do not lend or manage funds." />
+  <meta name="twitter:description" content="Independent specialist capital advisory (Private Credit, Equity &amp; Debt) for enterprises. We structure, raise, refinance and restructure debt, mezzanine and equity around your unique business circumstances. We do not lend or manage funds." />
   <meta name="twitter:image" content="https://www.ratelrock.com/images/og/ratelrock-og.jpg" />
   <link rel="icon" href="favicon.png" type="image/png" sizes="32x32" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
@@ -44,6 +44,7 @@
     .hero-metric-card {
       position: relative;
       padding: 1.75rem 2rem 2rem;
+      text-align: center;
     }
     .hero-metric-card + .hero-metric-card::before {
       content: ""; position: absolute; left: 0; top: 1.75rem; bottom: 2rem; width: 1px; background: rgba(237,232,220,0.16);
@@ -57,7 +58,7 @@
       margin-bottom: 0.5rem;
     }
     .hero-metric-card__value::after {
-      content: ""; display: block; width: 2rem; height: 1px; margin-top: 0.75rem; background: var(--c-gold-2);
+      content: ""; display: block; width: 2rem; height: 1px; margin: 0.75rem auto 0; background: var(--c-gold-2);
       transition: width 500ms var(--ease-out);
     }
     .hero-metric-card:hover .hero-metric-card__value::after { width: 4rem; }
@@ -142,14 +143,30 @@
     .ed-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; padding-top: 1.75rem; border-top: 1px solid var(--c-border-light); }
     .ed-cols p { font-size:1rem; line-height: 1.8; color: var(--c-dark-text-2); }
     .conv-list { border-top: 1px solid var(--c-border-light); }
-    .conv-row { display: grid; grid-template-columns: 4rem 1fr 1.6fr; gap: 2rem; padding: 1.1rem 0; border-bottom: 1px solid var(--c-border-light); align-items: baseline; }
+    .conv-row { position: relative; display: grid; grid-template-columns: 4rem 1fr 1.6fr; gap: 2rem; padding: 1.1rem 0.5rem; border-bottom: 1px solid var(--c-border-light); align-items: baseline; }
+    .conv-row::before { content: ''; position: absolute; inset: 0; background: var(--c-gold-bg); opacity: 0; transition: opacity 400ms var(--ease-out); pointer-events: none; }
+    .conv-row::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--c-gold); transform: scaleY(0); transform-origin: center; transition: transform 400ms var(--ease-out); pointer-events: none; }
+    .conv-row > * { position: relative; z-index: 1; transition: transform 400ms var(--ease-out); will-change: transform; }
+    .conv-row:hover::before { opacity: 1; }
+    .conv-row:hover::after { transform: scaleY(1); }
+    .conv-row:hover > * { transform: translateX(10px); }
+    @media (prefers-reduced-motion: reduce) { .conv-row::before, .conv-row::after, .conv-row > * { transition: none; } .conv-row:hover > * { transform: none; } }
     .conv-row__n { font-family: var(--f-ui); font-size: 0.75rem; font-weight:500; letter-spacing:0.02em; color: var(--c-gold); }
     .conv-row h3 { font-family: var(--f-display); font-size: 1.375rem; font-weight: 500; line-height: 1.2; color: var(--c-dark-text); }
     .conv-row p { font-size: 0.875rem; line-height: 1.6; color: var(--c-dark-text-2); }
 
+    /* ===== INLINE LINK TO THE PRIVATE CREDIT PAGE ===== */
+    .pc-link { display: inline-flex; align-items: center; gap: 0.4em; padding: 0.05em 0.7em 0.05em 0.75em; margin: 0 0.05em; border: 1px solid var(--c-gold); border-radius: 999px; background: #0C1B2E; color: var(--c-gold-2); font: inherit; font-weight: 500; line-height: 1.35; cursor: pointer; text-decoration: none; transition: background 350ms var(--ease-out), color 350ms var(--ease-out), box-shadow 350ms var(--ease-out), transform 350ms var(--ease-out); }
+    .pc-link::after { content: '→'; display: inline-block; font-family: var(--f-ui); font-size: 0.85em; line-height: 1; transition: transform 350ms var(--ease-out); }
+    .pc-link:hover, .pc-link:focus-visible { background: var(--c-gold); color: #0C1B2E; box-shadow: 0 6px 18px rgba(200,150,58,0.35); transform: translateY(-1px); }
+    .pc-link:hover::after, .pc-link:focus-visible::after { transform: translateX(3px); }
+    .pc-link:focus-visible { outline: 2px solid var(--c-gold); outline-offset: 3px; }
+
+    @media (prefers-reduced-motion: reduce) { .pc-link, .pc-link::after { transition: none; } }
+
     /* ===== LIFE-OF-DEBT TIMELINE ===== */
-    .lc { position: relative; display: grid; grid-template-columns: repeat(6, 1fr); margin: 2rem 0 2.5rem; }
-    .lc::before { content: ''; position: absolute; left: calc(100% / 12); right: calc(100% / 12); top: 9.5px; height: 4px; border-radius: 4px; background: rgba(200,150,58,0.18); }
+    .lc { position: relative; display: grid; grid-template-columns: repeat(5, 1fr); margin: 2rem 0 2.5rem; }
+    .lc::before { content: ''; position: absolute; left: calc(100% / 10); right: calc(100% / 10); top: 9.5px; height: 4px; border-radius: 4px; background: rgba(200,150,58,0.18); }
     .lc-stage { position: relative; display: flex; flex-direction: column; align-items: center; gap: 0.875rem; padding: 0 0.25rem; color: var(--c-text-2); font-family: var(--f-ui); font-size: 0.75rem; font-weight: 600; letter-spacing:0.02em; transition: color 250ms ease; }
     .lc-stage:hover { color: var(--c-text); }
     .lc-stage__dot { position: relative; z-index: 1; width: 23px; height: 23px; border-radius: 50%; background: var(--c-bg); border: 1px solid var(--c-gold-border); transition: border-color 250ms ease; }
@@ -164,12 +181,14 @@
     /* ===== SERVICES MASTER / DETAIL ===== */
     .svc { display: grid; grid-template-columns: minmax(260px, 5fr) 7fr; gap: 0 3rem; align-items: start; }
     .svc-item { display: contents; }
-    .svc-tab { grid-column: 1; display: flex; gap: 1rem; align-items: baseline; width: 100%; padding: 0.85rem 1.25rem; text-align: left; border-top: 1px solid var(--c-border); border-left: 2px solid transparent; color: var(--c-text-2); font-family: var(--f-display); font-size: 1.375rem; line-height:1.35; transition: color 250ms ease, background 250ms ease, border-color 250ms ease; }
+    .svc-tab { grid-column: 1; display: flex; gap: 1rem; align-items: baseline; width: 100%; padding: 0.85rem 1.25rem; text-align: left; border-top: 1px solid var(--c-border); border-left: 2px solid transparent; color: var(--c-text-2); font-family: var(--f-display); font-size: 1.375rem; line-height:1.35; transition: color 400ms var(--ease-out), background 400ms var(--ease-out), border-color 400ms var(--ease-out), transform 400ms var(--ease-out); }
     .svc-item:last-of-type .svc-tab { border-bottom: 1px solid var(--c-border); }
     .svc-tab span { font-family: var(--f-ui); font-size:0.75rem; font-weight:500; letter-spacing:0.02em; color: var(--c-gold); }
-    .svc-tab:hover { color: var(--c-text); }
+    .svc-tab:hover { color: var(--c-text); background: rgba(200,150,58,0.06); border-left-color: var(--c-gold-border); }
+    .svc-tab:hover:not([aria-selected="true"]) { transform: translateX(6px); }
+    .svc-tab[aria-selected="true"]:hover { background: var(--c-gold-bg); border-left-color: var(--c-gold); }
     .svc-tab[aria-selected="true"] { color: var(--c-text); background: var(--c-gold-bg); border-left-color: var(--c-gold); }
-    .svc-panel { display: none; grid-column: 2; grid-row: 1 / span 6; padding: 2.25rem 2.5rem; border: 1px solid var(--c-border); border-radius: 14px; background: rgba(21,46,31,0.55); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+    .svc-panel { display: none; grid-column: 2; grid-row: 1 / span 5; padding: 2.25rem 2.5rem; border: 1px solid var(--c-border); border-radius: 14px; background: rgba(21,46,31,0.55); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
     .svc-panel.active { display: block; animation: svcIn 350ms var(--ease-out); }
     @keyframes svcIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
     .svc-panel__tag { font-family: var(--f-ui); font-size:0.75rem; font-weight:500; letter-spacing:0.02em; color: var(--c-gold); margin-bottom: 0.75rem; }
@@ -184,26 +203,35 @@
     .svc-cta p { font-family: var(--f-display); font-size: 1.5rem; color: var(--c-text); }
 
     /* ===== CAPITAL STACK ===== */
-    .stack { display: grid; grid-template-columns: 9rem 1fr; gap: 1.75rem; margin-top: 2rem; }
+    .stack { display: grid; grid-template-columns: 1fr; gap: 1.75rem; margin-top: 2rem; }
     .stack-axis { position: relative; display: flex; flex-direction: column; justify-content: space-between; padding-right: 1.25rem; text-align: right; font-family: var(--f-ui); font-size:0.75rem; font-weight: 600; letter-spacing:0.02em; color: var(--c-dark-text-2); }
     .stack-axis::after { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(180deg, var(--c-green-2), var(--c-gold)); }
     .stack-bands { display: flex; flex-direction: column; gap: 0.5rem; }
-    .stack-band { display: grid; grid-template-columns: 1fr 1.6fr; gap: 2rem; align-items: center; padding: 1rem 1.5rem; border-radius: 10px; color: #fff; }
+    .stack-band { display: grid; grid-template-columns: 1fr 1.6fr; gap: 2rem; align-items: center; padding: 1rem 1.5rem; border-radius: 10px; color: #fff; transition: transform 400ms var(--ease-out), box-shadow 400ms var(--ease-out), border-color 400ms var(--ease-out); will-change: transform; }
+    .stack-band:hover { transform: translateX(10px); box-shadow: 0 12px 28px rgba(0,0,0,0.2); }
     .stack-band h3 { font-family: var(--f-display); font-size: 1.5rem; font-weight: 500; line-height: 1.2; margin-bottom: 0.25rem; }
     .stack-band__tag { font-family: var(--f-ui); font-size:0.75rem; font-weight:500; letter-spacing:0.02em; opacity: 0.8; }
     .stack-band p { font-size: 0.875rem; line-height: 1.55; }
     .stack-band--1 { background: #152E1F; }
     .stack-band--2 { background: #1E4430; }
     .stack-band--3 { background: #7A5A1E; }
+    .stack-band--eq { background: var(--c-gold); color: var(--c-dark-text); }
     .stack-band--4 { background: transparent; color: var(--c-dark-text); border: 1px dashed var(--c-gold); }
     .stack-note { margin-top: 1.25rem; font-size: 0.875rem; line-height: 1.7; color: var(--c-dark-text-2); max-width: 760px; }
 
     /* ===== SITUATION ROWS ===== */
     .sit-list { margin-top: 2rem; border-top: 1px solid var(--c-border); }
-    .sit-row { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; padding: 1rem 0.5rem; border-bottom: 1px solid var(--c-border); transition: background 250ms ease, padding 250ms var(--ease-out); }
-    .sit-row:hover { background: var(--c-gold-bg); padding-left: 1.25rem; }
+    .sit-row { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; padding: 1rem 0.5rem; border-bottom: 1px solid var(--c-border); }
+    .sit-row::before { content: ''; position: absolute; inset: 0; background: var(--c-gold-bg); opacity: 0; transition: opacity 400ms var(--ease-out); pointer-events: none; }
+    .sit-row::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--c-gold); transform: scaleY(0); transform-origin: center; transition: transform 400ms var(--ease-out); pointer-events: none; }
+    .sit-row > * { position: relative; z-index: 1; }
+    .sit-row__q, .sit-row__a { transition: transform 400ms var(--ease-out); will-change: transform; }
+    .sit-row:hover::before, .sit-row:focus-visible::before { opacity: 1; }
+    .sit-row:hover::after, .sit-row:focus-visible::after { transform: scaleY(1); }
+    .sit-row:hover .sit-row__q, .sit-row:focus-visible .sit-row__q { transform: translateX(14px); }
     .sit-row__q { font-family: var(--f-display); font-size: clamp(1.25rem, 2vw, 1.75rem); line-height:1.35; color: var(--c-text); }
-    .sit-row__q small { display: block; margin-top: 0.35rem; font-family: var(--f-body); font-size: 0.875rem; line-height: 1.6; color: var(--c-text-2); }
+    .sit-row__q small { display: block; margin-top: 0.35rem; font-family: var(--f-body); font-size: 0.875rem; line-height: 1.6; color: var(--c-text-2); transition: color 400ms ease; }
+    .sit-row:hover .sit-row__q small { color: var(--c-text); }
     .sit-row__a { font-family: var(--f-ui); font-size: 0.75rem; font-weight: 600; letter-spacing:0.02em; white-space: nowrap; color: var(--c-gold); }
 
     @media (max-width: 900px) {
@@ -350,11 +378,12 @@
     .motion-ready .hl > span { transform: translateY(115%); }
     .motion-ready .svc-panel.active { animation: none; }
 
-    .lc-line { position: absolute; left: calc(100% / 12); right: calc(100% / 12); top: 9.5px; height: 4px; border-radius: 4px; background: linear-gradient(90deg, var(--c-gold), var(--c-gold-2)); transform-origin: left center; transform: scaleX(0); transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1); box-shadow: 0 0 0 3px rgba(223,181,94,0.25); }
+    .lc-line { position: absolute; left: calc(100% / 10); right: calc(100% / 10); top: 9.5px; height: 4px; border-radius: 4px; background: linear-gradient(90deg, var(--c-gold), var(--c-gold-2)); transform-origin: left center; transform: scaleX(0); transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1); box-shadow: 0 0 0 3px rgba(223,181,94,0.25); }
     @media (max-width: 900px) { .lc-line { display: none; } }
 
-    .sit-row__a span { display: inline-block; transition: transform 250ms var(--ease-out); }
-    .sit-row:hover .sit-row__a span { transform: translateX(6px); }
+    .sit-row__a span { display: inline-block; transition: transform 400ms var(--ease-out); }
+    .sit-row:hover .sit-row__a span { transform: translateX(8px); }
+    @media (prefers-reduced-motion: reduce) { .sit-row::before, .sit-row::after, .sit-row__q, .sit-row__a span, .svc-tab, .stack-band { transition: none; } .svc-tab:hover:not([aria-selected="true"]), .stack-band:hover { transform: none; } }
     .svc-panel__link { background: linear-gradient(var(--c-gold), var(--c-gold)) left bottom / 0 1px no-repeat; padding-bottom: 3px; transition: background-size 350ms var(--ease-out), color 250ms ease; }
     .svc-panel__link:hover { background-size: 100% 1px; }
 
@@ -422,21 +451,21 @@
     <div class="page-hero__content">
       <p class="hero__label hero-anim">Specialist Capital Advisory</p>
       <h1 class="hero__title hero-anim" style="font-size:clamp(2.5rem,5vw,4.5rem);">
-        <span class="hl"><span>Debt structured</span></span><span class="hl"><span>around <em>how your</em></span></span><span class="hl"><span><em>business works.</em></span></span>
+        <span class="hl"><span>Capital structured</span></span><span class="hl"><span>around <em>how your</em></span></span><span class="hl"><span><em>business works.</em></span></span>
       </h1>
       <p class="hero__subtitle hero-anim" style="color:#ffffff;">
-        Independent private credit advisory for enterprises. We structure, raise, refinance and restructure debt around your actual revenue cycle, and we sit on your side of the table with banks, DFIs and private credit providers.
+        Independent specialist capital advisory (Private Credit, Equity &amp; Debt) for enterprises. We structure, raise, refinance and restructure debt, mezzanine and equity around your unique business circumstances, and we sit on your side of the table with private credit, financial institutions and equity providers.
       </p>
     </div>
     <!-- Metrics inside hero -->
     <div class="hero-metrics hero-anim">
       <div class="hero-metric-card">
         <div class="hero-metric-card__value">Independent</div>
-        <div class="hero-metric-card__label">We advise. We do not lend.</div>
+        <div class="hero-metric-card__label">We advise. We direct businesses to the right capital.</div>
       </div>
       <div class="hero-metric-card">
-        <div class="hero-metric-card__value">Structure</div>
-        <div class="hero-metric-card__label">Tailored for each specific story</div>
+        <div class="hero-metric-card__value">Innovative</div>
+        <div class="hero-metric-card__label">New structures for businesses that fit no standard model</div>
       </div>
       <div class="hero-metric-card">
         <div class="hero-metric-card__value">Partnership</div>
@@ -454,15 +483,15 @@
       <div>
         <div class="gold-line"></div>
         <p class="section-eyebrow">Why we exist</p>
-        <h2 class="section-title">Why private credit. Why Africa. <em>Why now.</em></h2>
+        <h2 class="section-title">Why specialist capital. Why Africa. <em>Why now.</em></h2>
       </div>
-      <p class="ed-lead">Many of Africa&rsquo;s most productive enterprises sit between the established lanes of finance, each of which serves its own purpose well. These businesses simply need debt that is flexible, properly secured, and structured around how they actually operate, and an advisor who can put that case to the right lender. It is a question of <strong style="color:var(--c-dark-text);">fit, not of quality.</strong> The gap is structural, not temporary, and it is widening. Ratelrock was built specifically to help close it.</p>
+      <p class="ed-lead">We exist to match the right capital and the right structure to businesses, through <a href="/private-credit" class="pc-link">private credit</a>, financial institutions and equity providers. For many of Africa&rsquo;s strongest enterprises, the problem is <strong style="color:var(--c-dark-text);">fit, not quality.</strong></p>
     </div>
 
     <p class="section-eyebrow" style="margin:3rem 0 1rem;">An ideal market, by structure not sentiment</p>
     <div class="ed-cols">
-      <p>We don&rsquo;t work in this market because conditions look easy. We work here because it is <em style="color:var(--c-gold);font-family:var(--f-display);">genuinely underserved.</em> Every form of capital is built for the borrower it was designed to serve, and serves it well. Between those mandates sits a deep, growing pool of creditworthy enterprises that no single provider is structured to reach, and a growing number of banks, DFIs and private credit providers looking for well-prepared deals to finance.</p>
-      <p>That gap is where we work. Where strong businesses outnumber the lenders built to assess them, an advisor designed for exactly this segment, one that understands it properly, structures debt soundly and presents it credibly, connects the two sides. Because we do not lend and do not manage a fund, we have no balance sheet to fill and no product to push: our only job is the right structure, from the right provider, on the right terms.</p>
+      <p>This market is not easy. It is <em style="color:var(--c-gold);font-family:var(--f-display);">underserved.</em> Strong businesses sit between the lanes of finance, and the providers who would back them struggle to find them.</p>
+      <p>That gap is where we work. We do not lend and we do not manage a fund, so we have nothing to sell. Our only job is the right capital, in the right structure, on the right terms.</p>
     </div>
 
     <p class="section-eyebrow" style="margin:3rem 0 1rem;">Our conviction</p>
@@ -470,178 +499,25 @@
       <div class="conv-row">
         <span class="conv-row__n">01</span>
         <h3>Built for the businesses in between.</h3>
-        <p>Specialist credit exists for borrowers who sit just outside a standard lending model, and tightening global standards keep widening that group. These enterprises don&rsquo;t disappear; they need an advisor who knows which lenders will finance them, and how to structure terms that fit how they actually work.</p>
+        <p>Some strong businesses sit just outside a standard lending or investing model, and tightening standards keep widening that group. We know which providers will back them.</p>
       </div>
       <div class="conv-row">
         <span class="conv-row__n">02</span>
         <h3>Security in more than land.</h3>
-        <p>Where a business&rsquo;s value sits in equipment, inventory, receivables or contracted cash flows rather than property, we know how to value it and structure security around it: registered security rights over movable assets under Kenya&rsquo;s Movable Property Security Rights Act, assigned contracts and controlled collection accounts. Sound enterprises become fundable, and lenders see a security package they can rely on.</p>
+        <p>Value in equipment, inventory, receivables or contracts counts. We structure and register security over it under the applicable security laws, so providers can rely on it.</p>
       </div>
       <div class="conv-row">
         <span class="conv-row__n">03</span>
         <h3>Flexibility by design.</h3>
-        <p>We structure debt around how each business actually generates cash, not around a standard form. Because we understand what stalls a credit committee, we prepare for it in advance, so flexibility comes with speed and with pricing that reflects real risk, not perceived risk.</p>
+        <p>We match the structure to how you earn cash, and prepare for what stalls a credit or investment committee. Where debt alone is the wrong tool, we say so.</p>
       </div>
       <div class="conv-row">
         <span class="conv-row__n">04</span>
         <h3>On your side of the table.</h3>
-        <p>Lenders negotiate debt every day; most business owners do it a few times in their lives. We close that gap. The closer we sit to a business, the earlier we read the signals, and the sooner we can renegotiate, reset or refinance, long before a covenant breach becomes a default.</p>
+        <p>Lenders and investors negotiate terms every day; owners do it a few times. We close that gap, and we act early, long before a covenant breach becomes a default.</p>
       </div>
     </div>
 
-  </div>
-</section>
-
-<!-- ===== WHAT WE DO ===== -->
-<section class="section ledger-band" id="advisory-services" style="--photo:url(../images/other_images/three.webp);position:relative;overflow:hidden;">
-  <div class="container" style="position:relative;z-index:1;">
-    <div class="section-header reveal">
-      <div class="gold-line"></div>
-      <p class="section-eyebrow">What We Do</p>
-      <h2 class="section-title">Advice across the<br><em>full life of your debt.</em></h2>
-      <p class="section-subtitle">We structure, arrange and negotiate debt on behalf of the business. Financing is always provided by third-party lenders; our role is to make sure it is the right financing.</p>
-    </div>
-
-    <div class="lc" role="group" aria-label="Stages in the life of a debt">
-      <span class="lc-line" aria-hidden="true"></span>
-      <button type="button" class="lc-stage active" data-idx="0"><span class="lc-stage__dot"></span>Prepare</button>
-      <button type="button" class="lc-stage" data-idx="1"><span class="lc-stage__dot"></span>Raise</button>
-      <button type="button" class="lc-stage" data-idx="2"><span class="lc-stage__dot"></span>Close</button>
-      <button type="button" class="lc-stage" data-idx="3"><span class="lc-stage__dot"></span>Manage</button>
-      <button type="button" class="lc-stage" data-idx="4"><span class="lc-stage__dot"></span>Refinance</button>
-      <button type="button" class="lc-stage" data-idx="5"><span class="lc-stage__dot"></span>Restructure</button>
-    </div>
-
-    <div class="svc" role="tablist" aria-label="Advisory services">
-      <div class="svc-item">
-        <button type="button" class="svc-tab" id="lender-readiness" role="tab" aria-selected="true" aria-controls="lender-readiness-panel"><span>01</span>Credit Readiness &amp; Collateral</button>
-        <div class="svc-panel active" id="lender-readiness-panel" role="tabpanel" aria-labelledby="lender-readiness">
-          <p class="svc-panel__tag">Stage 1: Prepare</p>
-          <h3>Credit Readiness &amp; Collateral Advisory</h3>
-          <p>Before going to market, we review the business the way a credit committee will: cash flow quality, management information, governance and collateral. We close the gaps that would otherwise cost you a facility or a better rate.</p>
-          <ul>
-          <li>Cash flow and debt capacity review</li>
-          <li>Registering usable security over equipment, inventory, receivables and contracts</li>
-          <li>Lender-grade management accounts, financial model and information memorandum</li>
-          </ul>
-          <a href="mailto:info@ratelrock.co.ke?subject=Enquiry%3A%20Credit%20readiness%20and%20collateral%20advisory&amp;body=Hello%20Ratelrock%2C%0A%0AI%20would%20like%20to%20discuss%20this%20with%20an%20advisor.%0A%0ACompany%3A%0AWhat%20we%20need%20help%20with%3A%0A" class="svc-panel__link">Discuss this with us &rarr;</a>
-        </div>
-      </div>
-      <div class="svc-item">
-        <button type="button" class="svc-tab" id="debt-raising" role="tab" aria-selected="false" aria-controls="debt-raising-panel"><span>02</span>Debt Structuring &amp; Raising</button>
-        <div class="svc-panel" id="debt-raising-panel" role="tabpanel" aria-labelledby="debt-raising">
-          <p class="svc-panel__tag">Stage 2: Raise</p>
-          <h3>Debt Structuring &amp; Raising</h3>
-          <p>We size the debt, design the structure and run a competitive process across commercial banks, DFIs and private credit providers, then negotiate through to close.</p>
-          <ul>
-          <li>Debt sizing and structure design around your revenue cycle</li>
-          <li>A targeted lender shortlist and a managed process</li>
-          <li>Term sheets compared side by side, not one at a time</li>
-          </ul>
-          <a href="mailto:info@ratelrock.co.ke?subject=Enquiry%3A%20Debt%20structuring%20and%20raising&amp;body=Hello%20Ratelrock%2C%0A%0AI%20would%20like%20to%20discuss%20this%20with%20an%20advisor.%0A%0ACompany%3A%0AWhat%20we%20need%20help%20with%3A%0A" class="svc-panel__link">Discuss this with us &rarr;</a>
-        </div>
-      </div>
-      <div class="svc-item">
-        <button type="button" class="svc-tab" id="covenants" role="tab" aria-selected="false" aria-controls="covenants-panel"><span>03</span>Term Sheet &amp; Covenant Negotiation</button>
-        <div class="svc-panel" id="covenants-panel" role="tabpanel" aria-labelledby="covenants">
-          <p class="svc-panel__tag">Stage 3: Close</p>
-          <h3>Term Sheet, Covenant &amp; Security Negotiation</h3>
-          <p>The headline rate is rarely where the real cost sits. We negotiate the terms that drive it, with people who read term sheets every day.</p>
-          <ul>
-          <li>Financial covenants set with real headroom, tested against your forecasts</li>
-          <li>Fees, prepayment terms and cash sweeps</li>
-          <li>Security, guarantees and intercreditor terms when more than one lender is involved</li>
-          </ul>
-          <a href="mailto:info@ratelrock.co.ke?subject=Enquiry%3A%20Term%20sheet%2C%20covenant%20and%20security%20negotiation&amp;body=Hello%20Ratelrock%2C%0A%0AI%20would%20like%20to%20discuss%20this%20with%20an%20advisor.%0A%0ACompany%3A%0AWhat%20we%20need%20help%20with%3A%0A" class="svc-panel__link">Discuss this with us &rarr;</a>
-        </div>
-      </div>
-      <div class="svc-item">
-        <button type="button" class="svc-tab" id="monitoring" role="tab" aria-selected="false" aria-controls="monitoring-panel"><span>04</span>Post-Close Debt Management</button>
-        <div class="svc-panel" id="monitoring-panel" role="tabpanel" aria-labelledby="monitoring">
-          <p class="svc-panel__tag">Stage 4: Manage</p>
-          <h3>Post-Close Debt Management</h3>
-          <p>Closing is the start, not the finish. We help you stay ahead of the lender relationship so issues are raised and resolved on your terms, not the lender&rsquo;s.</p>
-          <ul>
-          <li>Covenant and reporting calendar</li>
-          <li>Headroom forecasting and early warning signs</li>
-          <li>Lender communication, with waivers requested early</li>
-          </ul>
-          <a href="mailto:info@ratelrock.co.ke?subject=Enquiry%3A%20Post-close%20debt%20management&amp;body=Hello%20Ratelrock%2C%0A%0AI%20would%20like%20to%20discuss%20this%20with%20an%20advisor.%0A%0ACompany%3A%0AWhat%20we%20need%20help%20with%3A%0A" class="svc-panel__link">Discuss this with us &rarr;</a>
-        </div>
-      </div>
-      <div class="svc-item">
-        <button type="button" class="svc-tab" id="refinancing" role="tab" aria-selected="false" aria-controls="refinancing-panel"><span>05</span>Refinancing &amp; Amend-and-Extend</button>
-        <div class="svc-panel" id="refinancing-panel" role="tabpanel" aria-labelledby="refinancing">
-          <p class="svc-panel__tag">Stage 5: Refinance</p>
-          <h3>Refinancing &amp; Amend-and-Extend</h3>
-          <p>Debt that is too expensive, too short or in the wrong currency holds a business back. We start early, well before a maturity becomes urgent.</p>
-          <ul>
-          <li>Market test against your incumbent lender</li>
-          <li>Consolidating fragmented facilities</li>
-          <li>Maturity extensions, repricing and covenant resets</li>
-          </ul>
-          <a href="mailto:info@ratelrock.co.ke?subject=Enquiry%3A%20Refinancing%20and%20amend-and-extend&amp;body=Hello%20Ratelrock%2C%0A%0AI%20would%20like%20to%20discuss%20this%20with%20an%20advisor.%0A%0ACompany%3A%0AWhat%20we%20need%20help%20with%3A%0A" class="svc-panel__link">Discuss this with us &rarr;</a>
-        </div>
-      </div>
-      <div class="svc-item">
-        <button type="button" class="svc-tab" id="restructuring" role="tab" aria-selected="false" aria-controls="restructuring-panel"><span>06</span>Debt Restructuring</button>
-        <div class="svc-panel" id="restructuring-panel" role="tabpanel" aria-labelledby="restructuring">
-          <p class="svc-panel__tag">Stage 6: Restructure</p>
-          <h3>Debt Restructuring</h3>
-          <p>When cash flow no longer supports the debt, we build an independent view of what the business can sustain, then negotiate with creditors on your behalf.</p>
-          <ul>
-          <li>Standstills, covenant waivers and resets</li>
-          <li>Rescheduling, partial write-downs and debt-to-equity conversions</li>
-          <li>Formal options under Kenya&rsquo;s Insolvency Act, 2015, with your legal advisors</li>
-          </ul>
-          <p style="margin-bottom:1rem;"><a href="transformation-support-advisory.html#turnaround" class="svc-panel__link">Our Turnaround &amp; Restructuring practice &rarr;</a></p>
-          <a href="mailto:info@ratelrock.co.ke?subject=Enquiry%3A%20Debt%20restructuring&amp;body=Hello%20Ratelrock%2C%0A%0AI%20would%20like%20to%20discuss%20this%20with%20an%20advisor.%0A%0ACompany%3A%0AWhat%20we%20need%20help%20with%3A%0A" class="svc-panel__link">Discuss this with us &rarr;</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="svc-cta">
-      <p>Have a financing decision on the table?</p>
-      <a href="contact.html" class="btn btn--primary">Speak to an advisor</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== STRUCTURES: CAPITAL STACK ===== -->
-<section class="section section--light" id="structures" style="position:relative;overflow:hidden;">
-  <div class="container" style="position:relative;z-index:1;">
-    <div class="section-header reveal">
-      <div class="gold-line"></div>
-      <p class="section-eyebrow">Structures We Advise On</p>
-      <h2 class="section-title" style="color:var(--c-dark-text);">Four structures.<br><em>One independent view.</em></h2>
-      <p class="section-subtitle">We advise on, structure and arrange each of these with third-party lenders, built around how your business actually generates cash, not how lenders prefer to receive it.</p>
-    </div>
-
-    <div class="stack">
-      <div class="stack-axis" aria-hidden="true">
-        <span>First claim<br>Lower cost</span>
-        <span>Later claim<br>Higher cost</span>
-      </div>
-      <div class="stack-bands">
-        <div class="stack-band stack-band--1">
-          <div><h3>Senior Secured Financing</h3><p class="stack-band__tag">Term loans &amp; working capital lines</p></div>
-          <p>Secured on a wide asset base at realistic enforcement values. We negotiate repayment around your revenue cycle: interest-only periods, seasonal bullets and harvest-aligned schedules.</p>
-        </div>
-        <div class="stack-band stack-band--2">
-          <div><h3>Asset Finance</h3><p class="stack-band__tag">Equipment, leaseback &amp; receivables</p></div>
-          <p>Lenders who look at productive cash flow, not liquidation value alone, including specialist and second-hand equipment, sale-and-leaseback, and receivables or invoice finance.</p>
-        </div>
-        <div class="stack-band stack-band--3">
-          <div><h3>Mezzanine / Quasi-Equity</h3><p class="stack-band__tag">Subordinated &amp; hybrid debt</p></div>
-          <p>Growth capital without giving up control. We model the true cost and negotiate the features that matter: payment-in-kind interest, equity kickers, intercreditor terms and board rights.</p>
-        </div>
-        <div class="stack-band stack-band--4">
-          <div><h3>Bridge &amp; Special Situation Finance</h3><p class="stack-band__tag">Short-tenor, time-critical</p></div>
-          <p>For a pending refinancing, a defined liquidity event or a management transition. We find providers who can move quickly and negotiate a clear exit route from day one.</p>
-        </div>
-      </div>
-    </div>
-    <p class="stack-note reveal">Bands show the usual order of repayment priority and cost for each structure. Where each structure sits in a particular deal depends on the documents, so we confirm it with the lender and your legal advisors.</p>
   </div>
 </section>
 
@@ -655,30 +531,167 @@
       <p class="section-subtitle">Start from where you are. Each situation below leads to the service built for it.</p>
     </div>
     <div class="sit-list">
-      <a href="#refinancing" class="sit-row" data-goto="refinancing">
+      <a href="#manage" class="sit-row" data-goto="manage">
         <div class="sit-row__q">A maturity is approaching.<small>Debt that is expensive, short or in the wrong currency against shilling revenues.</small></div>
-        <span class="sit-row__a"><span>Refinancing &rarr;</span></span>
+        <span class="sit-row__a"><span>Manage &amp; restructure &rarr;</span></span>
       </a>
-      <a href="#restructuring" class="sit-row" data-goto="restructuring">
+      <a href="#manage" class="sit-row" data-goto="manage">
         <div class="sit-row__q">A covenant is at risk, or lenders are pressing.<small>Sound businesses under stress need a credible plan and someone to lead the conversation.</small></div>
-        <span class="sit-row__a"><span>Debt Restructuring &rarr;</span></span>
+        <span class="sit-row__a"><span>Manage &amp; restructure &rarr;</span></span>
       </a>
-      <a href="#debt-raising" class="sit-row" data-goto="debt-raising">
+      <a href="#design" class="sit-row" data-goto="design">
         <div class="sit-row__q">Repayments do not match how you earn.<small>Seasonal, harvest-linked or project-based cash flow that a standard schedule ignores.</small></div>
-        <span class="sit-row__a"><span>Debt Structuring &rarr;</span></span>
+        <span class="sit-row__a"><span>Design &rarr;</span></span>
       </a>
-      <a href="#lender-readiness" class="sit-row" data-goto="lender-readiness">
+      <a href="#prepare" class="sit-row" data-goto="prepare">
         <div class="sit-row__q">Your value sits in contracts, IP or equipment, not land.<small>Asset-light and high-growth businesses that lenders struggle to assess.</small></div>
-        <span class="sit-row__a"><span>Credit Readiness &rarr;</span></span>
+        <span class="sit-row__a"><span>Prepare &rarr;</span></span>
       </a>
-      <a href="#debt-raising" class="sit-row" data-goto="debt-raising">
+      <a href="#raise" class="sit-row" data-goto="raise">
         <div class="sit-row__q">You are buying, buying out, or handing over a business.<small>Acquisition, management buyout, buy-in and succession financing.</small></div>
-        <span class="sit-row__a"><span>Debt Structuring &rarr;</span></span>
+        <span class="sit-row__a"><span>Raise &rarr;</span></span>
       </a>
-      <a href="#refinancing" class="sit-row" data-goto="refinancing">
+      <a href="#design" class="sit-row" data-goto="design">
+        <div class="sit-row__q">You want to grow without over-borrowing.<small>Where more debt would strain cash flow, we assess whether mezzanine or equity fits better.</small></div>
+        <span class="sit-row__a"><span>Design &rarr;</span></span>
+      </a>
+      <a href="#manage" class="sit-row" data-goto="manage">
         <div class="sit-row__q">Several lenders, mixed terms, no clear picture.<small>We map the whole capital structure, then simplify and reprice it.</small></div>
-        <span class="sit-row__a"><span>Refinancing &rarr;</span></span>
+        <span class="sit-row__a"><span>Manage &amp; restructure &rarr;</span></span>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== THE CAPITAL STACK ===== -->
+<section class="section section--light" id="structures" style="position:relative;overflow:hidden;">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="section-header reveal">
+      <div class="gold-line"></div>
+      <p class="section-eyebrow">The Capital Stack We Advise On</p>
+      <h2 class="section-title" style="color:var(--c-dark-text);">Four layers.<br><em>One independent view.</em></h2>
+      <p class="section-subtitle">We advise on, structure and arrange each of these with third-party lenders and investors, built around how your business actually generates cash, not how providers prefer to receive it.</p>
+    </div>
+
+    <div class="stack">
+      <div class="stack-bands">
+        <div class="stack-band stack-band--1">
+          <div><h3>Debt</h3><p class="stack-band__tag">Senior, working capital, asset &amp; trade finance</p></div>
+          <p>Secured term loans and revolving lines sized to your cash flow and collateral. Asset and trade finance lends against receivables, inventory, equipment and trade flows, so repayment follows your cash cycle.</p>
+        </div>
+        <div class="stack-band stack-band--2">
+          <div><h3>Structured / Mezzanine</h3><p class="stack-band__tag">Subordinated, hybrid, quasi-equity</p></div>
+          <p>Ranks behind senior debt and ahead of equity, for growth without giving up control. Priced above senior debt, with part of the return paid in cash and part deferred or linked to equity. We model the true cost and negotiate the terms that matter.</p>
+        </div>
+        <div class="stack-band stack-band--3">
+          <div><h3>Private Equity &amp; Strategic Investors</h3><p class="stack-band__tag">Minority growth capital, private placements only</p></div>
+          <p>Minority stakes for businesses where more debt would strain cash flow. Investors typically expect board representation and protections in the shareholder agreement. We prepare the valuation and investor materials, and negotiate pricing, protections and exit routes.</p>
+        </div>
+        <div class="stack-band stack-band--eq">
+          <div><h3>DFI &amp; Blended Capital</h3><p class="stack-band__tag">Concessional lines &amp; guarantees</p></div>
+          <p>Development finance with softer pricing or shared risk, such as guarantees that absorb part of a lender&rsquo;s first losses. It can make a deal fundable that private lenders alone would decline. We match the business to the right programme and structure the application.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW WE WORK ===== -->
+<section class="section ledger-band" id="advisory-services" style="--photo:url(../images/other_images/three.webp);position:relative;overflow:hidden;">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="section-header reveal">
+      <div class="gold-line"></div>
+      <p class="section-eyebrow">How We Work</p>
+      <h2 class="section-title">Advice across the<br><em>full life of your capital.</em></h2>
+      <p class="section-subtitle">We structure, arrange and negotiate debt, mezzanine and equity on behalf of the business. Funding is always provided by third-party lenders and investors; our role is to make sure it is the right capital.</p>
+    </div>
+
+    <div class="lc" role="group" aria-label="How we work">
+      <span class="lc-line" aria-hidden="true"></span>
+      <button type="button" class="lc-stage active" data-idx="0"><span class="lc-stage__dot"></span>Prepare</button>
+      <button type="button" class="lc-stage" data-idx="1"><span class="lc-stage__dot"></span>Design</button>
+      <button type="button" class="lc-stage" data-idx="2"><span class="lc-stage__dot"></span>Raise</button>
+      <button type="button" class="lc-stage" data-idx="3"><span class="lc-stage__dot"></span>Close</button>
+      <button type="button" class="lc-stage" data-idx="4"><span class="lc-stage__dot"></span>Manage</button>
+    </div>
+
+    <div class="svc" role="tablist" aria-label="How we work">
+      <div class="svc-item">
+        <button type="button" class="svc-tab" id="prepare" role="tab" aria-selected="true" aria-controls="prepare-panel"><span>01</span>Prepare</button>
+        <div class="svc-panel active" id="prepare-panel" role="tabpanel" aria-labelledby="prepare">
+          <p class="svc-panel__tag">Step 1</p>
+          <h3>Prepare</h3>
+          <p>Model, data room, investor and lender materials.</p>
+          <ul>
+          <li>Cash flow, debt capacity and valuation review</li>
+          <li>Review of usable security over equipment, inventory, receivables and contracts</li>
+          <li>Lender and investor grade management accounts, financial model and information memorandum</li>
+          </ul>
+          <a href="mailto:info@ratelrock.co.ke?subject=Enquiry%3A%20Prepare&amp;body=Hello%20Ratelrock%2C%0A%0AI%20would%20like%20to%20discuss%20this%20with%20an%20advisor.%0A%0ACompany%3A%0AWhat%20we%20need%20help%20with%3A%0A" class="svc-panel__link">Discuss this with us &rarr;</a>
+        </div>
+      </div>
+      <div class="svc-item">
+        <button type="button" class="svc-tab" id="design" role="tab" aria-selected="false" aria-controls="design-panel"><span>02</span>Design</button>
+        <div class="svc-panel" id="design-panel" role="tabpanel" aria-labelledby="design">
+          <p class="svc-panel__tag">Step 2</p>
+          <h3>Design</h3>
+          <p>The right mix of debt and equity.</p>
+          <ul>
+          <li>How much debt and how much equity the business can carry</li>
+          <li>Debt, mezzanine and equity compared on true cost and control</li>
+          <li>Structure built around your unique business circumstances</li>
+          </ul>
+          <a href="mailto:info@ratelrock.co.ke?subject=Enquiry%3A%20Design&amp;body=Hello%20Ratelrock%2C%0A%0AI%20would%20like%20to%20discuss%20this%20with%20an%20advisor.%0A%0ACompany%3A%0AWhat%20we%20need%20help%20with%3A%0A" class="svc-panel__link">Discuss this with us &rarr;</a>
+        </div>
+      </div>
+      <div class="svc-item">
+        <button type="button" class="svc-tab" id="raise" role="tab" aria-selected="false" aria-controls="raise-panel"><span>03</span>Raise</button>
+        <div class="svc-panel" id="raise-panel" role="tabpanel" aria-labelledby="raise">
+          <p class="svc-panel__tag">Step 3</p>
+          <h3>Raise</h3>
+          <p>A targeted private process with banks, DFIs, funds and family offices.</p>
+          <ul>
+          <li>A targeted shortlist of lenders and investors, and a managed process</li>
+          <li>Term sheets compared side by side, not one at a time</li>
+          <li>Valuation and investor materials for equity raises</li>
+          </ul>
+          <a href="mailto:info@ratelrock.co.ke?subject=Enquiry%3A%20Raise&amp;body=Hello%20Ratelrock%2C%0A%0AI%20would%20like%20to%20discuss%20this%20with%20an%20advisor.%0A%0ACompany%3A%0AWhat%20we%20need%20help%20with%3A%0A" class="svc-panel__link">Discuss this with us &rarr;</a>
+        </div>
+      </div>
+      <div class="svc-item">
+        <button type="button" class="svc-tab" id="close" role="tab" aria-selected="false" aria-controls="close-panel"><span>04</span>Close</button>
+        <div class="svc-panel" id="close-panel" role="tabpanel" aria-labelledby="close">
+          <p class="svc-panel__tag">Step 4</p>
+          <h3>Close</h3>
+          <p>Term sheets, covenants and shareholder terms, with your counsel.</p>
+          <ul>
+          <li>Financial covenants set with real headroom, tested against your forecasts</li>
+          <li>Fees, prepayment terms and cash sweeps</li>
+          <li>Security, guarantees, intercreditor terms, board rights and exit terms</li>
+          </ul>
+          <a href="mailto:info@ratelrock.co.ke?subject=Enquiry%3A%20Close&amp;body=Hello%20Ratelrock%2C%0A%0AI%20would%20like%20to%20discuss%20this%20with%20an%20advisor.%0A%0ACompany%3A%0AWhat%20we%20need%20help%20with%3A%0A" class="svc-panel__link">Discuss this with us &rarr;</a>
+        </div>
+      </div>
+      <div class="svc-item">
+        <button type="button" class="svc-tab" id="manage" role="tab" aria-selected="false" aria-controls="manage-panel"><span>05</span>Manage and restructure</button>
+        <div class="svc-panel" id="manage-panel" role="tabpanel" aria-labelledby="manage">
+          <p class="svc-panel__tag">Step 5</p>
+          <h3>Manage and restructure</h3>
+          <p>Reporting, refinancing, restructuring.</p>
+          <ul>
+          <li>Covenant and reporting calendar, with early warning signs</li>
+          <li>Refinancing, maturity extensions and repricing</li>
+          <li>Standstills, waivers and rescheduling when cash flow no longer supports the debt</li>
+          </ul>
+          <p style="margin-bottom:1rem;"><a href="transformation-support-advisory.html#turnaround" class="svc-panel__link">Our Turnaround &amp; Restructuring practice &rarr;</a></p>
+          <a href="mailto:info@ratelrock.co.ke?subject=Enquiry%3A%20Manage%20and%20restructure&amp;body=Hello%20Ratelrock%2C%0A%0AI%20would%20like%20to%20discuss%20this%20with%20an%20advisor.%0A%0ACompany%3A%0AWhat%20we%20need%20help%20with%3A%0A" class="svc-panel__link">Discuss this with us &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-cta">
+      <p>Have a financing decision on the table?</p>
+      <a href="contact.html" class="btn btn--primary">Speak to an advisor</a>
     </div>
   </div>
 </section>
@@ -703,15 +716,15 @@
         <tbody>
           <tr>
             <td>Collateral</td>
-            <td>Wide asset class coverage, contracts, receivables, machinery, inventory, structured and registered so lenders can rely on them</td>
+            <td>Wide asset class coverage, contracts, receivables, machinery, inventory, structured and registered so lenders and investors can rely on them</td>
           </tr>
           <tr>
             <td>Repayment Structure</td>
             <td>Negotiated to your revenue cycle: seasonal, interest-only, project-based, harvest-linked</td>
           </tr>
           <tr>
-            <td>Choice of Lender</td>
-            <td>Competitive process across banks, DFIs and private credit providers, with term sheets compared side by side</td>
+            <td>Choice of Capital</td>
+            <td>Competitive process across banks, DFIs, private credit providers and equity investors, with terms compared side by side</td>
           </tr>
           <tr>
             <td>Terms &amp; Covenants</td>
@@ -719,7 +732,7 @@
           </tr>
           <tr>
             <td>After Close</td>
-            <td>Continuous, active support. Covenant monitoring, lender reporting, early renegotiation, and graduation management</td>
+            <td>Continuous, active support. Covenant monitoring, lender and investor reporting, early renegotiation, and graduation management</td>
           </tr>
           <tr>
             <td>Independence</td>
@@ -741,7 +754,7 @@
       <div class="footer__grid">
         <div class="footer__brand">
           <img src="images/Logos/footer.png" alt="Ratelrock" loading="lazy" width="170" style="width:100%;max-width:170px;height:auto;display:block;margin-bottom:0.625rem;">
-          <p class="footer__desc">Africa's specialist private credit and business transformation practice. Nairobi, Kenya.</p>
+          <p class="footer__desc">Africa's specialist capital and business transformation practice. Nairobi, Kenya.</p>
           <p class="footer__contact"><a href="mailto:info@ratelrock.co.ke">info@ratelrock.co.ke</a><br><a href="tel:+254732761929">+254 732 761 929</a> &nbsp;·&nbsp; <a href="tel:+254731855179">+254 731 855 179</a><br>Nairobi, Kenya</p>
         </div>
         <nav aria-label="Footer">
